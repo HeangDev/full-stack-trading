@@ -1,0 +1,31 @@
+{
+    "header": {
+        "language": "语言",
+        "settings": "设置",
+        "referralcode": "推荐码",
+        "changepassword": "修改密码"
+    },
+    "account": {
+        "changepassword": "修改密码",
+        "language": "语言",
+        "settings": "设置",
+        "logout": "退出登录"
+    },
+    "lang": {
+        "english": "英语",
+        "thailand": "泰语",
+        "china": "中文"
+    },
+    "changePassword": {
+        "old_password": "旧密码",
+        "new_password": "新密码",
+        "confirm_password": "确认密码",
+        "button": "修改密码"
+    },
+    "tab": {
+        "home": "首页",
+        "activity": "活动",
+        "order": "订单",
+        "account": "账户"
+    }
+}

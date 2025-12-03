@@ -9,21 +9,42 @@
     --color-theme-blue: #908FEC;
     --color-theme-primary: #3500D4;
     --color-theme-danger: #F61C7A;
+    --color-theme-green: #F3FBED;
     --font-battambang: "Battambang", system-ui;
     --font-abeezee: "ABeeZee", sans-serif;
 }
 
 input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0;}
 
-body,html{@apply flex justify-center w-full h-full m-0 p-0 font-battambang text-justify bg-[#9195a3] select-none overflow-hidden;}
-.wrap{@apply w-[400px] h-fit min-h-screen bg-white;}
-.content{@apply h-screen px-6 overflow-y-scroll;}
+body,html{@apply w-full h-full m-0 p-0 font-battambang text-justify bg-[#9195a3] select-none overflow-hidden;}
+.wrap{@apply w-full h-fit min-h-screen bg-white;}
+.content{@apply h-screen pt-8 px-6 overflow-y-scroll;}
 
 ::-webkit-scrollbar{@apply hidden w-1 h-1 bg-[#f4f5f7];}
 ::-webkit-scrollbar-thumb{@apply rounded-xs bg-gray-400/20;}
 ::-webkit-scrollbar-track{@apply rounded-none;}
 
-.btn{@apply flex items-center justify-center w-full h-16 rounded-3xl cursor-pointer;}
+.block__line{@apply -mx-6 border-t-2 border-dashed border-[#8EE04E];}
+
+.header{@apply h-[50px];}
+.header__inner{@apply w-full bg-white select-none;}
+.header__content{@apply relative flex items-center justify-center px-6 h-[50px];}
+.header__content__left{@apply absolute top-0 left-6 flex items-center justify-center h-full;}
+.header__btn__back{@apply flex items-center justify-center w-10 h-10 rounded-full border border-theme-blue cursor-pointer;}
+.header__btn__back svg{@apply text-theme-danger;}
+.header__content__center h4{@apply text-lg font-bold leading-7 text-[#03314B];}
+
+.tabbar{@apply fixed bottom-0 left-[50%] flex items-end w-full h-16 text-xs bg-white translate-x-[-50%] z-[100];}
+.tabbar__item{@apply flex-1 flex flex-col items-center justify-end pt-2.5 pb-2.5 text-gray-500 font-medium gap-1 cursor-pointer;}
+.tabbar__item svg{@apply w-6 h-6;}
+.tabbar__item.active svg g{@apply w-6 h-6;}
+.tabbar__item.account.active svg g{@apply stroke-theme-primary;}
+.tabbar__item.home.active svg path{@apply fill-theme-primary;}
+.tabbar__item.order.active svg path{@apply stroke-theme-primary;}
+.tabbar__item.activity.active svg path{@apply stroke-theme-primary;}
+.tabbar__item.active span{@apply text-theme-primary;}
+
+.btn{@apply flex items-center justify-center w-full h-[60px] rounded-3xl cursor-pointer;}
 .btn span{@apply font-abeezee text-base font-bold leading-[26px] text-white;}
 .btn.primary{@apply bg-theme-primary;}
 .btn.danger{@apply bg-theme-danger;}
@@ -43,12 +64,31 @@ body,html{@apply flex justify-center w-full h-full m-0 p-0 font-battambang text-
 .auth__subtitle p{@apply mt-4 text-sm font-normal text-theme-secondary leading-6;}
 
 .auth__form{@apply mt-11;}
-.auth__container__button{@apply absolute bottom-16 w-full;}
+.auth__container__button{@apply fixed left-1/2 bottom-16 w-full px-6 -translate-x-1/2;}
 
+.profilePanel__container{@apply flex items-center justify-start mb-6 gap-6;}
+.profilePanel__container__img img{@apply w-20 rounded-full;}
+.profilePanel__container__name h4{@apply text-lg font-bold leading-7 text-[#03314B];}
+.profilePanel__container__name p{@apply mt-1 text-sm font-normal leading-6 text-theme-secondary;}
 
+.referralPanel__container{@apply flex items-center justify-start w-full mb-8 px-6 py-5 rounded-2xl bg-theme-green gap-4 cursor-pointer;}
+.referralPanel__container__left img{@apply w-8 object-none;}
+.referralPanel__container__right h4{@apply text-sm font-bold leading-6 text-[#03314B];}
+.referralPanel__container__right p{@apply mt-1 text-xs font-medium leading-4 text-[#03314B];}
 
+.settingPanel__container{@apply mt-8;}
+.settingPanel__container__items{@apply relative flex justify-start flex-col gap-3;}
+.settingPanel__container__items__item{@apply relative flex justify-between items-center py-2.5 cursor-pointer;}
+.settingPanel__container__items__icon{@apply flex items-center justify-center w-8 h-8 rounded-xl bg-theme-danger;}
+.settingPanel__container__items__icon svg{@apply text-white;}
+.settingPanel__container__items__title{@apply flex justify-start items-center gap-4;}
+.settingPanel__container__items__title span{@apply font-bold text-sm leading-6 text-[#03314B];}
+.settingPanel__container__items__right{@apply flex items-center justify-center gap-4;}
+.settingPanel__container__items__right span{@apply text-sm font-bold leading-6 text-[#6C727F];}
 
-
-
-
-
+.languages__list{@apply flex items-start justify-start flex-col gap-4;}
+.languages__item{@apply flex items-center justify-between w-full p-5 rounded-3xl border border-solid border-theme-gray bg-white cursor-pointer;}
+.languages__item.active{@apply bg-theme-primary;}
+.languages__item__title{@apply flex items-center justify-start gap-4;}
+.languages__item__title span{@apply text-sm font-bold leading-6 text-gray-900;}
+.languages__item.active span{@apply text-white;}

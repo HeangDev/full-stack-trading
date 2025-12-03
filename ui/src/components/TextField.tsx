@@ -7,7 +7,7 @@ interface LabelProps extends textFieldProps {
 }
 
 interface textFieldProps {
-    type?: "text" | "number" | "password";
+    type?: "text" | "number" | "password" | "tel";
     endAdornment?: React.ReactElement;
     disabled?: boolean;
     placeholder?: string;

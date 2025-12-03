@@ -1,0 +1,31 @@
+{
+    "header": {
+        "language": "Language",
+        "settings": "Settings",
+        "referralcode": "Referral Code",
+        "changepassword": "Change Password"
+    },
+    "account": {
+        "changepassword": "Change Password",
+        "language": "Language",
+        "settings": "Settings",
+        "logout": "Logout"
+    },
+    "lang": {
+        "english": "English",
+        "thailand": "Thailand",
+        "china": "China"
+    },
+    "changePassword": {
+        "old_password": "Old Password",
+        "new_password": "New Password",
+        "confirm_password": "Confirm Password",
+        "button": "Change Password"
+    },
+    "tab": {
+        "home": "Home",
+        "activity": "Activity",
+        "order": "Order",
+        "account": "Account"
+    }
+}

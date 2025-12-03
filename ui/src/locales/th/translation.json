@@ -1,0 +1,31 @@
+{
+    "header": {
+        "language": "ภาษา",
+        "settings": "การตั้งค่า",
+        "referralcode": "รหัสแนะนำ",
+        "changepassword": "เปลี่ยนรหัสผ่าน"
+    },
+    "account": {
+        "changepassword": "เปลี่ยนรหัสผ่าน",
+        "language": "ภาษา",
+        "settings": "การตั้งค่า",
+        "logout": "ออกจากระบบ"
+    },
+    "lang": {
+        "english": "ภาษาอังกฤษ",
+        "thailand": "ภาษาไทย",
+        "china": "ภาษาจีน"
+    },
+    "changePassword": {
+        "old_password": "รหัสผ่านเก่า",
+        "new_password": "รหัสผ่านใหม่",
+        "confirm_password": "ยืนยันรหัสผ่าน",
+        "button": "เปลี่ยนรหัสผ่าน"
+    },
+    "tab": {
+        "home": "หน้าแรก",
+        "activity": "กิจกรรม",
+        "order": "ออร์เดอร์",
+        "account": "บัญชี"
+    }
+}

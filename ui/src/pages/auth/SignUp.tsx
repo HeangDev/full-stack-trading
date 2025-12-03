@@ -1,5 +1,6 @@
 import React from 'react'
 import { TextField, FormControl, Label } from '../../components/TextField'
+import Button from '../../components/Button'
 
 import Logo from "../../assets/img/logo.png"
 
@@ -31,7 +32,7 @@ const SignUp = () => {
                             <Label labelName="Password"/>
                         </FormControl>
                         <div className="auth__container__button">
-                            
+                            <Button type="submit" variant="primary">Login</Button>
                         </div>
                     </div>
                 </form>
