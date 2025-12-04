@@ -1,10 +1,34 @@
-import React from 'react'
-import { TextField, FormControl, Label } from '../../components/TextField'
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { loginSchema } from "../../schemas/loginSchema";
+import type { LoginFormData } from "../../schemas/loginSchema";
+
+import TextField from "../../components/TextField";
 import Button from '../../components/Button'
 
 import Logo from "../../assets/img/logo.png"
 
+type LoginQueryData = {
+    login?: {
+        token: string;
+        tokenExpiration: number;
+        userId: string;
+    } | null;
+};
+type LoginQueryVars = {
+    username: string;
+    password: string;
+};
+
 const Login = () => {
+    const { register, handleSubmit, formState: { errors } } = useForm<LoginFormData>({
+        resolver: yupResolver(loginSchema),
+    });
+
+    const handleLogin = async (data: LoginFormData) => {
+
+    }
+
     return (
         <div className="auth__container">
             <div className="auth__heading">
@@ -17,16 +41,18 @@ const Login = () => {
                 </div>
             </div>
             <div className="auth__form">
-                <form autoComplete="off">
+                <form onSubmit={handleSubmit(handleLogin)} autoComplete="off">
                     <div className="auth__form__container">
-                        <FormControl>
-                            <TextField type="text" placeholder=""/>
-                            <Label labelName="Username"/>
-                        </FormControl>
-                        <FormControl>
-                            <TextField type="password" placeholder=""/>
-                            <Label labelName="Password"/>
-                        </FormControl>
+                        <TextField type="text" fullWidth label="Username"
+                            error={!!errors.username}
+                            helperText={errors.username?.message}
+                            {...register("username")}
+                        />
+                        <TextField type="password" fullWidth label="Password"
+                            error={!!errors.password}
+                            helperText={errors.password?.message}
+                            {...register("password")}
+                        />
                         <div className="auth__container__button">
                             <Button type="submit" variant="primary">Login</Button>
                         </div>
