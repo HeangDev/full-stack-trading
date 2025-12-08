@@ -1,6 +1,8 @@
 import React from 'react'
+import { useNavigate } from 'react-router';
 
 interface Coin {
+    id: number;
     name: string;
     symbol: string;
     price_usd: string;
@@ -9,6 +11,7 @@ interface Coin {
 
 const Home = () => {
     const [coins, setCoins] = React.useState<Coin[]>([]);
+    const navigate = useNavigate();
     
     const fetchCoins = async () => {
         const res = await fetch(`https://api.coinlore.net/api/tickers/?start=0&limit=10`);
@@ -32,7 +35,7 @@ const Home = () => {
                 <div className="coin__list__container__title">Trending Coins</div>
                 <div className="coin__list__container__items">
                     {coins.map((coin, index) => (
-                        <div className="coin__list__container__item" key={index}>
+                        <div onClick={() => navigate(`/stock/${coin.id}`)} className="coin__list__container__item" key={index}>
                             <div className="coin__list__container__item__icon">
                                 <div className="coin__icon">
                                     <img src={`https://img.logokit.com/crypto/${coin.symbol}?token=pk_fr3303abf845f15ae9f02e`} alt=""/>

@@ -4,6 +4,7 @@ import MainLayout from "./layouts/MainLayout/Index";
 import LoginLayout from "./layouts/LoginLayout/Index";
 
 import Home from "./pages/Home";
+import StockDetail from "./pages/stock/Index"
 import Activity from "./pages/activity/Index"
 import Order from "./pages/order/Index"
 import Profile from "./pages/account/Index";
@@ -23,6 +24,7 @@ const App = () => {
                 <Route path="/" element={<Navigate to="/login" replace />} />
                 <Route element={<MainLayout />}>
                     <Route index path="home" element={<Home />} />
+                    <Route path="stock/:id" element={<StockDetail />} />
                     <Route path="account" element={<Profile />} />
                     <Route path="activity" element={<Activity />} />
                     <Route path="history" element={<History />} />
