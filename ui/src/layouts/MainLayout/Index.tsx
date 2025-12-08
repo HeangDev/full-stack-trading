@@ -5,9 +5,20 @@ import Tab from './Tab';
 const Index = () => {
     const location = useLocation();
     const showHeaderPaths = [
+        "/home",
+        "/activity",
         "/account",
-    ]
-    const showHeader = !showHeaderPaths.includes(location.pathname)
+    ];
+    const showHeader = !showHeaderPaths.includes(location.pathname);
+
+    const showTabPaths = [
+        "/home",
+        "/activity",
+        "/order",
+        "/account"
+    ];
+
+    const showTab = showTabPaths.includes(location.pathname);
     return (
         <>
             <div className="wrap">
@@ -15,7 +26,7 @@ const Index = () => {
                 <div className="content">
                     <Outlet/>
                 </div>
-                <Tab/>
+                {showTab && <Tab/>}
             </div>
         </>
     )

@@ -6,6 +6,8 @@
         "changepassword": "เปลี่ยนรหัสผ่าน"
     },
     "account": {
+        "history": "ประวัติ",
+        "bank": "รายละเอียดธนาคาร",
         "changepassword": "เปลี่ยนรหัสผ่าน",
         "language": "ภาษา",
         "settings": "การตั้งค่า",
@@ -27,5 +29,24 @@
         "activity": "กิจกรรม",
         "order": "ออร์เดอร์",
         "account": "บัญชี"
+    },
+    "login": {
+        "title": "เข้าสู่ระบบ",
+        "subtitle": "ยินดีต้อนรับกลับมา คิดถึงคุณมากเลย!",
+        "username": "ชื่อผู้ใช้",
+        "password": "รหัสผ่าน",
+        "buttonName": "เข้าสู่ระบบ",
+        "footerText": "มีบัญชีอยู่แล้ว?",
+        "footerLink": "สมัครสมาชิก"
+    },
+    "signup": {
+        "title": "เริ่มต้นกันเลย",
+        "subtitle": "สร้างบัญชีเพื่อดำเนินการต่อ!",
+        "username": "ชื่อผู้ใช้",
+        "password": "รหัสผ่าน",
+        "confirmPassword": "ยืนยันรหัสผ่าน",
+        "buttonName": "สมัครสมาชิก",
+        "footerText": "ยังไม่มีบัญชี?",
+        "footerLink": "เข้าสู่ระบบ"
     }
 }

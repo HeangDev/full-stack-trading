@@ -1,12 +1,10 @@
 import { Outlet } from 'react-router'
-import Header from '../MainLayout/Header'
 
 const LoginLayout = () => {
     return (
         <>
             <div className="wrap">
-                <Header/>
-                <div className="h-screen px-6 pb-24">
+                <div className="h-screen pt-9 px-6 pb-27 overflow-y-scroll">
                     <Outlet/>
                 </div>
             </div>

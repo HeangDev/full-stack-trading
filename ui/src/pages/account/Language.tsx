@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Icon } from '@iconify/react'
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
@@ -9,12 +10,19 @@ const Language = () => {
     const languages = [
         { code: 'en', label: 'english', flag: 'circle-flags:en' },
         { code: 'th', label: 'thailand', flag: 'circle-flags:th' },
-        { code: 'cn', label: 'china', flag: 'circle-flags:cn' }
+        { code: 'zh', label: 'china', flag: 'circle-flags:cn' }
     ];
 
-    const handleLanguageChange = (code: string) => {
+    useEffect(() => {
+        const savedLang = localStorage.getItem('lang') || i18n.language || 'en';
+        i18n.changeLanguage(savedLang);
+        document.documentElement.lang = savedLang;
+    }, [i18n]);
+
+    const handleLanguageChange = (code: string) => { 
         i18n.changeLanguage(code);
         localStorage.setItem('lang', code);
+        document.documentElement.lang = code;
         navigate('/account');
     };
 

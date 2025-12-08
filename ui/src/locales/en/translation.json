@@ -6,6 +6,8 @@
         "changepassword": "Change Password"
     },
     "account": {
+        "history": "History",
+        "bank": "Bank Details",
         "changepassword": "Change Password",
         "language": "Language",
         "settings": "Settings",
@@ -27,5 +29,24 @@
         "activity": "Activity",
         "order": "Order",
         "account": "Account"
+    },
+    "login": {
+        "title": "Let’s Sign You In",
+        "subtitle": "Welcome back, you’ve been missed!",
+        "username": "Username",
+        "password": "Password",
+        "buttonName": "Login",
+        "footerText": "Already have an account?",
+        "footerLink": "Sign Up"
+    },
+    "signup": {
+        "title": "Getting Started",
+        "subtitle": "Create an account to continue!",
+        "username": "Username",
+        "password": "Password",
+        "confirmPassword": "Confirm Password",
+        "buttonName": "Sign Up",
+        "footerText": "Dont’s have an account?",
+        "footerLink": "Login"
     }
 }

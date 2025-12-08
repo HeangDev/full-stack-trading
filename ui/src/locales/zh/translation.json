@@ -6,6 +6,8 @@
         "changepassword": "修改密码"
     },
     "account": {
+        "history": "历史",
+        "bank": "银行资料",
         "changepassword": "修改密码",
         "language": "语言",
         "settings": "设置",
@@ -27,5 +29,24 @@
         "activity": "活动",
         "order": "订单",
         "account": "账户"
+    },
+    "login": {
+        "title": "登录你的账号",
+        "subtitle": "欢迎回来，我们想念你了！",
+        "username": "用户名",
+        "password": "密码",
+        "buttonName": "登录",
+        "footerText": "已经有账号了吗？",
+        "footerLink": "注册"
+    },
+    "signup": {
+        "title": "开始使用",
+        "subtitle": "创建一个账户以继续！",
+        "username": "用户名",
+        "password": "密码",
+        "confirmPassword": "确认密码",
+        "buttonName": "注册",
+        "footerText": "还没有账号吗？",
+        "footerLink": "登录"
     }
 }

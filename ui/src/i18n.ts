@@ -3,7 +3,7 @@ import { initReactI18next } from "react-i18next";
 
 import en from "./locales/en/translation.json";
 import th from "./locales/th/translation.json";
-import cn from "./locales/cn/translation.json";
+import zh from "./locales/zh/translation.json";
 
 i18n
     .use(initReactI18next)
@@ -11,13 +11,16 @@ i18n
         resources: {
             en: { translation: en },
             th: { translation: th },
-            cn: { translation: cn }
+            zh: { translation: zh }
         },
         lng: localStorage.getItem("lang") || "en",
         fallbackLng: "en",
         interpolation: {
             escapeValue: false
         }
-    });
+    })
+    .then(() => {
+        document.documentElement.setAttribute("lang", i18n.language)
+    })
 
 export default i18n;

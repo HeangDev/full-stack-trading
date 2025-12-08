@@ -31,6 +31,28 @@ const Profile = () => {
             <hr className="block__line"/>
             <div className="settingPanel__container">
                 <div className="settingPanel__container__items">
+                    <div onClick={() => navigate("/history")} className="settingPanel__container__items__item">
+                        <div className="settingPanel__container__items__title">
+                            <div className="settingPanel__container__items__icon">
+                                <Icon icon="solar:history-broken" width="24" height="24" />
+                            </div>
+                            <span>{t('account.history')}</span>
+                        </div>
+                        <div className="settingPanel__container__items__right">
+                            <Icon icon="solar:alt-arrow-right-line-duotone" width="24" height="24" />
+                        </div>
+                    </div>
+                    <div onClick={() => navigate("/bank")} className="settingPanel__container__items__item">
+                        <div className="settingPanel__container__items__title">
+                            <div className="settingPanel__container__items__icon">
+                                <Icon icon="solar:hand-money-outline" width="24" height="24" />
+                            </div>
+                            <span>{t('account.bank')}</span>
+                        </div>
+                        <div className="settingPanel__container__items__right">
+                            <Icon icon="solar:alt-arrow-right-line-duotone" width="24" height="24" />
+                        </div>
+                    </div>
                     <div onClick={() => navigate("/change_password")} className="settingPanel__container__items__item">
                         <div className="settingPanel__container__items__title">
                             <div className="settingPanel__container__items__icon">
@@ -60,17 +82,6 @@ const Profile = () => {
                                 const langKey = langKeyMap[shortLang] || "english";
                                 return <span>{t(`lang.${langKey}`)}</span>;
                             })()}
-                            <Icon icon="solar:alt-arrow-right-line-duotone" width="24" height="24" />
-                        </div>
-                    </div>
-                    <div onClick={() => navigate("/setting")} className="settingPanel__container__items__item">
-                        <div className="settingPanel__container__items__title">
-                            <div className="settingPanel__container__items__icon">
-                                <Icon icon="solar:settings-minimalistic-line-duotone" width="24" height="24" />
-                            </div>
-                            <span>{t('account.settings')}</span>
-                        </div>
-                        <div className="settingPanel__container__items__right">
                             <Icon icon="solar:alt-arrow-right-line-duotone" width="24" height="24" />
                         </div>
                     </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Setting = () => {
+const History = () => {
     return (
         <>
             
@@ -8,4 +8,4 @@ const Setting = () => {
     )
 }
 
-export default Setting
+export default History
