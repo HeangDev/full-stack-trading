@@ -14,7 +14,7 @@ const ChangePassword = () => {
     });
 
     const handleChangePassword = async (data: ChangePsswordFormData) => {
-
+        console.log(data)
     }
     return (
         <>
