@@ -4,6 +4,7 @@
         "settings": "Settings",
         "referralcode": "Referral Code",
         "changepassword": "Change Password",
+        "home": "Dashboard",
         "profile": "Profile",
         "order": "Order History"
     },

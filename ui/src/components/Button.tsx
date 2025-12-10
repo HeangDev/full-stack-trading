@@ -15,7 +15,7 @@ function cx(...parts: Array<string | false | undefined>) {
     return parts.filter(Boolean).join(" ");
 }
 
-const baseClasses = "flex items-center justify-center w-full h-[60px] rounded-3xl cursor-pointer";
+const baseClasses = "flex items-center justify-center w-full h-[64px] rounded-3xl cursor-pointer";
 
 const sizeClasses = {
     large: "px-6 py-3 text-lg",

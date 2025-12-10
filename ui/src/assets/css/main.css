@@ -19,7 +19,7 @@ input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-
 
 body,html{@apply w-full h-full m-0 p-0 font-battambang text-justify bg-white select-none overflow-hidden;}
 .wrap{@apply w-full h-fit min-h-screen;}
-.content{@apply h-screen pt-5 px-6 pb-18 overflow-y-scroll;}
+.content{@apply h-[calc(100vh-64px)] pt-5 px-6 pb-16 overflow-y-scroll;}
 
 ::-webkit-scrollbar{@apply hidden w-1 h-1 bg-[#f4f5f7];}
 ::-webkit-scrollbar-thumb{@apply rounded-xs bg-gray-400/20;}
@@ -126,12 +126,9 @@ body,html{@apply w-full h-full m-0 p-0 font-battambang text-justify bg-white sel
 
 .stock__trading__container{@apply mt-6;}
 
-.profilePanel__content{@apply flex items-start justify-start gap-4;}
-.profilePanel__img img{@apply w-12 h-12 rounded-full;}
-.profilePanel__name h4{@apply text-lg font-bold leading-7 text-theme-black;} 
-.profilePanel__name p{@apply text-sm font-normal leading-6 text-theme-secondary;}
-
-
+.slider__container{@apply mt-3;}
+.slider__container .swiper{@apply relative w-full h-auto overflow-hidden;}
+.slider__container .swiper-slide img{@apply w-full h-auto rounded-xl;}
 
 
 

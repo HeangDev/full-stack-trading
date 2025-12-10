@@ -35,7 +35,9 @@ const Index = () => {
                 </div>
             </div> */}
             <div className="coin__list__container">
-                <div className="coin__list__container__title">Your Coins</div>
+                <div className="coin__list__container__title">
+                    <h4>Your Coins</h4>
+                </div>
                 <div className="coin__list__container__items">
                     {coins.map((coin, index) => (
                         <div className="coin__list__container__item" key={index}>
