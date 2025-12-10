@@ -5,8 +5,8 @@ interface Coin {
     id: number;
     name: string;
     symbol: string;
-    price_usd: string;
-    percent_change_24h: string;
+    price_usd: number;
+    percent_change_24h: number;
 }
 
 const Home = () => {
@@ -17,6 +17,7 @@ const Home = () => {
         const res = await fetch(`https://api.coinlore.net/api/tickers/?start=0&limit=10`);
         const data = await res.json()
         setCoins(data.data)
+        //console.log(data)
     }
         
     React.useEffect(() => {
@@ -28,11 +29,24 @@ const Home = () => {
     }, [])
     return (
         <>
+            <div className="profilePanel__container">
+                <div className="profilePanel__content">
+                    <div className="profilePanel__img">
+                        <img src="https://mockmind-api.uifaces.co/content/human/218.jpg" alt=""/>
+                    </div>
+                    <div className="profilePanel__name">
+                        <h4>Hi, John Doe!</h4>
+                        <p>Welcome to Tradebase</p>
+                    </div>
+                </div>
+            </div>
             <div className="slider__container">
 
             </div>
             <div className="coin__list__container">
-                <div className="coin__list__container__title">Trending Coins</div>
+                <div className="coin__list__container__title">
+                    <h4>Top Coins</h4>
+                </div>
                 <div className="coin__list__container__items">
                     {coins.map((coin, index) => (
                         <div onClick={() => navigate(`/stock/${coin.id}`)} className="coin__list__container__item" key={index}>
@@ -44,11 +58,11 @@ const Home = () => {
                                     <h4>{coin.name}</h4>
                                     <p>{coin.symbol}</p>
                                 </div>
-                            </div>
+                            </div> 
                             <div className="coin__list__container__item__price">
-                                <h4>{coin.price_usd}</h4>
+                                <h4>${coin.price_usd}</h4>
                                 {(() => {
-                                    const percent = Number(coin.percent_change_24h);
+                                    const percent = coin.percent_change_24h;
                                     return (
                                         <span className={percent >= 0 ? "up" : "down"}>
                                             {percent > 0 ? `+${percent}%` : `${percent}%`}

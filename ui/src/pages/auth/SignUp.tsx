@@ -16,7 +16,7 @@ const SignUp = () => {
     });
 
     const handleSignUp = async (data: SignUpFormData) => {
-
+        console.log(data)
     }
 
     return (
@@ -55,7 +55,7 @@ const SignUp = () => {
                         />
                     </div>
                     <div className="auth__button__container">
-                        <Button type="submit" variant="primary">{t('signup.buttonName')}</Button>
+                        <Button type="submit" color="primary">{t('signup.buttonName')}</Button>
                         <div className="mt-6">
                             <p className="text-sm font-normal leading-6 text-center">{t('signup.footerText')} <Link to="/login" className="text-theme-primary hover:underline">{t('signup.footerLink')}</Link></p>
                         </div>

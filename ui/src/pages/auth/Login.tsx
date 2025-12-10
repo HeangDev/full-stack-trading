@@ -16,7 +16,7 @@ const Login = () => {
     });
 
     const handleLogin = async (data: LoginFormData) => {
-
+        console.log(data)
     }
 
     return (
@@ -31,7 +31,7 @@ const Login = () => {
                 </div>
             </div>
             <div className="auth__form">
-                <form  autoComplete="off">
+                <form  onSubmit={handleSubmit(handleLogin)} autoComplete="off">
                     <div className="auth__form__container">
                         <TextField type="text" fullWidth label={t('login.username')}
                             error={!!errors.username}
@@ -45,7 +45,7 @@ const Login = () => {
                         />
                     </div>
                     <div className="auth__button__container">
-                        <Button type="submit" variant="primary">{t('login.buttonName')}</Button>
+                        <Button type="submit" color="primary">{t('login.buttonName')}</Button>
                         <div className="mt-6">
                             <p className="text-sm font-normal leading-6 text-center">{t('login.footerText')} <Link to="/sign_up" className="text-theme-primary hover:underline">{t('login.footerLink')}</Link></p>
                         </div>

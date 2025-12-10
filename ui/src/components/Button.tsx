@@ -1,25 +1,54 @@
-import React from 'react'
-import clsx from 'clsx'
+import React, { type ButtonHTMLAttributes } from "react";
 
-interface buttonProps {
-    children?: React.ReactNode,
-    startIcon?: string
-    endIcon?: string
-    variant?: "danger" | "primary"
-    isDisabled?: boolean
-    onClick?: () => void
-    className?: string
-    style?: React.CSSProperties
-    type?: "button" | "submit" | "reset";
+type ButtonVariant = "contained";
+type ButtonSize = "large";
+type ButtonColor = "primary" | "error";
+
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  color?: ButtonColor;
+  fullWidth?: boolean;
 }
 
-const Button: React.FC<buttonProps> = (props) => {
+function cx(...parts: Array<string | false | undefined>) {
+    return parts.filter(Boolean).join(" ");
+}
+
+const baseClasses = "flex items-center justify-center w-full h-[60px] rounded-3xl cursor-pointer";
+
+const sizeClasses = {
+    large: "px-6 py-3 text-lg",
+}
+
+const variantClasses = {
+    contained: {
+        primary: "bg-theme-primary text-white",
+        error: "bg-theme-danger text-white",
+    }
+}
+
+const Button: React.FC<ButtonProps> = ({
+    children,
+    variant = "contained",
+    size = "large",
+    color = "primary",
+    fullWidth = false,
+    className,
+    ...rest
+}) => {
     return (
         <>
-            <button type={props.type} className={clsx("btn", props.variant, props.isDisabled && "disabled", props.className)} style={props.style} onClick={props.onClick}>
-                {props.startIcon && <img src={props.startIcon}/>}
-                {typeof props.children === 'string' || typeof props.children === 'number' ? <span>{props.children}</span> : props.children}
-                {props.endIcon && <img src={props.endIcon}/>}
+            <button
+                className={cx(
+                    baseClasses,
+                    sizeClasses[size],
+                    variantClasses[variant][color],
+                    className
+                )}
+                {...rest}
+            >
+                {children}
             </button>
         </>
     )

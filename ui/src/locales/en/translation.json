@@ -3,7 +3,9 @@
         "language": "Language",
         "settings": "Settings",
         "referralcode": "Referral Code",
-        "changepassword": "Change Password"
+        "changepassword": "Change Password",
+        "profile": "Profile",
+        "order": "Order History"
     },
     "account": {
         "history": "History",

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router';
 import CoinChart from "../../components/CoinChart"
+import Button from '../../components/Button';
 
 interface OHLC {
     time: string;
@@ -9,6 +10,21 @@ interface OHLC {
     low: number;
     close: number;
 }
+
+export function formatToSIPrefix(num: number): string {
+    const abs = Math.abs(num);
+
+    const format = (value: number, unit: string) =>
+        parseFloat(value.toFixed(value < 10 ? 2 : value < 100 ? 1 : 0)) + unit;
+
+    if (abs >= 1e12) return format(num / 1e12, "T");
+    if (abs >= 1e9)  return format(num / 1e9, "B");
+    if (abs >= 1e6)  return format(num / 1e6, "M");
+    if (abs >= 1e3)  return format(num / 1e3, "K");
+
+    return num.toString();
+}
+
 
 const Index = () => {
     const { id } = useParams<{ id: string }>();
@@ -52,9 +68,63 @@ const Index = () => {
 
     if (!coin || ohlcData.length === 0) return <div>Loading...</div>;
 
+    const last = ohlcData[ohlcData.length - 1];
+    const avgVolume = coin.volume24 ? coin.volume24 / 24 : 0;
+
     return (
         <>
-            <CoinChart ohlcData={ohlcData} />
+            <div className="stockPanel__container">
+                <div className="stock__detail__container">
+                    <div className="stock__detail__price">
+                        <h4>
+                            ${parseInt(coin.price_usd).toFixed(2).split(".")[0]}
+                            <small>.{parseFloat(coin.price_usd).toFixed(2).split('.')[1]}</small>
+                        </h4>
+                        <p>
+                            ${coin.price_usd}
+                            <span>{coin.percent_change_24h}%</span>
+                        </p>
+                    </div>
+                </div>
+                <div className="stock__trading__container">
+                    <CoinChart ohlcData={ohlcData} />
+                </div>
+                <div className="stock__statistics__container">
+                    <div className="stock__statistics__title">
+                        <h4>Statistics</h4>
+                    </div>
+                    <div className="stock__statistics__content">
+                        <div className="stock__statistics__item">
+                            <h4>Open</h4>
+                            <p>{last.open}</p>
+                        </div>
+                        <div className="stock__statistics__item">
+                            <h4>High</h4>
+                            <p>{last.high}</p>
+                        </div>
+                        <div className="stock__statistics__item">
+                            <h4>Low</h4>
+                            <p>{last.low}</p>
+                        </div>
+                        <div className="stock__statistics__item">
+                            <h4>Volume</h4>
+                            <p>{formatToSIPrefix(coin.volume24)}</p>
+                        </div>
+                        <div className="stock__statistics__item">
+                            <h4>Avg. Volume</h4>
+                            <p>{formatToSIPrefix(avgVolume)}</p>
+                        </div>
+                        <div className="stock__statistics__item">
+                            <h4>Market Cap</h4>
+                            <p>${formatToSIPrefix(coin.market_cap_usd)}</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="stock__button__container">
+                    <Button type="submit" color="error">Buy</Button>
+                    <Button type="submit" color="primary">Sell</Button>
+                </div>
+            </div>
         </>
     )
 }

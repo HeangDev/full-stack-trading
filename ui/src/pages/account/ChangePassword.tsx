@@ -4,8 +4,8 @@ import Button from '../../components/Button'
 import { useTranslation } from 'react-i18next'
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { changePasswordSchema } from "../../schemas/ChangePasswordSchema";
-import type { ChangePsswordFormData } from "../../schemas/ChangePasswordSchema";
+import { changePasswordSchema } from "../../schemas/changePasswordSchema";
+import type { ChangePsswordFormData } from "../../schemas/changePasswordSchema";
 
 const ChangePassword = () => {
     const { t } = useTranslation();
@@ -38,7 +38,7 @@ const ChangePassword = () => {
                         />
                     </div>
                     <div className="auth__button__container">
-                        <Button type="submit" variant="primary">{t('changePassword.button')}</Button>
+                        <Button type="submit" color="primary">{t('changePassword.button')}</Button>
                     </div>
                 </form>
             </div>
