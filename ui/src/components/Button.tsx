@@ -1,12 +1,10 @@
 import React, { type ButtonHTMLAttributes } from "react";
 
-type ButtonVariant = "contained";
-type ButtonSize = "large";
-type ButtonColor = "primary" | "error";
+type ButtonVariant = "contained" | "outlined";
+type ButtonColor = "primary" | "danger" | "success" | "secondary";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
-  size?: ButtonSize;
   color?: ButtonColor;
   fullWidth?: boolean;
 }
@@ -15,25 +13,29 @@ function cx(...parts: Array<string | false | undefined>) {
     return parts.filter(Boolean).join(" ");
 }
 
-const baseClasses = "flex items-center justify-center w-full h-[64px] rounded-3xl cursor-pointer";
-
-const sizeClasses = {
-    large: "px-6 py-3 text-lg",
-}
-
 const variantClasses = {
     contained: {
-        primary: "bg-theme-primary text-white",
-        error: "bg-theme-danger text-white",
+        primary: "btn__primary",
+        danger: "btn__danger",
+        success: "btn__success",
+        secondary: "btn__secondary"
+    },
+    outlined: {
+        secondary: "btn__secondary__outlined",
+        danger: "btn__danger__outlined",
+        primary: "btn__primary__outlined",
+        success: "btn__success__outlined"
     }
 }
+
+const disabledClasses = "btn__disabled";
 
 const Button: React.FC<ButtonProps> = ({
     children,
     variant = "contained",
-    size = "large",
     color = "primary",
     fullWidth = false,
+    disabled = false,
     className,
     ...rest
 }) => {
@@ -41,9 +43,9 @@ const Button: React.FC<ButtonProps> = ({
         <>
             <button
                 className={cx(
-                    baseClasses,
-                    sizeClasses[size],
+                    "btn",
                     variantClasses[variant][color],
+                    disabled && disabledClasses,
                     className
                 )}
                 {...rest}

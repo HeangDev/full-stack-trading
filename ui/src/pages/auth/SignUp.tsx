@@ -33,22 +33,22 @@ const SignUp = () => {
             <div className="auth__form">
                 <form onSubmit={handleSubmit(handleSignUp)} autoComplete="off">
                     <div className="auth__form__container">
-                        <TextField type="text" fullWidth label={t('signup.username')}
+                        <TextField type="text" label={t('signup.username')}
                             error={!!errors.username}
                             helperText={errors.username?.message}
                             {...register("username")}
                         />
-                        <TextField type="password" fullWidth label={t('signup.password')}
+                        <TextField type="password" label={t('signup.password')}
                             error={!!errors.password}
                             helperText={errors.password?.message}
                             {...register("password")}
                         />
-                        <TextField type="password" fullWidth label={t('signup.confirmPassword')}
+                        <TextField type="password" label={t('signup.confirmPassword')}
                             error={!!errors.password}
                             helperText={errors.password?.message}
                             {...register("password")}
                         />
-                        <TextField type="password" fullWidth label="Referral Code"
+                        <TextField type="password" label="Referral Code"
                             error={!!errors.password}
                             helperText={errors.password?.message}
                             {...register("password")}
@@ -56,9 +56,9 @@ const SignUp = () => {
                     </div>
                     <div className="auth__button__container">
                         <Button type="submit" color="primary">{t('signup.buttonName')}</Button>
-                        <div className="mt-6">
-                            <p className="text-sm font-normal leading-6 text-center">{t('signup.footerText')} <Link to="/login" className="text-theme-primary hover:underline">{t('signup.footerLink')}</Link></p>
-                        </div>
+                    </div>
+                    <div className="auth__footer">
+                        <p>{t('signup.footerText')} <Link to="/login">{t('signup.footerLink')}</Link></p>
                     </div>
                 </form>
             </div>

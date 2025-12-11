@@ -8,6 +8,8 @@ type CommonProps = {
     variant?: "outlined" | "filled" | "standard";
     size?: "small" | "medium" | "large";
     fullWidth?: boolean;
+    startAdornment?: React.ReactNode;
+    endAdornment?: React.ReactNode;
     className?: string;
     externalLabel?: string;
 }
@@ -38,7 +40,7 @@ function cx(...parts: Array<string | false | undefined>) {
     return parts.filter(Boolean).join(" ");
 }
 
-const TelephoneField = forwardRef<HTMLInputElement | HTMLTextAreaElement, Props>(
+const TextField = forwardRef<HTMLInputElement | HTMLTextAreaElement, Props>(
     (
         {
             label,
@@ -49,24 +51,30 @@ const TelephoneField = forwardRef<HTMLInputElement | HTMLTextAreaElement, Props>
             variant = "outlined",
             size = "large",
             fullWidth = false,
+            startAdornment,
+            endAdornment,
             className,
             multiline = false,
             rows = 3,
             value,
             defaultValue,
             onChange,
+            onFocus,
+            onBlur,
             ...rest
         },
         ref
     ) => {
+        const [focused, setFocused] = useState(false);
         const [uncontrolledValue, setUncontrolledValue] = useState(defaultValue ?? "");
+
         const inputValue = value !== undefined ? value : uncontrolledValue;
-        const float = inputValue !== undefined && String(inputValue).trim() !== "";
+        const float = focused || (inputValue !== "" && inputValue !== undefined);
         const fieldLabel = externalLabel || label;
         const rootClass = cx("relative flex flex-col", fullWidth ? "w-full" : "w-auto", className);
 
         const controlClass = cx(
-            "flex items-center"
+            "flex items-center gap-2"
         );
 
         const inputClass = cx(
@@ -80,8 +88,20 @@ const TelephoneField = forwardRef<HTMLInputElement | HTMLTextAreaElement, Props>
         const labelClass = cx(
             "absolute left-6 pointer-events-none bg-white transition-all duration-150 px-2 leading-[26px]",
             error ? "text-red-600" : "text-gray-600",
-            float ? "-top-3 text-sm " + (error ? "text-red-600 text-sm" : "text-theme-primary") : "-translate-y-1/2 text-sm " + (error ? "text-red-600" : "text-theme-secondary")
+            float ? "-top-3 text-sm " + (error ? "text-red-600 text-sm" : "text-theme-primary") : "top-1/2 -translate-y-1/2 text-base " + (error ? "text-red-600 -translate-y-6" : "text-theme-secondary")
         );
+
+
+        const handleFocus = (e: React.FocusEvent<any>) => {
+            setFocused(true);
+            onFocus?.(e);
+        };
+
+
+        const handleBlur = (e: React.FocusEvent<any>) => {
+            setFocused(false);
+            onBlur?.(e);
+        };
 
         const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
             if (value === undefined) {
@@ -90,27 +110,45 @@ const TelephoneField = forwardRef<HTMLInputElement | HTMLTextAreaElement, Props>
             onChange?.(e as any);
         };
 
+        const InputElement = multiline ? (
+            <textarea
+                ref={ref as React.Ref<HTMLTextAreaElement>}
+                rows={rows}
+                className={cx(
+                    "resize-none bg-transparent outline-none flex-1 w-full",
+                    inputClass
+                )}
+                value={inputValue}
+                onChange={handleChange}
+                defaultValue={defaultValue}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                {...(rest as TextareaProps)}
+            />
+        ) : (
+            <input
+                ref={ref as React.Ref<HTMLInputElement>}
+                className={cx(
+                    "bg-transparent outline-none flex-1 w-full appearance-none",
+                    inputClass
+                )}
+                value={inputValue}
+                onChange={handleChange}
+                defaultValue={defaultValue}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                {...(rest as InputProps)}
+            />
+        );
+
         return (
             <div className={rootClass}>
+                {fieldLabel && (
                     <label className={labelClass}>
                         {fieldLabel} {required ? <span className="text-red-500">*</span> : null}
                     </label>
-                    <div className={controlClass}>
-                        <input
-                            ref={ref as React.Ref<HTMLInputElement>}
-                            className={cx(
-                                "bg-transparent outline-none flex-1 w-full appearance-none",
-                                inputClass
-                            )}
-                            value={inputValue}
-                            onChange={handleChange}
-                            defaultValue={defaultValue}
-                            {...(rest as InputProps)}
-                        />
-                        <div className="">
-
-                        </div>
-                    </div>
+                )}
+                    <div className={controlClass}>{startAdornment}{InputElement}{endAdornment}</div>
                 {helperText && (
                     <p className={cx("mt-2 text-xs", error ? "text-red-600" : "text-gray-500")}>
                         {helperText}
@@ -121,6 +159,6 @@ const TelephoneField = forwardRef<HTMLInputElement | HTMLTextAreaElement, Props>
     }
 )
 
-TelephoneField.displayName = "TelephoneField";
+TextField.displayName = "TextField";
 
-export default TelephoneField;
+export default TextField;
