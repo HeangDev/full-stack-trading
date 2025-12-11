@@ -37,7 +37,7 @@ const Home = () => {
         fetchCoins()
         const interval = setInterval(() => {
             fetchCoins();
-        }, 5000);
+        }, 1000);
         return () => clearInterval(interval);
     }, [])
     return (

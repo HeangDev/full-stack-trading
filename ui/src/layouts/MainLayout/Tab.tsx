@@ -1,12 +1,21 @@
 import { useLocation, useNavigate } from "react-router"
 import { useTranslation } from "react-i18next"
-import { Icon } from "@iconify/react"
+
+import IcHome from "../../assets/img/ic/ic_home.png"
+import IcMarket from "../../assets/img/ic/ic_market.png"
+import IcTrade from "../../assets/img/ic/ic_trade.png"
+import IcWallet from "../../assets/img/ic/ic_wallet.png"
+
+import IcHomeOn from "../../assets/img/ic/ic_home_on.png"
+import IcMarketOn from "../../assets/img/ic/ic_market_on.png"
+import IcTradeOn from "../../assets/img/ic/ic_trade_on.png"
+import IcWalletOn from "../../assets/img/ic/ic_wallet_on.png"
 
 const tabs = [
-    { href: "/home", label: "home", icon: "solar:home-2-outline" },
-    { href: "/activity", label: "activity", icon: "solar:pie-chart-2-linear" },
-    { href: "/order", label: "order", icon: "solar:airbuds-case-minimalistic-linear" },
-    { href: "/account", label: "account", icon: "solar:user-linear" },
+    { href: "/home", label: "home", icon: IcHome, iconOn: IcHomeOn },
+    { href: "/activity", label: "markets", icon: IcMarket, iconOn: IcMarketOn },
+    { href: "/order", label: "order", icon: IcTrade, iconOn: IcTradeOn },
+    { href: "/account", label: "account", icon: IcWallet, iconOn: IcWalletOn },
 ];
 
 const Tab = () => {
@@ -23,10 +32,10 @@ const Tab = () => {
                         <div
                             key={tab.href}
                             onClick={() => navigate(tab.href)}
-                            className={`tabbar__item ${tab.label} ${isActive ? "active" : ""}`}
+                            className={`tabbar__item ${isActive ? "on" : ""}`}
                         >
                             {typeof tab.icon === "string" ? (
-                                <Icon icon={tab.icon} width="24" height="24" />
+                                <img src={isActive ? tab.iconOn : tab.icon} />
                             ) : (
                                 tab.icon
                             )}

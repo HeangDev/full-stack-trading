@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Battambang:wght@100;300;400;700;900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Battambang:wght@100;300;400;700;900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 @import "tailwindcss";
 
 @theme {
+    --color-theme-main: #1F2630;
     --color-theme-secondary: #8198A5;
     --color-theme-gray: #F4F4F6;
     --color-theme-black: #03314B;
@@ -11,14 +11,13 @@
     --color-theme-primary: #3500D4;
     --color-theme-danger: #F61C7A;
     --color-theme-green: #F3FBED;
-    --font-battambang: "Battambang", system-ui;
-    --font-abeezee: "ABeeZee", sans-serif;
+    --font-inter: "Inter", sans-serif;
 }
 
 input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0;}
 
-body,html{@apply w-full h-full m-0 p-0 font-battambang text-justify bg-white select-none overflow-hidden;}
-.wrap{@apply w-full h-fit min-h-screen;}
+body{@apply font-inter bg-gray-400 overflow-hidden;}
+.wrap{@apply relative max-w-[360px] h-screen mx-auto bg-theme-main;}
 .content{@apply h-[calc(100vh-64px)] pt-5 px-6 pb-16 overflow-y-scroll;}
 
 ::-webkit-scrollbar{@apply hidden w-1 h-1 bg-[#f4f5f7];}
@@ -36,24 +35,19 @@ body,html{@apply w-full h-full m-0 p-0 font-battambang text-justify bg-white sel
 .header__content__left h4{@apply text-lg font-bold leading-7 text-theme-black;}
 .header__content__center h4{@apply text-lg font-bold leading-7 text-theme-black;}
 
-.tabbar{@apply fixed bottom-0 left-[50%] flex items-end w-full h-16 text-xs bg-white translate-x-[-50%] z-[100];}
-.tabbar__item{@apply flex-1 flex flex-col items-center justify-end pt-2.5 pb-2.5 text-gray-500 font-medium gap-1 cursor-pointer;}
-.tabbar__item svg{@apply w-6 h-6;}
-.tabbar__item.active svg g{@apply w-6 h-6;}
-.tabbar__item.account.active svg g{@apply stroke-theme-primary;}
-.tabbar__item.home.active svg path{@apply fill-theme-primary;}
-.tabbar__item.order.active svg path{@apply stroke-theme-primary;}
-.tabbar__item.activity.active svg path{@apply stroke-theme-primary;}
-.tabbar__item.active span{@apply text-theme-primary;}
+.tabbar{@apply fixed bottom-0 flex items-end justify-between w-[360px] h-16 pt-3.5 px-5 text-xs bg-theme-main;}
+.tabbar__item{@apply flex flex-col items-center justify-end text-gray-500 font-normal cursor-pointer;}
+.tabbar__item span{@apply mt-1.5;}
+.tabbar__item.on span{@apply text-white;}
 
 .btn{@apply flex items-center justify-center w-full h-[60px] rounded-3xl cursor-pointer;}
-.btn span{@apply font-abeezee text-base font-bold leading-[26px] text-white;}
+.btn span{@apply text-base font-bold leading-[26px] text-white;}
 .btn.primary{@apply bg-theme-primary;}
 .btn.danger{@apply bg-theme-danger;}
 
 .input__container{@apply relative w-full;}
 .input__container__input{@apply block w-full px-6 py-[19px] text-sm border border-theme-gray rounded-3xl bg-transparent appearance-none focus:outline-none focus:ring-0 focus:border-theme-blue;}
-.input__container__label{@apply absolute top-4 left-6 font-abeezee text-base text-theme-secondary leading-[26px] duration-300 transform -translate-y-4 scale-75 origin-[0] bg-white z-10 peer-focus:px-2 peer-focus:text-theme-blue peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-5 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1;}
+.input__container__label{@apply absolute top-4 left-6 text-base text-theme-secondary leading-[26px] duration-300 transform -translate-y-4 scale-75 origin-[0] bg-white z-10 peer-focus:px-2 peer-focus:text-theme-blue peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-5 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1;}
 .input__container .password__toggle{@apply absolute top-1/2 right-0 cursor-pointer -translate-y-1/2;}
 .input__container .password__toggle input{@apply pr-12;}
 .input__container .password__toggle svg{@apply absolute top-1/2 right-4 w-5 h-auto text-gray-300 translate-y-[-50%];}
