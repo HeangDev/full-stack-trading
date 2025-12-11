@@ -133,11 +133,8 @@ body{@apply font-inter bg-gray-400 overflow-hidden;}
 .btn__primary{@apply text-gray-800 bg-linear-to-t from-[#F0B90B] to-[#F8D12F] hover:bg-[#F8D12F];}
 .btn__danger{@apply text-white bg-[#D9304E] hover:bg-[#F84960];}
 .btn__success{@apply text-white bg-[#02C076] hover:bg-[#2ED191];}
-.btn__secondary{@apply text-white bg-[#02C076] hover:bg-[#2ED191];}
 .btn__secondary__outlined{@apply text-white border border-[#474D57] bg-transparent hover:border-[#6A4C0C] hover:bg-[#281F0B];}
 .btn__danger__outlined{@apply text-[#F84960] border border-[#982A42] bg-transparent hover:border-[#982A42] hover:bg-[#221113];}
-.btn__primary__outlined{@apply text-[#F84960] border border-[#982A42] bg-transparent hover:border-[#982A42] hover:bg-[#221113];}
-.btn__success__outlined{@apply text-[#F84960] border border-[#982A42] bg-transparent hover:border-[#982A42] hover:bg-[#221113];}
 
 .form__control{@apply relative flex flex-col w-full;}
 .form__label{@apply mb-1 text-sm font-normal text-[#929AA5];}

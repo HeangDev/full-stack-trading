@@ -121,7 +121,7 @@ const Index = () => {
                     </div>
                 </div>
                 <div className="stock__button__container">
-                    <Button type="submit" color="error">Buy</Button>
+                    <Button type="submit" color="danger">Buy</Button>
                     <Button type="submit" color="primary">Sell</Button>
                 </div>
             </div>
