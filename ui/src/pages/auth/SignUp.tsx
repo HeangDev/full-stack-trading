@@ -43,11 +43,6 @@ const SignUp = () => {
                             helperText={errors.password?.message}
                             {...register("password")}
                         />
-                        <TextField type="password" label={t('signup.confirmPassword')}
-                            error={!!errors.password}
-                            helperText={errors.password?.message}
-                            {...register("password")}
-                        />
                         <TextField type="password" label="Referral Code"
                             error={!!errors.password}
                             helperText={errors.password?.message}
