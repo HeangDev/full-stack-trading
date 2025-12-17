@@ -2,13 +2,15 @@ import React from 'react'
 import Button from '../../components/Button';
 
 import { useNavigate } from "react-router";
+import { formatToSIPrefix } from '../../utils/currencyFormat';
 
 interface Coin {
+    id: number;
     name: string;
     symbol: string;
     price_usd: string;
     percent_change_24h: string;
-    market_cap_usd: string;
+    market_cap_usd: number;
 }
 
 const Index = () => {
@@ -33,7 +35,7 @@ const Index = () => {
         fetchCoins(true)
         const interval = setInterval(() => {
             fetchCoins(false);
-        }, 5000);
+        }, 100);
         return () => clearInterval(interval);
     }, [])
     return (
@@ -78,11 +80,11 @@ const Index = () => {
                         coins.map((coin, index) => {
                             const percent = Number(coin.percent_change_24h);
                             return (
-                                <div className="coin__list__container__item" key={index}>
+                                <div  onClick={() => navigate(`/stock/${coin.id}`)} className="coin__list__container__item" key={index}>
                                     <div className="coin__list__container__item__icon">
                                         <div className="coin__icon">
                                             <img
-                                                src={`https://img.logokit.com/crypto/${coin.symbol}?token=pk_fr3303abf845f15ae9f02e`}
+                                                src={`https://img.logo.dev/crypto/${coin.symbol}?token=pk_e5thzqvnQPySEBPvh_lrpA`}
                                                 alt={coin.name}
                                             />
                                         </div>
@@ -93,7 +95,7 @@ const Index = () => {
                                     </div>
 
                                     <div className="coin__list__container__item__price">
-                                        <h4>${coin.market_cap_usd}</h4>
+                                        <h4>${formatToSIPrefix(coin.market_cap_usd)}</h4>
                                         <span className={percent >= 0 ? "up" : "down"}>
                                             {percent > 0 ? `+${percent}%` : `${percent}%`}
                                         </span>

@@ -1,5 +1,5 @@
 export const formatToSIPrefix = (num: number): string => {
-    const abs = Math.abs(num);
+    const abs: number = Math.abs(num);
 
     const format = (value: number, unit: string) =>
         parseFloat(value.toFixed(value < 10 ? 2 : value < 100 ? 1 : 0)) + unit;

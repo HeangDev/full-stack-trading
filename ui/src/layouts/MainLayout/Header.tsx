@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from "react-router"
 import { useTranslation } from "react-i18next";
-import { Icon } from '@iconify/react'
+import IcBack from "../../assets/img/ic/ic_arrow.png"
 
 const Header = () => {
     const location = useLocation();
@@ -48,7 +48,7 @@ const Header = () => {
                             {showLeftTitle && <h4>{leftTitle}</h4>}
                             {showBackButton && (
                                 <div onClick={() => navigate(-1)} className="header__btn__back">
-                                    <Icon icon="solar:alt-arrow-left-line-duotone" width="24" height="24" />
+                                    <img src={IcBack}/>
                                 </div>
                             )}
                         </div>

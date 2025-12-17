@@ -19,7 +19,7 @@
 input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0;}
 
 body{@apply font-inter bg-gray-400 overflow-hidden;}
-.wrap{@apply relative max-w-[420px] h-screen mx-auto bg-theme-main;}
+.wrap{@apply relative max-w-[500px] h-screen mx-auto bg-theme-main;}
 .content{@apply h-[calc(100vh-64px)] pt-5 px-6 pb-16 overflow-y-scroll;} 
 
 ::-webkit-scrollbar{@apply hidden w-1 h-1 bg-[#f4f5f7];}
@@ -32,12 +32,12 @@ body{@apply font-inter bg-gray-400 overflow-hidden;}
 .header__inner{@apply w-full bg-theme-main select-none;}
 .header__content{@apply relative flex items-center justify-center px-6 h-[50px];}
 .header__content__left{@apply absolute top-0 left-6 flex items-center justify-center h-full;}
-.header__btn__back{@apply flex items-center justify-center w-10 h-10 rounded-full border border-theme-blue cursor-pointer;}
+.header__btn__back{@apply cursor-pointer;}
 .header__btn__back svg{@apply text-theme-danger;}
 .header__content__left h4{@apply text-lg font-medium leading-7 text-white;}
 .header__content__center h4{@apply text-lg font-medium leading-7 text-white;}
 
-.tabbar{@apply fixed bottom-0 flex items-end justify-between w-[420px] h-16 pt-3.5 px-5 text-xs bg-theme-main;}
+.tabbar{@apply absolute bottom-0 flex items-end justify-between w-full h-16 pt-3.5 px-5 text-xs bg-theme-main;}
 .tabbar__item{@apply flex flex-col items-center justify-end text-gray-500 font-normal cursor-pointer;}
 .tabbar__item span{@apply mt-1.5;}
 .tabbar__item.on span{@apply text-white;}
@@ -120,7 +120,6 @@ body{@apply font-inter bg-gray-400 overflow-hidden;}
 
 .stock__trading__container{@apply mt-6;}
 
-.slider__container{@apply mt-3;}
 .slider__container .swiper{@apply relative w-full h-auto overflow-hidden;}
 .slider__container .swiper-slide img{@apply w-full h-auto rounded-xl;}
 

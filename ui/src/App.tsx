@@ -13,6 +13,7 @@ import Bank from "./pages/account/Bank";
 import ChangePassword from "./pages/account/ChangePassword";
 import Language from "./pages/account/Language"
 import ReferralCode from "./pages/account/ReferralCode";
+import Notification from "./pages/account/Notification";
 
 import Login from "./pages/auth/Login";
 import SignUp from "./pages/auth/SignUp";
@@ -33,6 +34,7 @@ const App = () => {
                     <Route path="change_password" element={<ChangePassword />} />
                     <Route path="language" element={<Language />} />
                     <Route path="referral_code" element={<ReferralCode />} />
+                    <Route path="notification" element={<Notification />} />
                 </Route>
 
                 <Route element={<LoginLayout />}>
