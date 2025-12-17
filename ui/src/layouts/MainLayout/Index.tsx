@@ -6,7 +6,7 @@ const Index = () => {
     const location = useLocation();
     const showTabPaths = [
         "/home",
-        "/activity",
+        "/market",
         "/order",
         "/account"
     ];

@@ -18,6 +18,7 @@ const Header = () => {
     // paths that show left title (NO BACK BUTTON)
     const leftHeaderText: Record<string, string> = {
         "/home": "header.home",
+        "/market": "header.market",
         "/account": "header.profile",
         "/order": "header.order"
     }

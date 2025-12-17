@@ -4,8 +4,8 @@
 @import "tailwindcss";
 
 @theme {
-    --color-theme-main: #1F2630;
-    --color-theme-secondary: #8198A5;
+    --color-theme-main: #0F0F0F;
+    --color-theme-secondary: #6C737B;
     --color-theme-gray: #F4F4F6;
     --color-theme-black: #03314B;
     --color-theme-blue: #908FEC;
@@ -82,18 +82,25 @@ body{@apply font-inter bg-gray-400 overflow-hidden;}
 .languages__item.active span{@apply text-white;}
 
 .coin__list__container{@apply mt-6;}
-.coin__list__container__title h4{@apply text-lg font-bold leading-7 text-theme-black;}
-.coin__list__container__items{@apply relative flex justify-start flex-col mt-4 gap-8;}
-.coin__list__container__item{@apply relative flex justify-between items-center cursor-pointer;}
-.coin__list__container__item__icon{@apply flex justify-start items-center gap-4;}
-.coin__list__container__item__icon .coin__icon img{@apply w-12 h-12 rounded-full;}
-.coin__list__container__item__icon .coin__name h4{@apply text-lg font-bold leading-7 text-theme-black;}
-.coin__list__container__item__icon .coin__name p{@apply mt-1 text-xs font-bold leading-4 text-theme-secondary;}
+.coin__list__container__title h4{@apply text-base font-bold leading-5 text-white;}
+.coin__list__container__items{@apply relative flex justify-start flex-col mt-4 gap-2;}
+.coin__list__container__item{@apply relative flex justify-between items-center py-3.5 px-3 rounded-2xl bg-[#24252C] cursor-pointer;}
+.coin__list__container__item__icon{@apply flex justify-start items-center gap-3;}
+.coin__list__container__item__icon .coin__icon img{@apply w-10 h-10 rounded-full;}
+.coin__list__container__item__icon .coin__name h4{@apply text-sm font-normal leading-5 text-white;}
+.coin__list__container__item__icon .coin__name p{@apply text-sm font-normal leading-4 text-theme-secondary;}
 .coin__list__container__item__price{@apply text-right;}
-.coin__list__container__item__price h4{@apply text-lg font-bold leading-7 text-theme-black;}
-.coin__list__container__item__price span{@apply mt-1 text-xs font-bold leading-4;}
+.coin__list__container__item__price h4{@apply text-sm font-normal leading-5 text-white;}
+.coin__list__container__item__price span{@apply mt-1 text-xs font-normal leading-5;}
 .coin__list__container__item__price span.down{@apply text-red-500;}
 .coin__list__container__item__price span.up{@apply text-green-500;}
+
+.coin__list__container__item.loading{@apply animate-pulse pointer-events-none;}
+.coin__list__container__item.loading .coin__icon div{@apply w-10 h-10 rounded-full bg-white opacity-50;}
+.coin__list__container__item.loading .coin__name h4{@apply w-24 h-4 bg-white opacity-50 rounded mb-2;}
+.coin__list__container__item.loading .coin__name p{@apply w-16 h-3 bg-white opacity-50 rounded;}
+.coin__list__container__item.loading .coin__list__container__item__price h4{@apply w-28 h-4 bg-white opacity-50 rounded mb-2;}
+.coin__list__container__item.loading .coin__list__container__item__price p{@apply w-16 h-3 bg-white opacity-50 rounded ml-auto;}
 
 .stock__statistics__container{@apply mt-6;}
 .stock__statistics__title h4{@apply text-lg font-bold leading-7 text-theme-black;}
@@ -123,6 +130,7 @@ body{@apply font-inter bg-gray-400 overflow-hidden;}
 .btn__primary{@apply text-gray-800 bg-linear-to-t from-[#F0B90B] to-[#F8D12F] hover:bg-[#F8D12F];}
 .btn__danger{@apply text-white bg-[#D9304E] hover:bg-[#F84960];}
 .btn__success{@apply text-white bg-[#02C076] hover:bg-[#2ED191];}
+.btn__secondary{@apply text-white bg-[#24252C];}
 .btn__secondary__outlined{@apply text-white border border-[#474D57] bg-transparent hover:border-[#6A4C0C] hover:bg-[#281F0B];}
 .btn__danger__outlined{@apply text-[#F84960] border border-[#982A42] bg-transparent hover:border-[#982A42] hover:bg-[#221113];}
 
@@ -148,11 +156,12 @@ body{@apply font-inter bg-gray-400 overflow-hidden;}
 .table__container th{@apply min-h-10 h-10 align-middle;}
 .table__container th div{@apply flex items-center justify-start font-inter text-xs font-normal text-gray-500;}
 
-
-
-
-
-
+.coin__box__container{@apply w-full py-3.5 px-3 rounded-2xl bg-[#24252C];}
+.coin__box__container h4{@apply text-sm font-normal leading-5 text-white opacity-50;}
+.coin__box__price{@apply mt-[26px];}
+.coin__box__price h5{@apply text-[32px] font-semibold leading-[38px] text-white;}
+.coin__box__price p{@apply mt-1 text-sm font-normal leading-5 text-white opacity-50;}
+.coin__button__container{@apply flex mt-4 gap-2.5;}
 
 
 

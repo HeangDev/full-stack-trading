@@ -5,7 +5,7 @@ import LoginLayout from "./layouts/LoginLayout/Index";
 
 import Home from "./pages/Home";
 import StockDetail from "./pages/stock/Index"
-import Activity from "./pages/activity/Index"
+import Market from "./pages/markets/Index"
 import Order from "./pages/order/Index"
 import Profile from "./pages/account/Index";
 import History from "./pages/account/History";
@@ -26,7 +26,7 @@ const App = () => {
                     <Route index path="home" element={<Home />} />
                     <Route path="stock/:id" element={<StockDetail />} />
                     <Route path="account" element={<Profile />} />
-                    <Route path="activity" element={<Activity />} />
+                    <Route path="market" element={<Market />} />
                     <Route path="history" element={<History />} />
                     <Route path="bank" element={<Bank />} />
                     <Route path="order" element={<Order />} />

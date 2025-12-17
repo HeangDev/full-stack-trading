@@ -13,7 +13,7 @@ import IcWalletOn from "../../assets/img/ic/ic_wallet_on.png"
 
 const tabs = [
     { href: "/home", label: "home", icon: IcHome, iconOn: IcHomeOn },
-    { href: "/activity", label: "markets", icon: IcMarket, iconOn: IcMarketOn },
+    { href: "/market", label: "markets", icon: IcMarket, iconOn: IcMarketOn },
     { href: "/order", label: "order", icon: IcTrade, iconOn: IcTradeOn },
     { href: "/account", label: "account", icon: IcWallet, iconOn: IcWalletOn },
 ];

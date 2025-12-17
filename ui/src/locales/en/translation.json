@@ -6,7 +6,8 @@
         "changepassword": "Change Password",
         "home": "Dashboard",
         "profile": "Profile",
-        "order": "Order History"
+        "order": "Order History",
+        "market": "Markets"
     },
     "account": {
         "history": "History",
