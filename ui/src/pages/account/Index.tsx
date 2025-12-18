@@ -2,8 +2,6 @@ import { useNavigate } from 'react-router';
 import { Icon } from '@iconify/react';
 import { useTranslation } from 'react-i18next'
 
-import IcGift from "../../assets/img/ic/ic_gift.png"
-
 const Profile = () => {
     const { t, i18n } = useTranslation();
     const currentLang = i18n.language;
