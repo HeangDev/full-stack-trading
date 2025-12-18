@@ -3,15 +3,24 @@
         "language": "语言",
         "settings": "设置",
         "referralcode": "推荐码",
-        "changepassword": "修改密码"
+        "changepassword": "修改密码",
+        "home": "仪表盘",
+        "account": "账户",
+        "order": "订单",
+        "market": "市场",
+        "notification": "通知",
+        "bank": "银行信息",
+        "history": "历史记录"
     },
     "account": {
-        "history": "历史",
-        "bank": "银行资料",
+        "referralcode": "推荐码",
+        "history": "历史记录",
+        "bank": "银行信息",
         "changepassword": "修改密码",
+        "notification": "通知",
         "language": "语言",
         "settings": "设置",
-        "logout": "退出登录"
+        "logout": "登出"
     },
     "lang": {
         "english": "英语",
@@ -24,9 +33,25 @@
         "confirm_password": "确认密码",
         "button": "修改密码"
     },
+    "changePassword_validation": {
+        "current_password_required": "请输入当前密码",
+        "new_password_required": "请输入新密码",
+        "new_password_min": "密码至少需要8个字符",
+        "confirm_password_required": "请确认密码",
+        "confirm_password_oneOf": "两次输入的密码不一致"
+    },
+    "bank": {
+        "bank_name": "银行名称",
+        "bank_account": "银行账户",
+        "button": "添加银行"
+    },
+    "bank_validation": {
+        "bank_name_required": "请输入银行名称",
+        "bank_account_required": "请输入银行账户"
+    },
     "tab": {
         "home": "首页",
-        "activity": "活动",
+        "markets": "市场",
         "order": "订单",
         "account": "账户"
     },

@@ -1,7 +1,13 @@
+import Tabs, { Tab } from "../../components/Tabs"
 
 const Index = () => {
     return (
-        <div>Index</div>
+        <>
+            <Tabs>
+                <Tab label="Buy/Sell Order"/>
+                <Tab label="Trading Record"/>
+            </Tabs>
+        </>
     )
 }
 

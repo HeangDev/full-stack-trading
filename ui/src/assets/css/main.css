@@ -10,7 +10,7 @@
     --color-theme-black: #03314B;
     --color-theme-blue: #908FEC;
     --color-theme-primary: #3500D4;
-    --color-theme-danger: #F61C7A;
+    --color-theme-danger: #D9304E;
     --color-theme-green: #F3FBED;
     --font-inter: "Inter", sans-serif;
     --font-IBM: "IBM Plex Sans", sans-serif;
@@ -20,22 +20,23 @@ input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-
 
 body{@apply font-inter bg-gray-400 overflow-hidden;}
 .wrap{@apply relative max-w-[500px] h-screen mx-auto bg-theme-main;}
-.content{@apply h-[calc(100vh-64px)] pt-5 px-6 pb-16 overflow-y-scroll;} 
+.content{@apply h-[calc(100vh-64px)] pt-5 px-5 pb-16 overflow-y-scroll;} 
 
 ::-webkit-scrollbar{@apply hidden w-1 h-1 bg-[#f4f5f7];}
 ::-webkit-scrollbar-thumb{@apply rounded-xs bg-gray-400/20;}
 ::-webkit-scrollbar-track{@apply rounded-none;}
 
-.block__line{@apply -mx-6 border-t border-dashed border-[#474D57];}
-
 .header{@apply h-[50px];}
 .header__inner{@apply w-full bg-theme-main select-none;}
-.header__content{@apply relative flex items-center justify-center px-6 h-[50px];}
+.header__content{@apply relative flex items-center justify-center px-5 h-[50px];}
 .header__content__left{@apply absolute top-0 left-6 flex items-center justify-center h-full;}
-.header__btn__back{@apply cursor-pointer;}
-.header__btn__back svg{@apply text-theme-danger;}
-.header__content__left h4{@apply text-lg font-medium leading-7 text-white;}
-.header__content__center h4{@apply text-lg font-medium leading-7 text-white;}
+.header__btn__back{@apply relative cursor-pointer;}
+.header__btn__back svg{@apply w-6 h-6 text-white;}
+.header__content__left h4{@apply text-base font-medium leading-7 text-white;}
+.header__content__center h4{@apply text-sm font-normal leading-7 text-white;}
+.header__content__right{@apply absolute right-5;}
+.header__content__right svg{@apply w-6 h-6 text-white;}
+.header__content__right .notification__dot{@apply absolute top-0 right-1 w-2.5 h-2.5 rounded-full border border-theme-main bg-theme-danger;}
 
 .tabbar{@apply absolute bottom-0 flex items-end justify-between w-full h-16 pt-3.5 px-5 text-xs bg-theme-main;}
 .tabbar__item{@apply flex flex-col items-center justify-end text-gray-500 font-normal cursor-pointer;}
@@ -53,26 +54,21 @@ body{@apply font-inter bg-gray-400 overflow-hidden;}
 .auth__footer p{@apply text-sm font-normal leading-6 text-[#929AA5] text-center;}
 .auth__footer p a{@apply text-white hover:underline;}
 
-.profilePanel__container{@apply flex items-center justify-start mb-6 gap-6;}
+.profilePanel__container{@apply flex items-center justify-start gap-6;}
 .profilePanel__container__img img{@apply w-20 rounded-full;}
 .profilePanel__container__name h4{@apply text-lg font-bold leading-7 text-white;}
 .profilePanel__container__name p{@apply mt-1 text-sm font-normal leading-6 text-theme-secondary;}
 
-.referralPanel__container{@apply flex items-center justify-start w-full mb-8 px-6 py-5 rounded-2xl bg-theme-green gap-4 cursor-pointer;}
-.referralPanel__container__left img{@apply w-8 object-none;}
-.referralPanel__container__right h4{@apply text-sm font-bold leading-6 text-[#03314B];}
-.referralPanel__container__right p{@apply mt-1 text-xs font-medium leading-4 text-[#03314B];}
-
 .settingPanel__container{@apply mt-8;}
-.settingPanel__container__items{@apply relative flex justify-start flex-col gap-3;}
-.settingPanel__container__items__item{@apply relative flex justify-between items-center py-2.5 cursor-pointer;}
-.settingPanel__container__items__icon{@apply flex items-center justify-center w-8 h-8 rounded-xl bg-[#F0B90B];}
-.settingPanel__container__items__icon svg{@apply text-white;}
-.settingPanel__container__items__title{@apply flex justify-start items-center gap-4;}
-.settingPanel__container__items__title span{@apply font-normal text-sm leading-6 text-[#929AA5];}
+.settingPanel__container__items{@apply relative flex justify-start flex-col mt-5 rounded-2xl bg-[#191A1F] first:mt-0;}
+.settingPanel__container__items__item{@apply relative flex justify-between items-center max-h-[52px] py-4 mx-3 border-b border-b-[#E4FCFF]/5 cursor-pointer last:border-0;}
+.settingPanel__container__items__icon svg{@apply w-5 h-5 text-white;}
+.settingPanel__container__items__title{@apply flex justify-start items-center gap-3;}
+.settingPanel__container__items__title span{@apply font-normal text-sm leading-5 text-white;}
 .settingPanel__container__items__right{@apply flex items-center justify-center gap-4;}
 .settingPanel__container__items__right span{@apply text-sm font-bold leading-6 text-[#6C727F];}
-.settingPanel__container__items__right svg{@apply text-[#6C727F];}
+.settingPanel__container__items__right svg{@apply w-5 h-5 text-[#6C727F];}
+.settingPanel__container__items__right .notification__count{@apply flex justify-center items-center w-5 h-5 text-xs font-normal text-white rounded-full bg-theme-danger;}
 
 .languages__list{@apply flex items-start justify-start flex-col gap-4;}
 .languages__item{@apply flex items-center justify-between w-full p-5 rounded-3xl border border-solid border-theme-gray bg-white cursor-pointer;}
@@ -141,26 +137,47 @@ body{@apply font-inter bg-gray-400 overflow-hidden;}
 .form__input .btn__clear{@apply absolute right-2;}
 .invalid__feedback{@apply mt-1 text-xs text-[#F84960];}
 
-.combo__control{@apply relative flex flex-col w-full;}
-.combo__control input{@apply w-full h-10 px-2 text-sm text-[#E6E8EA] border border-[#474D57] rounded-sm outline-none appearance-none;}
-/* .combo__control img{@apply absolute top-0 right-3;} */
-.combo__layer{@apply mt-1 py-3 px-3 rounded-sm bg-[#2B2F36];}
-.combo__search{@apply relative;}
-.combo__search input{@apply w-full h-10 pl-8 pr-2 text-sm text-[#E6E8EA] border border-[#474D57] rounded-sm outline-none appearance-none;}
-.combo__search .btn__search{@apply absolute top-1/2 left-2 -translate-y-1/2;}
-.combo__search .btn__search img{@apply w-6;}
-.combo__content{@apply mt-4;}
-
-.table__container table{@apply w-full;}
-.table__container th{@apply min-h-10 h-10 align-middle;}
-.table__container th div{@apply flex items-center justify-start font-inter text-xs font-normal text-gray-500;}
-
 .coin__box__container{@apply w-full py-3.5 px-3 rounded-2xl bg-[#24252C];}
 .coin__box__container h4{@apply text-sm font-normal leading-5 text-white opacity-50;}
 .coin__box__price{@apply mt-[26px];}
 .coin__box__price h5{@apply text-[32px] font-semibold leading-[38px] text-white;}
 .coin__box__price p{@apply mt-1 text-sm font-normal leading-5 text-white opacity-50;}
 .coin__button__container{@apply flex mt-4 gap-2.5;}
+
+.notification__list__container__items{@apply relative flex flex-col justify-start gap-3;}
+.notification__list__container__item{@apply relative flex justify-start items-start py-4 px-3 rounded-2xl bg-[#191A1F] gap-3;}
+.notification__list__container__item__icon{@apply flex items-center justify-center w-9 h-9 rounded-full bg-[#24252C];}
+.notification__list__container__item__icon svg{@apply w-5 h-5 text-white;}
+.notification__list__container__item__text h4{@apply flex justify-between items-center text-sm font-medium leading-5 text-white;}
+.notification__list__container__item.unread{@apply cursor-pointer;}
+.notification__list__container__item.unread .unread__dot{@apply w-2 h-2 rounded-full bg-[#D9304E];}
+.notification__list__container__item__text p{@apply text-sm font-normal leading-5 text-[#6C737B];}
+.notification__list__container__item__text span{@apply mt-2 text-sm font-normal leading-5 text-[#6C737B];}
+
+.popup{@apply absolute top-0 left-0 w-full h-full bg-[#0F0F0F]/80 overflow-x-hidden overflow-y-auto outline-0 z-[1055];}
+.popup__dialog{@apply absolute bottom-0 w-full pointer-events-none;}
+.popup__content{@apply relative w-full rounded-tl-2xl rounded-tr-2xl bg-[#191D27] bg-clip-padding outline-0;}
+
+.betPanel__container{@apply px-5;}
+
+.timer__row{@apply flex justify-between w-full gap-2;}
+.timer__container .item{@apply flex items-center justify-center flex-col w-full h-auto py-1.5 text-xs text-white text-center rounded-sm bg-[#24252C] cursor-pointer;}
+.timer__container .item span{@apply text-xl font-bold text-[#F0B90B];}
+.timer__container .item.active{@apply text-white bg-theme-main;}
+
+.tabs{@apply flex items-center justify-start p-1.5 rounded-xl bg-[#161C22] gap-2;}
+.tabs .tab__item{@apply flex items-center justify-center w-full h-9 text-sm font-light text-white text-center rounded-xl flex-1 cursor-pointer;}
+.tabs .tab__item.active{@apply bg-[#24252C];}
+
+
+
+
+
+
+
+
+
+
 
 
 

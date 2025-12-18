@@ -10,7 +10,7 @@ import type { ChangePsswordFormData } from "../../schemas/changePasswordSchema";
 const ChangePassword = () => {
     const { t } = useTranslation();
     const { register, handleSubmit, formState: { errors } } = useForm<ChangePsswordFormData>({
-        resolver: yupResolver(changePasswordSchema),
+        resolver: yupResolver(changePasswordSchema(t)),
     });
 
     const handleChangePassword = async (data: ChangePsswordFormData) => {
@@ -21,17 +21,17 @@ const ChangePassword = () => {
             <div className="auth__form">
                 <form onSubmit={handleSubmit(handleChangePassword)} autoComplete="off">
                     <div className="auth__form__container">
-                        <TextField type="text" fullWidth label="Current Psssword"
+                        <TextField type="text" fullWidth label={t('changePassword.old_password')}
                             error={!!errors.current_password}
                             helperText={errors.current_password?.message}
                             {...register("current_password")}
                         />
-                        <TextField type="text" fullWidth label="New Psssword"
+                        <TextField type="text" fullWidth label={t('changePassword.new_password')}
                             error={!!errors.new_password}
                             helperText={errors.new_password?.message}
                             {...register("new_password")}
                         />
-                        <TextField type="text" fullWidth label="Confirm Psssword"
+                        <TextField type="text" fullWidth label={t('changePassword.confirm_password')}
                             error={!!errors.confirm_password}
                             helperText={errors.confirm_password?.message}
                             {...register("confirm_password")}

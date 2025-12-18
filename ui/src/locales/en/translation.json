@@ -5,14 +5,19 @@
         "referralcode": "Referral Code",
         "changepassword": "Change Password",
         "home": "Dashboard",
-        "profile": "Profile",
+        "account": "Account",
         "order": "Order",
-        "market": "Markets"
+        "market": "Markets",
+        "notification": "Notifications",
+        "bank": "Bank Details",
+        "history": "History"
     },
     "account": {
+        "referralcode": "Referral Code",
         "history": "History",
         "bank": "Bank Details",
         "changepassword": "Change Password",
+        "notification": "Notifications",
         "language": "Language",
         "settings": "Settings",
         "logout": "Logout"
@@ -27,6 +32,22 @@
         "new_password": "New Password",
         "confirm_password": "Confirm Password",
         "button": "Change Password"
+    },
+    "changePassword_validation": {
+        "current_password_required": "Current password is required",
+        "new_password_required": "New password is required",
+        "new_password_min": "Password must be at least 8 characters",
+        "confirm_password_required": "Confirm password is required",
+        "confirm_password_oneOf": "Passwords do not match"
+    },
+    "bank": {
+        "bank_name": "Bank Name",
+        "bank_account": "Bank Account",
+        "button": "Add Bank"
+    },
+    "bank_validation": {
+        "bank_name_required": "Bank name is required",
+        "bank_account_required": "Bank account is required"
     },
     "tab": {
         "home": "Home",

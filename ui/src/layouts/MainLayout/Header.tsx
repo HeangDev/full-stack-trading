@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from "react-router"
 import { useTranslation } from "react-i18next";
-import IcBack from "../../assets/img/ic/ic_arrow.png"
+import { Icon } from "@iconify/react"
 
 const Header = () => {
     const location = useLocation();
@@ -13,13 +13,16 @@ const Header = () => {
         "/setting": "header.settings",
         "/referral_code": "header.referralcode",
         "/change_password": "header.changepassword",
+        "/notification": "header.notification",
+        "/bank": "header.bank",
+        "/history": "header.history",
     }
 
     // paths that show left title (NO BACK BUTTON)
     const leftHeaderText: Record<string, string> = {
         "/home": "header.home",
         "/market": "header.market",
-        "/account": "header.profile",
+        "/account": "header.account",
         "/order": "header.order"
     }
 
@@ -39,6 +42,15 @@ const Header = () => {
     const showLeftTitle = !!leftTitle;
     const showBackButton = !showLeftTitle; // mutually exclusive
 
+    const showBellIcon = [
+        "/home",
+        "/market",
+        "/order",
+        "/account"
+    ].some(path => location.pathname.startsWith(path))
+
+    const showCalendarIcon = location.pathname.startsWith("/history")
+
     return (
         <>
             <div className="header">
@@ -48,12 +60,25 @@ const Header = () => {
                             {showLeftTitle && <h4>{leftTitle}</h4>}
                             {showBackButton && (
                                 <div onClick={() => navigate(-1)} className="header__btn__back">
-                                    <img src={IcBack}/>
+                                    <Icon icon="solar:arrow-left-linear"/>
                                 </div>
                             )}
                         </div>
                         <div className="header__content__center">
                             <h4>{centerTitle}</h4>
+                        </div>
+                        <div className="header__content__right">
+                            {showBellIcon && (
+                                <div onClick={() => navigate("/notification")} className="header__btn__back">
+                                    <Icon icon="solar:bell-linear"/>
+                                    <div className="notification__dot"></div>
+                                </div>
+                            )}
+                            {showCalendarIcon && (
+                                <div className="header__btn__back">
+                                    <Icon icon="solar:calendar-linear"/>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
