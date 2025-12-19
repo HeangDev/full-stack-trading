@@ -8,6 +8,7 @@ import TabPanel from "../../components/Tab/TabPanel"
 
 import ImgNoData from "../../assets/img/bg/bg_nodata.png"
 
+import { Icon } from "@iconify/react"
 import { useTranslation } from 'react-i18next'
 
 const History = () => {
@@ -24,6 +25,38 @@ const History = () => {
                     </TabList>
 
                     <TabPanel value="1">
+                        <div className="transactions__list__container">
+                            <div className="transactions__list__container__items">
+                                <div className="transactions__list__container__item">
+                                    <div className="transactions__list__container__item__left">
+                                        <div className="transactions__icon">
+                                            <Icon icon="solar:arrow-down-linear"/>
+                                        </div>
+                                    </div>
+                                    <div className="transactions__list__container__item__right">
+                                        <div className="transactions__title">
+                                            <h4>Withdrawal</h4>
+                                            <span>Aug 12, 2025 · 8:42 AM</span>
+                                        </div>
+                                        <h4>+$180.00</h4>
+                                    </div>
+                                </div>
+                                <div className="transactions__list__container__item">
+                                    <div className="transactions__list__container__item__left">
+                                        <div className="transactions__icon">
+                                            <Icon icon="solar:arrow-down-linear"/>
+                                        </div>
+                                    </div>
+                                    <div className="transactions__list__container__item__right">
+                                        <div className="transactions__title">
+                                            <h4>Withdrawal</h4>
+                                            <span>Aug 12, 2025 · 8:42 AM</span>
+                                        </div>
+                                        <h4>+$100.00</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div className="nodata__container">
                             <div className="nodata__img">
                                 <img src={ImgNoData}/>
@@ -35,6 +68,38 @@ const History = () => {
                         </div>
                     </TabPanel>
                     <TabPanel value="2">
+                        <div className="transactions__list__container">
+                            <div className="transactions__list__container__items">
+                                <div className="transactions__list__container__item">
+                                    <div className="transactions__list__container__item__left">
+                                        <div className="transactions__icon">
+                                            <Icon icon="solar:arrow-up-linear"/>
+                                        </div>
+                                    </div>
+                                    <div className="transactions__list__container__item__right">
+                                        <div className="transactions__title">
+                                            <h4>Withdrawal</h4>
+                                            <span>Aug 12, 2025 · 8:42 AM</span>
+                                        </div>
+                                        <h4>+$180.00</h4>
+                                    </div>
+                                </div>
+                                <div className="transactions__list__container__item">
+                                    <div className="transactions__list__container__item__left">
+                                        <div className="transactions__icon">
+                                            <Icon icon="solar:arrow-up-linear"/>
+                                        </div>
+                                    </div>
+                                    <div className="transactions__list__container__item__right">
+                                        <div className="transactions__title">
+                                            <h4>Withdrawal</h4>
+                                            <span>Aug 12, 2025 · 8:42 AM</span>
+                                        </div>
+                                        <h4>+$100.00</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div className="nodata__container">
                             <div className="nodata__img">
                                 <img src={ImgNoData}/>

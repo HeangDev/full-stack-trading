@@ -176,6 +176,18 @@ body{@apply font-inter bg-gray-400 overflow-hidden;}
 .tabs .tab__item.active{@apply bg-[#24252C];}
 
 .historyPanel__container{@apply mt-5;}
+.transactions__list__container{@apply mt-5;}
+.transactions__list__container__items{@apply relative flex flex-col justify-start gap-3;}
+.transactions__list__container__item{@apply flex justify-start items-start gap-3;}
+.transactions__list__container__item:last-child .transactions__list__container__item__right{@apply border-none;}
+.transactions__list__container__item__left{@apply flex justify-between items-start py-4 gap-3;}
+.transactions__list__container__item__right{@apply flex justify-between items-start w-full py-4 border-b border-b-[#E4FCFF]/7;}
+.transactions__list__container__item .transactions__icon{@apply flex items-center justify-center w-9 h-9 rounded-full bg-[#24252C];}
+.transactions__list__container__item .transactions__icon svg{@apply w-5 h-5 text-white;}
+.transactions__list__container__item .transactions__title h4{@apply text-sm font-medium leading-5 text-white;}
+.transactions__list__container__item .transactions__title span{@apply text-sm font-normal leading-5 text-[#6C737B];}
+.transactions__list__container__item .transactions__list__container__item__right h4{@apply text-sm font-medium leading-5 text-white;}
+
 .orderPanel__container{@apply mt-5;}
 
 
