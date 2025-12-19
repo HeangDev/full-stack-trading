@@ -10,7 +10,9 @@
         "market": "市场",
         "notification": "通知",
         "bank": "银行信息",
-        "history": "历史记录"
+        "history": "历史记录",
+        "deposit": "充值",
+        "withdraw": "提现"
     },
     "account": {
         "referralcode": "推荐码",
@@ -81,5 +83,15 @@
     "nodata": {
         "nodata_empty_title": "暂无数据",
         "nodata_empty_dec": "目前没有可显示的数据"
+    },
+    "market": {
+        "balance": "余额",
+        "deposit": "充值",
+        "withdraw": "提现",
+        "assets": "资产"
+    },
+    "order": {
+        "buy_sell": "买卖订单",
+        "record": "交易记录"
     }
 }

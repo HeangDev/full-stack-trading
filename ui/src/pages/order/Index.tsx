@@ -17,8 +17,8 @@ const Index = () => {
             <div className="orderPanel__container">
                 <TabContextProvider value={value} onChange={setValue}>
                     <TabList>
-                        <Tab label="Buy/Sell Order" value="1" />
-                        <Tab label="Trading Record" value="2" />
+                        <Tab label={t('order.buy_sell')} value="1" />
+                        <Tab label={t('order.record')} value="2" />
                     </TabList>
 
                     <TabPanel value="1">

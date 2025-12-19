@@ -16,6 +16,8 @@ const Header = () => {
         "/notification": "header.notification",
         "/bank": "header.bank",
         "/history": "header.history",
+        "/deposit": "header.deposit",
+        "/withdraw": "header.withdraw"
     }
 
     // paths that show left title (NO BACK BUTTON)

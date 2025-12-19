@@ -10,7 +10,9 @@
         "market": "Markets",
         "notification": "Notifications",
         "bank": "Bank Details",
-        "history": "History"
+        "history": "History",
+        "deposit": "Deposit",
+        "withdraw": "Withdraw"
     },
     "account": {
         "referralcode": "Referral Code",
@@ -82,5 +84,15 @@
     "nodata": {
         "nodata_empty_title": "No Data",
         "nodata_empty_dec": "There is no data to show you right now"
+    },
+    "market": {
+        "balance": "Balance",
+        "deposit": "Deposit",
+        "withdraw": "Withdraw",
+        "assets": "Assets"
+    },
+    "order": {
+        "buy_sell": "Buy/Sell Order",
+        "record": "Trading Record"
     }
 }

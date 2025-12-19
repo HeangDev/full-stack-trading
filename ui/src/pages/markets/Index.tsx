@@ -2,6 +2,7 @@ import React from 'react'
 import Button from '../../components/Button';
 
 import { useNavigate } from "react-router";
+import { useTranslation } from 'react-i18next'
 import { formatToSIPrefix } from '../../utils/currencyFormat';
 
 interface Coin {
@@ -14,6 +15,7 @@ interface Coin {
 }
 
 const Index = () => {
+    const { t } = useTranslation();
     const [coins, setCoins] = React.useState<Coin[]>([]);
     const [loading, setLoading] = React.useState(true);
     const navigate = useNavigate();
@@ -42,20 +44,20 @@ const Index = () => {
         <>
             <div className="coin__activity__container">
                 <div className="coin__box__container">
-                    <h4>Balance</h4>
+                    <h4>{t('market.balance')}</h4>
                     <div className="coin__box__price">
                         <h5>$15,320.45</h5>
                         <p>+$0.36 <span>(+2.34%)</span></p>
                     </div>
                 </div>
                 <div className="coin__button__container">
-                    <Button type="button" onClick={() => navigate("/deposit")} color="secondary">Deposit</Button>
-                    <Button type="button" onClick={() => navigate("/withdraw")} color="secondary">Withdraw</Button>
+                    <Button type="button" onClick={() => navigate("/deposit")} color="secondary">{t('market.deposit')}</Button>
+                    <Button type="button" onClick={() => navigate("/withdraw")} color="secondary">{t('market.withdraw')}</Button>
                 </div>
             </div>
             <div className="coin__list__container">
                 <div className="coin__list__container__title">
-                    <h4>Assets</h4>
+                    <h4>{t('market.assets')}</h4>
                 </div>
                 <div className="coin__list__container__items">
                     {loading ? (

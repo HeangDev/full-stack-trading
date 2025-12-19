@@ -78,7 +78,7 @@ const History = () => {
                                     </div>
                                     <div className="transactions__list__container__item__right">
                                         <div className="transactions__title">
-                                            <h4>Withdrawal</h4>
+                                            <h4>Deposit</h4>
                                             <span>Aug 12, 2025 · 8:42 AM</span>
                                         </div>
                                         <h4>+$180.00</h4>
@@ -92,7 +92,7 @@ const History = () => {
                                     </div>
                                     <div className="transactions__list__container__item__right">
                                         <div className="transactions__title">
-                                            <h4>Withdrawal</h4>
+                                            <h4>Deposit</h4>
                                             <span>Aug 12, 2025 · 8:42 AM</span>
                                         </div>
                                         <h4>+$100.00</h4>
