@@ -73,5 +73,9 @@
         "buttonName": "注册",
         "footerText": "还没有账号吗？",
         "footerLink": "登录"
+    },
+    "notification": {
+        "notification_empty_title": "没有通知",
+        "notification_empty_dec": "通知收件箱为空"
     }
 }

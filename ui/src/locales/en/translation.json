@@ -74,5 +74,9 @@
         "buttonName": "Sign Up",
         "footerText": "Dont’s have an account?",
         "footerLink": "Login"
+    },
+    "notification": {
+        "notification_empty_title": "No Notifications",
+        "notification_empty_dec": "Notification Inbox Empty"
     }
 }
