@@ -8,7 +8,10 @@ import TabPanel from "../../components/Tab/TabPanel"
 
 import ImgNoData from "../../assets/img/bg/bg_nodata.png"
 
+import { useTranslation } from 'react-i18next'
+
 const History = () => {
+    const { t } = useTranslation();
     const [open, setOpen] = React.useState(false)
     const [value, setValue] = React.useState('1');
     return (
@@ -26,8 +29,8 @@ const History = () => {
                                 <img src={ImgNoData}/>
                             </div>
                             <div className="nodata__title">
-                                <h4>No Data</h4>
-                                <p>There is no data to show you right now</p>
+                                <h4>{t('nodata.nodata_empty_title')}</h4>
+                                <p>{t('nodata.nodata_empty_dec')}</p>
                             </div>
                         </div>
                     </TabPanel>
@@ -37,8 +40,8 @@ const History = () => {
                                 <img src={ImgNoData}/>
                             </div>
                             <div className="nodata__title">
-                                <h4>No Data</h4>
-                                <p>There is no data to show you right now</p>
+                                <h4>{t('nodata.nodata_empty_title')}</h4>
+                                <p>{t('nodata.nodata_empty_dec')}</p>
                             </div>
                         </div>
                     </TabPanel>

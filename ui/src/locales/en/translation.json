@@ -78,5 +78,9 @@
     "notification": {
         "notification_empty_title": "No Notifications",
         "notification_empty_dec": "Notification Inbox Empty"
+    },
+    "nodata": {
+        "nodata_empty_title": "No Data",
+        "nodata_empty_dec": "There is no data to show you right now"
     }
 }
