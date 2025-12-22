@@ -6,6 +6,7 @@ import Popup from "../../components/Popup";
 import { useTranslation } from 'react-i18next'
 import { formatToSIPrefix } from '../../utils/currencyFormat';
 import { Icon } from '@iconify/react';
+import bgAssets from '../../assets/img/bg/bg_total_assets.png';
 
 const Deposit = () => {
     const { t } = useTranslation()
@@ -16,7 +17,7 @@ const Deposit = () => {
     return (
         <>
             <div className="deposit__container">
-                <div className="balance__assets">
+                <div className="balance__assets" style={{ backgroundImage: `url(${bgAssets})` }}>
                     <div className="balance__assets__header">
                         <Icon icon="solar:wallet-money-bold" />
                         <p>{t('deposit.balance')}</p>

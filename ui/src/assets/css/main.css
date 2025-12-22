@@ -189,7 +189,7 @@ body,html{@apply flex justify-center w-full h-full m-0 p-0 font-inter text-justi
 .transactions__list__container__item .transactions__title span{@apply text-sm font-normal leading-5 text-[#6C737B];}
 .transactions__list__container__item .transactions__list__container__item__right h4{@apply text-sm font-medium leading-5 text-white;}
 
-.balance__assets{@apply relative w-full h-36 mb-4 pt-3.5 px-3 text-white rounded-[10px] bg-[url('../src/assets/img/bg/bg_total_assets.png')] bg-no-repeat bg-center bg-cover;}
+.balance__assets{@apply relative w-full h-36 mb-4 pt-3.5 px-3 text-white rounded-[10px] bg-no-repeat bg-center bg-cover;}
 .balance__assets__header{@apply flex items-center h-5 text-xs font-normal;}
 .balance__assets__header svg{@apply w-4 h-4 mr-2;}
 .balance__assets__main{@apply flex items-center mt-2 mr-3.5 mb-3.5 text-2xl font-bold;}
