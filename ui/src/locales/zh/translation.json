@@ -66,15 +66,28 @@
         "footerText": "已经有账号了吗？",
         "footerLink": "注册"
     },
+    "login_validation": {
+        "username_required": "用户名为必填项",
+        "password_required": "密码为必填项"
+    },
     "signup": {
         "title": "开始使用",
         "subtitle": "创建一个账户以继续！",
         "username": "用户名",
         "password": "密码",
+        "withdraw_code": "提现码",
+        "referral_code": "推荐码",
         "confirmPassword": "确认密码",
         "buttonName": "注册",
-        "footerText": "还没有账号吗？",
+        "footerText": "还没有账户？",
         "footerLink": "登录"
+    },
+    "signup_validation": {
+        "username_required": "用户名为必填项",
+        "password_required": "密码为必填项",
+        "confirm_password_required": "确认密码为必填项",
+        "confirm_password_oneOf": "两次输入的密码必须一致",
+        "withdraw_code_required": "提现码为必填项"
     },
     "notification": {
         "notification_empty_title": "没有通知",
@@ -103,6 +116,14 @@
         "instruction_3": "如果转账金额错误，我们不对任何资金损失负责！",
         "instruction_4": "注意：转账完成后请勿取消充值订单。",
         "submit": "充值"
+    },
+    "withdarw": {
+        "balance": "余额",
+        "amount": "提现金额",
+        "code": "提现码",
+        "fee": "提现手续费",
+        "reason": "提现原因",
+        "submit": "提现"
     },
     "withdarw_validation": {
         "withdarw_amount_required": "提现金额为必填项",

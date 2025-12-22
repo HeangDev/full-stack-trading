@@ -72,8 +72,8 @@ body,html{@apply flex justify-center w-full h-full m-0 p-0 font-inter text-justi
 .settingPanel__container__items__right .notification__count{@apply flex justify-center items-center w-5 h-5 text-xs font-normal text-white rounded-full bg-theme-danger;}
 
 .languages__list{@apply flex items-start justify-start flex-col gap-4;}
-.languages__item{@apply flex items-center justify-between w-full p-5 rounded-3xl border border-solid border-theme-gray bg-white cursor-pointer;}
-.languages__item.active{@apply bg-theme-primary;}
+.languages__item{@apply flex items-center justify-between w-full p-5 rounded-3xl bg-white cursor-pointer;}
+.languages__item.active{@apply bg-linear-to-t from-[#F0B90B] to-[#F8D12F];}
 .languages__item__title{@apply flex items-center justify-start gap-4;}
 .languages__item__title span{@apply text-sm font-bold leading-6 text-gray-900;}
 .languages__item.active span{@apply text-white;}

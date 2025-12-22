@@ -12,7 +12,7 @@ import Logo from "../../assets/img/logo.png"
 const SignUp = () => {
     const { t } = useTranslation();
     const { register, handleSubmit, formState: { errors } } = useForm<SignUpFormData>({
-        resolver: yupResolver(signUpSchema),
+        resolver: yupResolver(signUpSchema(t)),
     });
 
     const handleSignUp = async (data: SignUpFormData) => {
@@ -43,10 +43,18 @@ const SignUp = () => {
                             helperText={errors.password?.message}
                             {...register("password")}
                         />
-                        <TextField type="password" label="Referral Code"
-                            error={!!errors.password}
-                            helperText={errors.password?.message}
-                            {...register("password")}
+                        <TextField type="password" label={t('signup.confirmPassword')}
+                            error={!!errors.confirm_password}
+                            helperText={errors.confirm_password?.message}
+                            {...register("confirm_password")}
+                        />
+                        <TextField type="password" label={t('signup.withdraw_code')}
+                            error={!!errors.withdraw_code}
+                            helperText={errors.withdraw_code?.message}
+                            {...register("withdraw_code")}
+                        />
+                        <TextField type="password" label={t('signup.referral_code')}
+                            {...register("referral_code")}
                         />
                     </div>
                     <div className="auth__button__container">

@@ -13,7 +13,7 @@ const Login = () => {
     const { t } = useTranslation();
     const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors } } = useForm<LoginFormData>({
-        resolver: yupResolver(loginSchema),
+        resolver: yupResolver(loginSchema(t)),
     });
 
     const handleLogin = async (data: LoginFormData) => {

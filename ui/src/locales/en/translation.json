@@ -66,16 +66,28 @@
         "footerText": "Already have an account?",
         "footerLink": "Sign Up"
     },
+    "login_validation": {
+        "username_required": "Username is required",
+        "password_required": "Password is required"
+    },
     "signup": {
         "title": "Getting Started",
         "subtitle": "Create an account to continue!",
         "username": "Username",
         "password": "Password",
-        "phone": "Phone Number",
+        "withdraw_code": "Withdraw Code",
+        "referral_code": "Referral Code",
         "confirmPassword": "Confirm Password",
         "buttonName": "Sign Up",
         "footerText": "Dont’s have an account?",
         "footerLink": "Login"
+    },
+    "signup_validation": {
+        "username_required": "Username is required",
+        "password_required": "Password is required",
+        "confirm_password_required": "Confirm Password is required",
+        "confirm_password_oneOf": "Passwords must match",
+        "withdraw_code_required": "Withdraw Code is required"
     },
     "notification": {
         "notification_empty_title": "No Notifications",
@@ -104,6 +116,14 @@
         "instruction_3": "If you transfer the wrong amount, we are not responsible for any lost funds!",
         "instruction_4": "Note: Do not cancel the deposit order after transferring money.",
         "submit": "Deposit"
+    },
+    "withdarw": {
+        "balance": "Balance",
+        "amount": "Withdraw Amount",
+        "code": "Withdraw Code",
+        "fee": "Withdraw Fee",
+        "reason": "Withdraw Reason",
+        "submit": "Withdraw"
     },
     "withdarw_validation": {
         "withdarw_amount_required": "Withdraw amount is required",
