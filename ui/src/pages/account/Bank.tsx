@@ -32,8 +32,10 @@ const Bank = () => {
                             {...register("bank_account")}
                         />
                     </div>
-                    <div className="auth__button__container">
-                        <Button type="submit" color="primary">{t('bank.button')}</Button>
+                    <div className="buttonPanel__fixed__container">
+                        <div className="buttonPanel__fixed__box">
+                            <Button type="submit" color="primary">{t('bank.button')}</Button>
+                        </div>
                     </div>
                 </form>
             </div>

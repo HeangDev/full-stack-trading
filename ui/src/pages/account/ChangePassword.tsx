@@ -37,8 +37,10 @@ const ChangePassword = () => {
                             {...register("confirm_password")}
                         />
                     </div>
-                    <div className="auth__button__container">
-                        <Button type="submit" color="primary">{t('changePassword.button')}</Button>
+                    <div className="buttonPanel__fixed__container">
+                        <div className="buttonPanel__fixed__box">
+                            <Button type="submit" color="primary">{t('changePassword.button')}</Button>
+                        </div>
                     </div>
                 </form>
             </div>

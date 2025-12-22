@@ -14,13 +14,14 @@
     --color-theme-green: #F3FBED;
     --font-inter: "Inter", sans-serif;
     --font-IBM: "IBM Plex Sans", sans-serif;
+    --theme-screen: "500px"
 }
 
 input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0;}
 
 body,html{@apply flex justify-center w-full h-full m-0 p-0 font-inter text-justify bg-[#9195a3] select-none overflow-hidden;}
 .wrap{@apply relative w-[500px] min-h-screen h-fit bg-theme-main;}
-.content{@apply max-h-screen h-screen pt-[50px] px-5 pb-16 overflow-y-scroll;}
+.content{@apply max-h-screen h-screen pt-16 px-3 pb-16 overflow-y-scroll;}
 
 ::-webkit-scrollbar{@apply hidden w-1 h-1 bg-[#f4f5f7];}
 ::-webkit-scrollbar-thumb{@apply rounded-xs bg-gray-400/20;}
@@ -28,17 +29,17 @@ body,html{@apply flex justify-center w-full h-full m-0 p-0 font-inter text-justi
 
 .header{@apply fixed top-0 w-[500px] h-[50px] z-10;}
 .header__inner{@apply bg-theme-main select-none;}
-.header__content{@apply relative flex items-center justify-center px-5 h-[50px];}
-.header__content__left{@apply absolute top-0 left-6 flex items-center justify-center h-full;}
+.header__content{@apply relative flex items-center justify-center px-3 h-[50px];}
+.header__content__left{@apply absolute top-0 left-3 flex items-center justify-center h-full;}
 .header__btn__back{@apply relative cursor-pointer;}
 .header__btn__back svg{@apply w-6 h-6 text-white;}
 .header__content__left h4{@apply text-base font-medium leading-7 text-white;}
 .header__content__center h4{@apply text-sm font-normal leading-7 text-white;}
-.header__content__right{@apply absolute right-5;}
+.header__content__right{@apply absolute right-3;}
 .header__content__right svg{@apply w-6 h-6 text-white;}
 .header__content__right .notification__dot{@apply absolute top-0 right-1 w-2.5 h-2.5 rounded-full border border-theme-main bg-theme-danger;}
 
-.tabbar{@apply fixed bottom-0 flex items-end justify-between w-[500px] h-16 pt-3.5 px-5 text-xs bg-theme-main;}
+.tabbar{@apply fixed bottom-0 flex items-end justify-between w-[500px] h-16 pt-3.5 px-3 text-xs bg-theme-main;}
 .tabbar__item{@apply flex flex-col items-center justify-end text-gray-500 font-normal cursor-pointer;}
 .tabbar__item span{@apply mt-1.5;}
 .tabbar__item.on span{@apply text-white;}
@@ -54,7 +55,7 @@ body,html{@apply flex justify-center w-full h-full m-0 p-0 font-inter text-justi
 .auth__footer p{@apply text-sm font-normal leading-6 text-[#929AA5] text-center;}
 .auth__footer p a{@apply text-white hover:underline;}
 
-.profilePanel__container{@apply flex items-center justify-start mt-5 gap-6;}
+.profilePanel__container{@apply flex items-center justify-start gap-6;}
 .profilePanel__container__img img{@apply w-20 rounded-full;}
 .profilePanel__container__name h4{@apply text-lg font-bold leading-7 text-white;}
 .profilePanel__container__name p{@apply mt-1 text-sm font-normal leading-6 text-theme-secondary;}
@@ -123,7 +124,7 @@ body,html{@apply flex justify-center w-full h-full m-0 p-0 font-inter text-justi
 .btn{@apply flex items-center justify-center w-full h-10 text-sm font-medium rounded-sm cursor-pointer;}
 .btn__disabled{@apply text-[#5E6673] bg-[#2B2F36] pointer-events-none;}
 .btn__primary{@apply text-gray-800 bg-linear-to-t from-[#F0B90B] to-[#F8D12F] hover:bg-[#F8D12F];}
-.btn__danger{@apply text-white bg-[#D9304E] hover:bg-[#F84960];}
+.btn__danger{@apply text-white bg-theme-danger hover:bg-[#F84960];}
 .btn__success{@apply text-white bg-[#02C076] hover:bg-[#2ED191];}
 .btn__secondary{@apply text-white bg-[#24252C];}
 .btn__secondary__outlined{@apply text-white border border-[#474D57] bg-transparent hover:border-[#6A4C0C] hover:bg-[#281F0B];}
@@ -144,7 +145,6 @@ body,html{@apply flex justify-center w-full h-full m-0 p-0 font-inter text-justi
 .coin__box__price p{@apply mt-1 text-sm font-normal leading-5 text-white opacity-50;}
 .coin__button__container{@apply flex mt-4 gap-2.5;}
 
-.notification__list__container{@apply mt-5;}
 .notification__list__container__items{@apply relative flex flex-col justify-start gap-3;}
 .notification__list__container__item{@apply relative flex justify-start items-start py-4 px-3 rounded-2xl bg-[#191A1F] gap-3;}
 .notification__list__container__item__icon{@apply flex items-center justify-center w-9 h-9 rounded-full bg-[#24252C];}
@@ -152,7 +152,7 @@ body,html{@apply flex justify-center w-full h-full m-0 p-0 font-inter text-justi
 .notification__list__container__item__text{@apply w-full;}
 .notification__list__container__item__text h4{@apply flex justify-between items-center text-sm font-medium leading-5 text-white;}
 .notification__list__container__item.unread{@apply cursor-pointer;}
-.notification__list__container__item.unread .unread__dot{@apply w-2 h-2 rounded-full bg-[#D9304E];}
+.notification__list__container__item.unread .unread__dot{@apply w-2 h-2 rounded-full bg-theme-danger;}
 .notification__list__container__item__text p{@apply text-sm font-normal leading-5 text-[#6C737B];}
 .notification__list__container__item__text span{@apply mt-2 text-sm font-normal leading-5 text-[#6C737B];}
 
@@ -175,7 +175,6 @@ body,html{@apply flex justify-center w-full h-full m-0 p-0 font-inter text-justi
 .tabs .tab__item{@apply flex items-center justify-center w-full h-9 text-sm font-light text-white text-center rounded-xl flex-1 cursor-pointer;}
 .tabs .tab__item.active{@apply bg-[#24252C];}
 
-.historyPanel__container{@apply mt-5;}
 .transactions__list__container{@apply mt-5;}
 .transactions__list__container__items{@apply relative flex flex-col justify-start gap-3;}
 .transactions__list__container__item{@apply flex justify-start items-start gap-3;}
@@ -188,10 +187,14 @@ body,html{@apply flex justify-center w-full h-full m-0 p-0 font-inter text-justi
 .transactions__list__container__item .transactions__title span{@apply text-sm font-normal leading-5 text-[#6C737B];}
 .transactions__list__container__item .transactions__list__container__item__right h4{@apply text-sm font-medium leading-5 text-white;}
 
-.orderPanel__container{@apply mt-5;}
+.balance__assets{@apply relative w-full h-36 mb-4 pt-3.5 px-3 text-white rounded-[10px] bg-[url('../src/assets/img/bg/bg_total_assets.png')] bg-no-repeat bg-center bg-cover;}
+.balance__assets__header{@apply flex items-center h-5 text-xs font-normal;}
+.balance__assets__header svg{@apply w-4 h-4 mr-2;}
+.balance__assets__main{@apply flex items-center mt-2 mr-3.5 mb-3.5 text-2xl font-bold;}
+.balance__assets__main h4{@apply ml-2.5;}
 
-.deposit__container{@apply relative w-full mt-5;}
-.deposit__content{@apply mt-2.5 mb-4 py-4 px-3 rounded-[10px] bg-[#24252C];}
+.deposit__container{@apply relative w-full;}
+.deposit__content{@apply mb-4 py-4 px-3 rounded-[10px] bg-[#24252C];}
 .deposit__content__title{@apply flex mb-3 text-base font-bold leading-5 text-white;}
 .deposit__content__list{@apply flex flex-wrap mb-2.5 gap-1.5;}
 .deposit__content__list__item{@apply w-[calc((100%-12px)/3)];}
@@ -199,18 +202,18 @@ body,html{@apply flex justify-center w-full h-full m-0 p-0 font-inter text-justi
 
 .deposit__container__intro__lists{@apply rounded-[10px] pt-1.5 pl-2.5 pb-1.5 pr-4 border border-solid border-gray-300/25;}
 .deposit__container__intro__lists p{@apply relative my-2 pl-3 text-xs font-normal leading-5 text-left text-white;}
-.deposit__container__intro__lists p::after{@apply content-[""] absolute top-[7px] -left-[2px] w-[5px] h-[5px] bg-white rotate-[42deg];}
+.deposit__container__intro__lists p::after{@apply content-[""] absolute top-[7px] -left-0.5 w-[5px] h-[5px] bg-white rotate-[42deg];}
 
-.deposit__content__fixed{@apply fixed left-0 bottom-0 right-0 -mx-5 z-[100];}
-.deposit__content__fixed__box{@apply flex max-w-[500px] mx-auto py-3 px-5 bg-[#24252C];}
-.deposit__content__fixed__box button span{@apply ml-2;}
+.buttonPanel__fixed__container{@apply fixed left-0 bottom-0 right-0 -mx-5 z-10;}
+.buttonPanel__fixed__box{@apply flex max-w-[500px] mx-auto py-3 px-3 bg-[#24252C];}
+.buttonPanel__fixed__box button span{@apply ml-2;}
 
 @media(max-width:600px){
     .wrap{@apply w-screen;}
     .header{@apply w-full;}
     .tabbar{@apply w-full;}
-    .deposit__content__fixed{@apply left-5 right-5;}
-    .deposit__content__fixed__box{@apply max-w-full;}
+    .buttonPanel__fixed__container{@apply left-5 right-5;}
+    .buttonPanel__fixed__box{@apply max-w-full;}
 }
 
 

@@ -1,7 +1,10 @@
 import React from "react";
-import { useTranslation } from 'react-i18next'
 import Button from "../../components/Button";
 import TextField from "../../components/TextField";
+
+import { useTranslation } from 'react-i18next'
+import { formatToSIPrefix } from '../../utils/currencyFormat';
+import { Icon } from '@iconify/react';
 
 const Deposit = () => {
     const { t } = useTranslation()
@@ -12,7 +15,13 @@ const Deposit = () => {
         <>
             <div className="deposit__container">
                 <div className="balance__assets">
-
+                    <div className="balance__assets__header">
+                        <Icon icon="solar:wallet-money-bold" />
+                        <p>{t('deposit.balance')}</p>
+                    </div>
+                    <div className="balance__assets__main">
+                        <h4>${formatToSIPrefix(10000)}</h4>
+                    </div>
                 </div>
                 <div className="deposit__content">
                     <div className="deposit__content__title">
@@ -37,7 +46,7 @@ const Deposit = () => {
                     </div>
                     <TextField type="text"
                         value={selectedAmount}
-                        placeholder="៛100.00 - ៛50,000.00"
+                        placeholder="$100.00 - $50,000.00"
                         onChange={(e: { target: { value: string; }; }) => setSelectedAmount(e.target.value === '' ? '' : Number(e.target.value))}
                     />
                 </div>
@@ -54,14 +63,14 @@ const Deposit = () => {
                         </div>
                     </div>
                 </div>
-                <div className="deposit__content__fixed">
-                    <div className="deposit__content__fixed__box">
+                <div className="buttonPanel__fixed__container">
+                    <div className="buttonPanel__fixed__box">
                         <Button
                             type="button"
                             color="primary"
                             disabled={!selectedAmount}
                         >
-                            {t('deposit.submit')} {selectedAmount ? <span>៛{selectedAmount}</span> : null}
+                            {t('deposit.submit')} {selectedAmount ? <span>${selectedAmount}</span> : null}
                         </Button>
                     </div>
                 </div>
