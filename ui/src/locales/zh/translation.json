@@ -93,5 +93,15 @@
     "order": {
         "buy_sell": "买卖订单",
         "record": "交易记录"
+    },
+    "deposit": {
+        "balance": "可用余额",
+        "enter_amount": "充值金额",
+        "instruction_title": "充值说明",
+        "instruction_1": "如果转账时间过期，请重新填写充值表单。",
+        "instruction_2": "转账金额必须与创建的订单金额完全一致，否则可能导致充值失败。",
+        "instruction_3": "如果转账金额错误，我们不对任何资金损失负责！",
+        "instruction_4": "注意：转账完成后请勿取消充值订单。",
+        "submit": "充值"
     }
 }
