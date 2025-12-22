@@ -103,5 +103,16 @@
         "instruction_3": "如果转账金额错误，我们不对任何资金损失负责！",
         "instruction_4": "注意：转账完成后请勿取消充值订单。",
         "submit": "充值"
+    },
+    "withdarw_validation": {
+        "withdarw_amount_required": "提现金额为必填项",
+        "withdarw_code_required": "提现码为必填项"
+    },
+    "alert": {
+        "alert_deposit_tit": "您确定要将此金额存入您的账户吗？",
+        "alert_withdraw_tit": "您确定要从您的账户中提现此金额吗？",
+        "alert_logout_tit": "您确定要退出账户吗？",
+        "alert_btn_ok": "是的，我确定",
+        "alert_btn_cancel": "不，取消"
     }
 }

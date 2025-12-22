@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../../components/Button";
 import TextField from "../../components/TextField";
+import Popup from "../../components/Popup";
 
 import { useTranslation } from 'react-i18next'
 import { formatToSIPrefix } from '../../utils/currencyFormat';
@@ -9,6 +10,7 @@ import { Icon } from '@iconify/react';
 const Deposit = () => {
     const { t } = useTranslation()
     const [selectedAmount, setSelectedAmount] = React.useState<number | ''>('');
+    const [openPopup, setOpenPopup] = React.useState(false);
     const amounts = [100, 200, 300, 500, 1000, 5000];
 
     return (
@@ -69,12 +71,29 @@ const Deposit = () => {
                             type="button"
                             color="primary"
                             disabled={!selectedAmount}
+                            onClick={() => setOpenPopup(true)}
                         >
                             {t('deposit.submit')} {selectedAmount ? <span>${selectedAmount}</span> : null}
                         </Button>
                     </div>
                 </div>
             </div>
+
+            <Popup
+                open={openPopup}
+                onClose={() => setOpenPopup(false)}
+            >
+                <div className="alertPanel__container">
+                    <div className="alertPanel__icon">
+                        <Icon icon="solar:danger-circle-linear"/>
+                    </div>
+                    <h4>{t('alert.alert_deposit_tit')}</h4>
+                    <div className="alertPanel__button">
+                        <Button type="button" color="success">{t('alert.alert_btn_ok')}</Button>
+                        <Button type="button" color="secondary" onClick={() => setOpenPopup(false)}>{t('alert.alert_btn_cancel')}</Button>
+                    </div>
+                </div>
+            </Popup>
         </>
     )
 }

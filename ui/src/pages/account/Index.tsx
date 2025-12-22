@@ -1,8 +1,13 @@
+import React from "react";
+import Button from "../../components/Button";
+import Popup from "../../components/Popup";
+
 import { useNavigate } from 'react-router';
 import { Icon } from '@iconify/react';
 import { useTranslation } from 'react-i18next'
 
 const Profile = () => {
+    const [openPopup, setOpenPopup] = React.useState(false);
     const { t, i18n } = useTranslation();
     const currentLang = i18n.language;
     const navigate = useNavigate();
@@ -99,7 +104,7 @@ const Profile = () => {
                         </div>
                     </div>
                 </div>
-                <div className="settingPanel__container__items">
+                <div onClick={() => setOpenPopup(true)} className="settingPanel__container__items">
                     <div className="settingPanel__container__items__item">
                         <div className="settingPanel__container__items__title">
                             <div className="settingPanel__container__items__icon">
@@ -113,6 +118,22 @@ const Profile = () => {
                     </div>
                 </div>
             </div>
+
+            <Popup
+                open={openPopup}
+                onClose={() => setOpenPopup(false)}
+            >
+                <div className="alertPanel__container">
+                    <div className="alertPanel__icon">
+                        <Icon icon="solar:danger-circle-linear"/>
+                    </div>
+                    <h4>{t('alert.alert_logout_tit')}</h4>
+                    <div className="alertPanel__button">
+                        <Button type="button" color="danger">{t('alert.alert_btn_ok')}</Button>
+                        <Button type="button" color="secondary" onClick={() => setOpenPopup(false)}>{t('alert.alert_btn_cancel')}</Button>
+                    </div>
+                </div>
+            </Popup>
         </>
     )
 }

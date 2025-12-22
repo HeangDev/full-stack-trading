@@ -122,7 +122,7 @@ body,html{@apply flex justify-center w-full h-full m-0 p-0 font-inter text-justi
 
 
 .btn{@apply flex items-center justify-center w-full h-10 text-sm font-medium rounded-sm cursor-pointer;}
-.btn__disabled{@apply text-[#5E6673] bg-[#2B2F36] pointer-events-none;}
+.btn__disabled{@apply text-[#5E6673] bg-[#2B2F36] bg-none pointer-events-none;}
 .btn__primary{@apply text-gray-800 bg-linear-to-t from-[#F0B90B] to-[#F8D12F] hover:bg-[#F8D12F];}
 .btn__danger{@apply text-white bg-theme-danger hover:bg-[#F84960];}
 .btn__success{@apply text-white bg-[#02C076] hover:bg-[#2ED191];}
@@ -133,8 +133,10 @@ body,html{@apply flex justify-center w-full h-full m-0 p-0 font-inter text-justi
 .form__control{@apply relative flex flex-col w-full;}
 .form__label{@apply mb-1 text-sm font-normal text-[#929AA5];}
 .form__input{@apply relative flex items-center gap-2;}
-.form__input input{@apply w-full h-10 px-2 text-sm text-[#E6E8EA] border border-[#474D57] rounded-sm outline-none appearance-none hover:border-[#F0B90B] focus:border-[#F0B90B] disabled:text-[#5E6673] disabled:bg-[#2B2F36] disabled:hover:border-[#474D57];}
+.form__input input{@apply w-full h-10 pl-2 pr-8 text-sm text-[#E6E8EA] border border-[#474D57] rounded-sm outline-none appearance-none hover:border-[#F0B90B] focus:border-[#F0B90B] disabled:text-[#5E6673] disabled:bg-[#2B2F36] disabled:hover:border-[#474D57];}
 .form__input input.is__valid{@apply border-[#F84960];}
+.form__input textarea{@apply w-full py-2 pl-2 pr-8 text-sm text-[#E6E8EA] border border-[#474D57] rounded-sm outline-none appearance-none hover:border-[#F0B90B] focus:border-[#F0B90B] disabled:text-[#5E6673] disabled:bg-[#2B2F36] disabled:hover:border-[#474D57];}
+.form__input textarea.is__valid{@apply border-[#F84960];}
 .form__input .btn__clear{@apply absolute right-2;}
 .invalid__feedback{@apply mt-1 text-xs text-[#F84960];}
 
@@ -160,9 +162,9 @@ body,html{@apply flex justify-center w-full h-full m-0 p-0 font-inter text-justi
 .nodata__container .nodata__title h4{@apply mt-5 text-lg font-bold leading-5 text-center text-[#6C737B];}
 .nodata__container .nodata__title p{@apply mt-1 text-sm font-normal leading-5 text-center text-[#6C737B];}
 
-.popup{@apply absolute top-0 left-0 w-full h-full bg-[#0F0F0F]/80 overflow-x-hidden overflow-y-auto outline-0 z-[1055];}
-.popup__dialog{@apply absolute bottom-0 w-full pointer-events-none;}
-.popup__content{@apply relative w-full rounded-tl-2xl rounded-tr-2xl bg-[#191D27] bg-clip-padding outline-0;}
+.popup{@apply absolute top-0 left-0 w-full h-full p-4 bg-[#0F0F0F]/80 overflow-x-hidden overflow-y-auto outline-0 z-10;}
+.popup__dialog{@apply relative top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2 z-20;}
+.popup__content{@apply relative w-full rounded-2xl rounded-tr-2xl bg-[#191D27] bg-clip-padding outline-0;}
 
 .betPanel__container{@apply px-5;}
 
@@ -207,6 +209,11 @@ body,html{@apply flex justify-center w-full h-full m-0 p-0 font-inter text-justi
 .buttonPanel__fixed__container{@apply fixed left-0 bottom-0 right-0 -mx-5 z-10;}
 .buttonPanel__fixed__box{@apply flex max-w-[500px] mx-auto py-3 px-3 bg-[#24252C];}
 .buttonPanel__fixed__box button span{@apply ml-2;}
+
+.alertPanel__container{@apply p-11;}
+.alertPanel__container h4{@apply mb-6 text-sm text-white text-center opacity-50;}
+.alertPanel__container .alertPanel__icon svg{@apply w-12 h-12 mx-auto mb-4 text-white opacity-50;}
+.alertPanel__container .alertPanel__button{@apply flex justify-between items-start gap-4;}
 
 @media(max-width:600px){
     .wrap{@apply w-screen;}

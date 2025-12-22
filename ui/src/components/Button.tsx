@@ -44,7 +44,7 @@ const Button: React.FC<ButtonProps> = ({
             <button
                 className={cx(
                     "btn",
-                    variantClasses[variant][color],
+                    !disabled && variantClasses[variant][color],
                     disabled && disabledClasses,
                     className
                 )}
