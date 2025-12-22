@@ -58,7 +58,7 @@ const Deposit = () => {
                     <div className="deposit__content__fixed__box">
                         <Button
                             type="button"
-                            color="success"
+                            color="primary"
                             disabled={!selectedAmount}
                         >
                             {t('deposit.submit')} {selectedAmount ? <span>៛{selectedAmount}</span> : null}
