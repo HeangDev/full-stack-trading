@@ -1,1 +1,69 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+    --color-theme-white: #FFFFFF;
+    --color-theme-light: #F9F9F9;
+    --color-theme-primary: #1B84FF;
+    --color-theme-secondary: #F1F1F4;
+    --color-theme-success: #17C653;
+    --color-theme-info: #7239EA;
+    --color-theme-warning: #F6C000;
+    --color-theme-danger: #F8285A;
+    --color-theme-dark: #1E2129;
+    --color-theme-light-inverse: #252F4A;
+    --color-theme-light-active: #F1F1F4;
+    --color-theme-primary-active: #056EE9;
+    --color-theme-secondary-active: #C4CADA;
+    --color-theme-success-active: #04B440;
+    --color-theme-info-active: #5014D0;
+    --color-theme-warning-active: #DEAD00;
+    --color-theme-danger-active: #D81A48;
+    --color-theme-dark-active: #111318;
+    --font-inter: "Inter", sans-serif;
+}
+
+.btn{@apply flex justify-center items-center font-inter font-medium text-center leading-6 align-middle border rounded-lg transition cursor-pointer select-none gap-1;}
+
+.btn_small{@apply text-xs px-3.5 py-2;}
+.btn_medium{@apply text-sm py-2.5 px-5;}
+.btn_large{@apply text-sm py-3.5 px-6;}
+
+.btn_light{@apply text-theme-light-inverse border-theme-light bg-theme-light hover:bg-theme-light-active;}
+.btn_primary{@apply text-theme-white border-theme-primary bg-theme-primary hover:bg-theme-primary-active;}
+.btn_secondary{@apply text-theme-light-inverse border-theme-secondary bg-theme-secondary hover:bg-theme-secondary-active;}
+.btn_success{@apply text-theme-white border-theme-success bg-theme-success hover:bg-theme-success-active;}
+.btn_info{@apply text-theme-white border-theme-info bg-theme-info hover:bg-theme-info-active;}
+.btn_warning{@apply text-theme-white border-theme-warning bg-theme-warning hover:bg-theme-warning-active;}
+.btn_danger{@apply text-theme-white border-theme-danger bg-theme-danger hover:bg-theme-danger-active;}
+.btn_dark{@apply text-theme-white border-theme-dark bg-theme-dark hover:bg-theme-dark-active;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

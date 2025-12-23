@@ -1,0 +1,11 @@
+<button
+    [type]="type"
+    [disabled]="disabled"
+    class="btn"
+    [ngClass]="classes"
+    (click)="onClick()"
+>
+    <span class="icon start" *ngIf="iconStart">{{ iconStart }}</span>
+    <ng-content></ng-content>
+    <span class="icon end" *ngIf="iconEnd">{{ iconEnd }}</span>
+</button>
