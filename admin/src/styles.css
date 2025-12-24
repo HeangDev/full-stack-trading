@@ -21,47 +21,88 @@
     --color-theme-warning-active: #DEAD00;
     --color-theme-danger-active: #D81A48;
     --color-theme-dark-active: #111318;
+    --color-theme-primary-light: #E9F3FF;
+    --color-theme-secondary-light: #F9F9F9;
+    --color-theme-success-light: #DFFFEA;
+    --color-theme-info-light: #F8F5FF;
+    --color-theme-warning-light: #FFF8DD;
+    --color-theme-danger-light: #FFEEF3;
+    --color-theme-dark-light: #F9F9F9;
     --font-inter: "Inter", sans-serif;
+    --shadow-theme-header: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
+
+    --height-app-header-pc: 70px;
+    --height-app-header-mo: 60px;
+
+    --width-app-sidebar: 265px;
+
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --breakpoint-2xl: 1400px;
 }
 
-.btn{@apply flex justify-center items-center font-inter font-medium text-center leading-6 align-middle border rounded-lg transition cursor-pointer select-none gap-1;}
+body{@apply flex flex-col h-full m-0 p-0 font-inter text-[13px] font-normal bg-theme-light;}
+
+.app__root{@apply flex flex-col h-screen;}
+.app__page{@apply flex flex-col flex-auto;}
+
+.header__app__container{@apply fixed top-0 left-0 right-0 flex items-stretch h-app-header-mo bg-theme-white shadow-theme-header transition-none z-40 lg:h-app-header-pc lg:left-[var(--width-app-sidebar)];}
+.header__app__wrapper{@apply flex justify-between items-stretch w-full px-5 mx-auto lg:px-8;}
+.header__app__mobile__toggle{@apply flex items-center lg:hidden;}
+.header__app__title{@apply hidden items-center lg:flex;}
+.header__app__title h4{@apply text-base font-semibold;}
+.header__app__navbar{@apply flex items-stretch shrink-0;}
+.header__app__navbar__item{@apply flex items-center ml-1 lg:ml-2.5;}
+.header__app__navbar__item .symbol{@apply relative inline-block shrink-0;}
+.header__app__navbar__item .symbol img{@apply w-5 h-5 rounded-lg;}
+.header__app__navbar__item .btn_icon{@apply w-8.5 h-8.5 lg:w-10 lg:h-10;}
+.header__app__avatar{@apply cursor-pointer;}
+.header__app__avatar img{@apply inline-block w-8.5 h-8.5 rounded-lg lg:w-10 lg:h-10;}
+
+.app__sidebar__container{@apply fixed top-0 left-0 bottom-0 flex flex-col shrink-0 w-app-sidebar mx-auto my-0 bg-theme-dark;}
+.app__sidebar__logo{@apply relative flex items-center justify-between shrink-0 h-app-header-mo px-5 border-b border-theme-dark lg:h-app-header-pc;}
+
+
+.btn{@apply flex justify-center items-center font-inter font-medium text-center leading-5 align-middle rounded-lg transition cursor-pointer select-none gap-1;}
 
 .btn_small{@apply text-xs px-3.5 py-2;}
 .btn_medium{@apply text-sm py-2.5 px-5;}
 .btn_large{@apply text-sm py-3.5 px-6;}
 
-.btn_light{@apply text-theme-light-inverse border-theme-light bg-theme-light hover:bg-theme-light-active;}
-.btn_primary{@apply text-theme-white border-theme-primary bg-theme-primary hover:bg-theme-primary-active;}
-.btn_secondary{@apply text-theme-light-inverse border-theme-secondary bg-theme-secondary hover:bg-theme-secondary-active;}
-.btn_success{@apply text-theme-white border-theme-success bg-theme-success hover:bg-theme-success-active;}
-.btn_info{@apply text-theme-white border-theme-info bg-theme-info hover:bg-theme-info-active;}
-.btn_warning{@apply text-theme-white border-theme-warning bg-theme-warning hover:bg-theme-warning-active;}
-.btn_danger{@apply text-theme-white border-theme-danger bg-theme-danger hover:bg-theme-danger-active;}
-.btn_dark{@apply text-theme-white border-theme-dark bg-theme-dark hover:bg-theme-dark-active;}
+.btn_contained.btn_light{@apply text-theme-light-inverse border-theme-light bg-theme-light hover:bg-theme-light-active;}
+.btn_contained.btn_primary{@apply text-theme-white border-theme-primary bg-theme-primary hover:bg-theme-primary-active;}
+.btn_contained.btn_secondary{@apply text-theme-light-inverse border-theme-secondary bg-theme-secondary hover:bg-theme-secondary-active;}
+.btn_contained.btn_success{@apply text-theme-white border-theme-success bg-theme-success hover:bg-theme-success-active;}
+.btn_contained.btn_info{@apply text-theme-white border-theme-info bg-theme-info hover:bg-theme-info-active;}
+.btn_contained.btn_warning{@apply text-theme-white border-theme-warning bg-theme-warning hover:bg-theme-warning-active;}
+.btn_contained.btn_danger{@apply text-theme-white border-theme-danger bg-theme-danger hover:bg-theme-danger-active;}
+.btn_contained.btn_dark{@apply text-theme-white border-theme-dark bg-theme-dark hover:bg-theme-dark-active;}
 
+.btn_outlined.btn_light{@apply border-dashed border-theme-dark hover:bg-theme-light-active;}
+.btn_outlined.btn_primary{@apply text-theme-primary-active border-dashed border-theme-primary hover:bg-theme-primary-light;}
+.btn_outlined.btn_secondary{@apply text-theme-dark-active border-dashed border-theme-dark hover:bg-theme-dark-light;}
+.btn_outlined.btn_success{@apply text-theme-success-active border-dashed border-theme-success hover:bg-theme-success-light;}
+.btn_outlined.btn_info{@apply text-theme-info-active border-dashed border-theme-info hover:bg-theme-info-light;}
+.btn_outlined.btn_warning{@apply text-theme-warning-active border-dashed border-theme-warning hover:bg-theme-warning-light;}
+.btn_outlined.btn_danger{@apply text-theme-danger-active border-dashed border-theme-danger hover:bg-theme-danger-light;}
+.btn_outlined.btn_dark{@apply text-theme-dark-active border-dashed border-theme-dark hover:bg-theme-dark-light;}
 
+.btn_icon{@apply w-10 h-10 p-0 rounded-lg;}
+.btn_icon.btn_light{@apply hover:bg-theme-light;}
 
+.app__wrapper{@apply flex flex-1 min-w-0 ml-[var(--width-app-sidebar)] mt-[var(--height-app-header-pc)];}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.app__sidebar__menu__item{@apply block ml-0.5 py-0.5;}
+.app__sidebar__menu__item .app__sidebar__menu__content{@apply py-2 px-3;}
+.app__sidebar__menu__item .app__sidebar__menu__content span{@apply text-xs font-semibold text-theme-white uppercase;}
+.app__sidebar__menu__link{@apply flex items-center py-2 px-3 text-[#8d98af] outline-0 transition-none cursor-pointer;}
+.app__sidebar__menu__link .menu__icon{@apply flex justify-center items-center shrink-0 w-6.5 mr-1.5;}
+.app__sidebar__menu__link .menu__title{@apply flex items-center grow;}
+.app__sidebar__menu__link .menu__arrow{@apply relative flex items-stretch shrink-0 w-2.5 h-2.5 overflow-hidden;}
+.app__sidebar__menu__sub{@apply flex flex-col ml-3 p-0;}
+.app__sidebar__menu__sub .app__sidebar__menu__link{@apply pl-9.5;}
 
 
 

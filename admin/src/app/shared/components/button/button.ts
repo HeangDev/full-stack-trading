@@ -10,7 +10,7 @@ import { NgClass, NgIf } from "@angular/common";
 export class Button {
     @Input() label: string = "Button";
     @Input() type: "button" | "submit" = "button";
-    @Input() variant: "contained" | "text" | "outlined" = "contained";
+    @Input() variant: "contained" | "text" | "outlined" | "icon" = "contained";
     @Input() color: "light" | "primary" | "secondary" | "success" | "info" | "warning" | "danger" | "dark" = "light";
     @Input() size: "small" | "medium" | "large" = "medium";
     @Input() disabled: boolean = false;
