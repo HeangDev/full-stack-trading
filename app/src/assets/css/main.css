@@ -155,7 +155,7 @@ body,html{@apply flex justify-center w-full h-full m-0 p-0 font-inter text-justi
 .notification__list__container__item__text h4{@apply flex justify-between items-center text-sm font-medium leading-5 text-white;}
 .notification__list__container__item.unread{@apply cursor-pointer;}
 .notification__list__container__item.unread .unread__dot{@apply w-2 h-2 rounded-full bg-theme-danger;}
-.notification__list__container__item__text p{@apply text-sm font-normal leading-5 text-[#6C737B];}
+.notification__list__container__item__text p{@apply text-sm font-normal leading-5 text-[#6C737B] text-left;}
 .notification__list__container__item__text span{@apply mt-2 text-sm font-normal leading-5 text-[#6C737B];}
 
 .nodata__container{@apply flex justify-center items-center flex-col absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-5;}

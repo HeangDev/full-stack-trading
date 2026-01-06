@@ -13,7 +13,7 @@ export class SidebarService {
 
     setExpanded(val: boolean) {
         this.isExpandedSubject.next(val);
-    }
+    } 
 
     
 }
