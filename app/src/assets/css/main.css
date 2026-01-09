@@ -215,6 +215,25 @@ body,html{@apply flex justify-center w-full h-full m-0 p-0 font-inter text-justi
 .alertPanel__container .alertPanel__icon svg{@apply w-12 h-12 mx-auto mb-4 text-white opacity-50;}
 .alertPanel__container .alertPanel__button{@apply flex justify-between items-start gap-4;}
 
+.form__select{@apply relative w-full;}
+.form__select .select__selected{@apply absolute top-1/2 -translate-y-1/2;}
+.form__select .select__btn{@apply relative w-full h-10 pl-2 pr-8 text-sm text-[#E6E8EA] border border-[#474D57] rounded-sm outline-none appearance-none cursor-pointer hover:border-[#F0B90B] focus:border-[#F0B90B] disabled:text-[#5E6673] disabled:bg-[#2B2F36] disabled:hover:border-[#474D57];}
+.form__select .select__btn .select__toggler svg{@apply absolute top-1/2 right-2 w-4 h-4 -translate-y-1/2;}
+.form__select .select__menu{@apply absolute top-10 w-full mt-1 rounded-sm bg-[#161C22] z-50;}
+.form__select .select__menu .select__search{@apply pt-3 px-3 pb-4;}
+.form__select .select__list ul{@apply max-h-60 overflow-y-auto;}
+.form__select .select__list ul li{@apply relative block p-3 text-sm font-normal text-white leading-0 cursor-pointer hover:bg-[#24252C];}
+.form__select .select__list ul li.on{@apply bg-[#24252C];}
+.form__select .select__list .select__no__data{@apply px-3 pb-4 text-sm font-normal text-white;}
+
+.country__phone__container{@apply flex items-center justify-between w-full;}
+.country__phone__container .country__phone__info{@apply flex items-center justify-start gap-2;}
+.country__phone__container .country__phone__info svg{@apply w-4 h-4;}
+
+.select__selected .country__selected{@apply flex items-center justify-start gap-1;}
+.select__selected .country__selected svg{@apply relative;}
+
+
 @media(max-width:600px){
     .wrap{@apply w-screen;}
     .header{@apply w-full;}
