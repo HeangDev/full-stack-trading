@@ -5,9 +5,11 @@ import type { SignUpFormData } from "../../schemas/signUpSchema";
 import { Link } from "react-router";
 import { useTranslation } from 'react-i18next'
 
-import TextField from "../../components/TextField";
+import { FormControl, InputLabel, TextField } from '../../components/TextField';
+import { Select, Option } from '../../components/Select';
 import Button from '../../components/Button'
 import Logo from "../../assets/img/logo.png"
+import { Icon } from '@iconify/react';
 
 const SignUp = () => {
     const { t } = useTranslation();
@@ -33,29 +35,104 @@ const SignUp = () => {
             <div className="auth__form">
                 <form onSubmit={handleSubmit(handleSignUp)} autoComplete="off">
                     <div className="auth__form__container">
-                        <TextField type="text" label={t('signup.username')}
-                            error={!!errors.username}
-                            helperText={errors.username?.message}
-                            {...register("username")}
-                        />
-                        <TextField type="password" label={t('signup.password')}
-                            error={!!errors.password}
-                            helperText={errors.password?.message}
-                            {...register("password")}
-                        />
-                        <TextField type="password" label={t('signup.confirmPassword')}
-                            error={!!errors.confirm_password}
-                            helperText={errors.confirm_password?.message}
-                            {...register("confirm_password")}
-                        />
-                        <TextField type="password" label={t('signup.withdraw_code')}
-                            error={!!errors.withdraw_code}
-                            helperText={errors.withdraw_code?.message}
-                            {...register("withdraw_code")}
-                        />
-                        <TextField type="password" label={t('signup.referral_code')}
-                            {...register("referral_code")}
-                        />
+                        <FormControl>
+                            <InputLabel>Phone Number</InputLabel>
+                            <div className="form__row__2__columns">
+                                <Select style={{ width: "104px" }}>
+                                    <Option
+                                        value="+855"
+                                        label={
+                                            <div className="country__selected">
+                                                <Icon icon="circle-flags:kh" />
+                                                <span>+855</span>
+                                            </div>
+                                        }
+                                    >
+                                        <div className="country__phone__container">
+                                            <div className="country__phone__info">
+                                                <Icon icon="circle-flags:kh" />
+                                            </div>
+                                            <div className="country__code">+855</div>
+                                        </div>
+                                    </Option>
+                                    <Option
+                                        value="+86"
+                                        label={
+                                            <div className="country__selected">
+                                                <Icon icon="circle-flags:cn" />
+                                                <span>+86</span>
+                                            </div>
+                                        }
+                                    >
+                                        <div className="country__phone__container">
+                                            <div className="country__phone__info">
+                                                <Icon icon="circle-flags:cn" />
+                                            </div>
+                                            <div className="country__code">+86</div>
+                                        </div>
+                                    </Option>
+                                    <Option
+                                        value="+66"
+                                        label={
+                                            <div className="country__selected">
+                                                <Icon icon="circle-flags:th" />
+                                                <span>+66</span>
+                                            </div>
+                                        }
+                                    >
+                                        <div className="country__phone__container">
+                                            <div className="country__phone__info">
+                                                <Icon icon="circle-flags:th" />
+                                            </div>
+                                            <div className="country__code">+66</div>
+                                        </div>
+                                    </Option>
+                                </Select>
+                                <TextField type="number" fullWidth
+                                    error={!!errors.phone}
+                                    helperText={errors.phone?.message}
+                                    {...register("phone")}
+                                />
+                            </div>
+                        </FormControl>
+                        <FormControl>
+                            <InputLabel>{t('signup.username')}</InputLabel>
+                            <TextField type="text" fullWidth
+                                error={!!errors.username}
+                                helperText={errors.username?.message}
+                                {...register("username")}
+                            />
+                        </FormControl>
+                        <FormControl>
+                            <InputLabel>{t('signup.password')}</InputLabel>
+                            <TextField type="password" fullWidth
+                                error={!!errors.password}
+                                helperText={errors.password?.message}
+                                {...register("password")}
+                            />
+                        </FormControl>
+                        <FormControl>
+                            <InputLabel>{t('signup.confirmPassword')}</InputLabel>
+                            <TextField type="password" fullWidth
+                                error={!!errors.confirm_password}
+                                helperText={errors.confirm_password?.message}
+                                {...register("confirm_password")}
+                            />
+                        </FormControl>
+                        <FormControl>
+                            <InputLabel>{t('signup.withdraw_code')}</InputLabel>
+                            <TextField type="number" fullWidth
+                                error={!!errors.withdraw_code}
+                                helperText={errors.withdraw_code?.message}
+                                {...register("withdraw_code")}
+                            />
+                        </FormControl>
+                        <FormControl>
+                            <InputLabel>{t('signup.referral_code')}</InputLabel>
+                            <TextField type="number" fullWidth
+                                {...register("referral_code")}
+                            />
+                        </FormControl>
                     </div>
                     <div className="auth__button__container">
                         <Button type="submit" color="primary">{t('signup.buttonName')}</Button>

@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../../components/Button";
-import TextField from "../../components/TextField";
+import { TextField } from '../../components/TextField';
 import Popup from "../../components/Popup";
 
 import { useTranslation } from 'react-i18next'

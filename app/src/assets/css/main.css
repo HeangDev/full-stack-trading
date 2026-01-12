@@ -132,7 +132,7 @@ body,html{@apply flex justify-center w-full h-full m-0 p-0 font-inter text-justi
 
 .form__control{@apply relative flex flex-col w-full;}
 .form__label{@apply mb-1 text-sm font-normal text-[#929AA5];}
-.form__input{@apply relative flex items-center gap-2;}
+.form__input{@apply relative flex items-center flex-1 gap-2;}
 .form__input input{@apply w-full h-10 pl-2 pr-8 text-sm text-[#E6E8EA] border border-[#474D57] rounded-sm outline-none appearance-none hover:border-[#F0B90B] focus:border-[#F0B90B] disabled:text-[#5E6673] disabled:bg-[#2B2F36] disabled:hover:border-[#474D57];}
 .form__input input.is__valid{@apply border-[#F84960];}
 .form__input textarea{@apply w-full py-2 pl-2 pr-8 text-sm text-[#E6E8EA] border border-[#474D57] rounded-sm outline-none appearance-none hover:border-[#F0B90B] focus:border-[#F0B90B] disabled:text-[#5E6673] disabled:bg-[#2B2F36] disabled:hover:border-[#474D57];}
@@ -226,13 +226,14 @@ body,html{@apply flex justify-center w-full h-full m-0 p-0 font-inter text-justi
 .form__select .select__list ul li.on{@apply bg-[#24252C];}
 .form__select .select__list .select__no__data{@apply px-3 pb-4 text-sm font-normal text-white;}
 
-.country__phone__container{@apply flex items-center justify-between w-full;}
+.country__phone__container{@apply flex items-center justify-start w-full gap-1;}
 .country__phone__container .country__phone__info{@apply flex items-center justify-start gap-2;}
 .country__phone__container .country__phone__info svg{@apply w-4 h-4;}
 
 .select__selected .country__selected{@apply flex items-center justify-start gap-1;}
 .select__selected .country__selected svg{@apply relative;}
 
+.form__row__2__columns{@apply flex flex-row w-full gap-2;}
 
 @media(max-width:600px){
     .wrap{@apply w-screen;}

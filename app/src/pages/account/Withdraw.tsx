@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../../components/Button";
-import TextField from "../../components/TextField";
+import { FormControl, InputLabel, TextField } from '../../components/TextField';
 import Popup from "../../components/Popup";
 
 import { Icon } from '@iconify/react';
@@ -27,27 +27,42 @@ const Withdraw = () => {
             <div className="auth__form">
                 <form onSubmit={handleSubmit(handleWithdarw)} autoComplete="off">
                     <div className="auth__form__container">
-                        <TextField type="text" fullWidth disabled label={t('withdarw.balance')}
-                            value="1000"
-                            {...register("balance")}
-                        />
-                        <TextField type="text" fullWidth label={t('withdarw.amount')}
-                            error={!!errors.amount}
-                            helperText={errors.amount?.message}
-                            {...register("amount")}
-                        />
-                        <TextField type="text" fullWidth label={t('withdarw.code')}
-                            error={!!errors.code}
-                            helperText={errors.code?.message}
-                            {...register("code")}
-                        />
-                        <TextField type="text" fullWidth disabled label={t('withdarw.fee')}
-                            {...register("fee")}
-                        />
-                        <TextField type="text" fullWidth multiline label={t('withdarw.reason')}
-                            row={3}
-                            {...register("reason")}
-                        />
+                        <FormControl>
+                            <InputLabel>{t('withdarw.balance')}</InputLabel>
+                            <TextField type="text" disabled fullWidth
+                                value="1000"
+                                {...register("balance")}
+                            />
+                        </FormControl>
+                        <FormControl>
+                            <InputLabel>{t('withdarw.amount')}</InputLabel>
+                            <TextField type="text" fullWidth
+                                error={!!errors.amount}
+                                helperText={errors.amount?.message}
+                                {...register("amount")}
+                            />
+                        </FormControl>
+                        <FormControl>
+                            <InputLabel>{t('withdarw.code')}</InputLabel>
+                            <TextField type="text" fullWidth
+                                error={!!errors.code}
+                                helperText={errors.code?.message}
+                                {...register("code")}
+                            />
+                        </FormControl>
+                        <FormControl>
+                            <InputLabel>{t('withdarw.fee')}</InputLabel>
+                            <TextField type="text" disabled fullWidth
+                                {...register("fee")}
+                            />
+                        </FormControl>
+                        <FormControl>
+                            <InputLabel>{t('withdarw.reason')}</InputLabel>
+                            <TextField type="text" fullWidth multiline
+                                row={3}
+                                {...register("reason")}
+                            />
+                        </FormControl>
                     </div>
                     <div className="buttonPanel__fixed__container">
                         <div className="buttonPanel__fixed__box">

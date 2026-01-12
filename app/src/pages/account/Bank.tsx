@@ -1,6 +1,6 @@
-import TextField from '../../components/TextField';
 import Button from '../../components/Button'
 import { Select, Option } from '../../components/Select';
+import { FormControl, InputLabel, TextField } from '../../components/TextField';
 
 import { useTranslation } from 'react-i18next'
 import { useForm } from "react-hook-form";
@@ -23,69 +23,78 @@ const Bank = () => {
             <div className="auth__form">
                 <form onSubmit={handleSubmit(handleCreateBank)} autoComplete="off">
                     <div className="auth__form__container">
-                        <Select>
-                            <Option
-                                value="+855"
-                                label={
-                                    <div className="country__selected">
-                                        <Icon icon="circle-flags:kh" />
-                                        <span>+855</span>
+                        <FormControl>
+                            <InputLabel>Bank Type</InputLabel>
+                            <Select>
+                                <Option
+                                    value="+855"
+                                    label={
+                                        <div className="country__selected">
+                                            <Icon icon="circle-flags:kh" />
+                                            <span>+855</span>
+                                        </div>
+                                    }
+                                >
+                                    <div className="country__phone__container">
+                                        <div className="country__phone__info">
+                                            <Icon icon="circle-flags:kh" />
+                                            <div className="country__name">Cambodia</div>
+                                        </div>
+                                        <div className="country__code">+855</div>
                                     </div>
-                                }
-                            >
-                                <div className="country__phone__container">
-                                    <div className="country__phone__info">
-                                        <Icon icon="circle-flags:kh" />
-                                        <div className="country__name">Cambodia</div>
+                                </Option>
+                                <Option
+                                    value="+86"
+                                    label={
+                                        <div className="country__selected">
+                                            <Icon icon="circle-flags:cn" />
+                                            <span>+86</span>
+                                        </div>
+                                    }
+                                >
+                                    <div className="country__phone__container">
+                                        <div className="country__phone__info">
+                                            <Icon icon="circle-flags:cn" />
+                                            <div className="country__name">China</div>
+                                        </div>
+                                        <div className="country__code">+86</div>
                                     </div>
-                                    <div className="country__code">+855</div>
-                                </div>
-                            </Option>
-                            <Option
-                                value="+86"
-                                label={
-                                    <div className="country__selected">
-                                        <Icon icon="circle-flags:cn" />
-                                        <span>+86</span>
+                                </Option>
+                                <Option
+                                    value="+66"
+                                    label={
+                                        <div className="country__selected">
+                                            <Icon icon="circle-flags:th" />
+                                            <span>+66</span>
+                                        </div>
+                                    }
+                                >
+                                    <div className="country__phone__container">
+                                        <div className="country__phone__info">
+                                            <Icon icon="circle-flags:th" />
+                                            <div className="country__name">Thailand</div>
+                                        </div>
+                                        <div className="country__code">+66</div>
                                     </div>
-                                }
-                            >
-                                <div className="country__phone__container">
-                                    <div className="country__phone__info">
-                                        <Icon icon="circle-flags:cn" />
-                                        <div className="country__name">China</div>
-                                    </div>
-                                    <div className="country__code">+86</div>
-                                </div>
-                            </Option>
-                            <Option
-                                value="+66"
-                                label={
-                                    <div className="country__selected">
-                                        <Icon icon="circle-flags:th" />
-                                        <span>+66</span>
-                                    </div>
-                                }
-                            >
-                                <div className="country__phone__container">
-                                    <div className="country__phone__info">
-                                        <Icon icon="circle-flags:th" />
-                                        <div className="country__name">Thailand</div>
-                                    </div>
-                                    <div className="country__code">+66</div>
-                                </div>
-                            </Option>
-                        </Select>
-                        <TextField type="text" fullWidth label={t('bank.bank_name')}
-                            error={!!errors.bank_name}
-                            helperText={errors.bank_name?.message}
-                            {...register("bank_name")}
-                        />
-                        <TextField type="text" fullWidth label={t('bank.bank_account')}
-                            error={!!errors.bank_account}
-                            helperText={errors.bank_account?.message}
-                            {...register("bank_account")}
-                        />
+                                </Option>
+                            </Select>
+                        </FormControl>
+                        <FormControl>
+                            <InputLabel>{t('bank.bank_name')}</InputLabel>
+                            <TextField type="text" fullWidth
+                                error={!!errors.bank_name}
+                                helperText={errors.bank_name?.message}
+                                {...register("bank_name")}
+                            />
+                        </FormControl>
+                        <FormControl>
+                            <InputLabel>{t('bank.bank_account')}</InputLabel>
+                            <TextField type="text" fullWidth
+                                error={!!errors.bank_account}
+                                helperText={errors.bank_account?.message}
+                                {...register("bank_account")}
+                            />
+                        </FormControl>
                     </div>
                     <div className="buttonPanel__fixed__container">
                         <div className="buttonPanel__fixed__box">

@@ -27,7 +27,7 @@ function cx(...parts: Array<string | false | undefined>) {
     return parts.filter(Boolean).join(" ");
 }
 
-const TextField = forwardRef<HTMLInputElement | HTMLTextAreaElement, Props>(
+export const TextField = forwardRef<HTMLInputElement | HTMLTextAreaElement, Props>(
     (
         {
             label,
@@ -113,7 +113,7 @@ const TextField = forwardRef<HTMLInputElement | HTMLTextAreaElement, Props>(
         );
 
         return (
-            <div className="form__control">
+            <>
                 {fieldLabel && (
                     <label className="form__label">
                         {fieldLabel}
@@ -134,11 +134,34 @@ const TextField = forwardRef<HTMLInputElement | HTMLTextAreaElement, Props>(
                         {helperText}
                     </p>
                 )}
-            </div>
+            </>
         )
     }
 )
 
-TextField.displayName = "TextField";
+export const FormControl: React.FC<{
+    children?: React.ReactNode,
+}> = (props) => {
+    return (
+        <>
+            <div className="form__control">
+                {props.children}
+            </div>
+        </>
+    )
+}
 
-export default TextField;
+export const InputLabel: React.FC<{
+    children?: React.ReactNode;
+    required?: boolean;
+    className?: string;
+}> = (props) => {
+    if (!props.children) return null;
+
+    return (
+        <label className={["form__label", props.className].filter(Boolean).join(" ")}>
+            {props.children}
+            {props.required && <span className="text__required">*</span>}
+        </label>
+    );
+};

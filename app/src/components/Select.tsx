@@ -1,5 +1,5 @@
 import React from 'react'
-import TextField from './TextField';
+import { TextField } from './TextField';
 
 import { Icon } from '@iconify/react';
 
@@ -72,6 +72,19 @@ export const Select: React.FC<SelectProps> = (props) => {
                 : String(child.props.children || "")
         return text.toLowerCase().includes(search.toLowerCase())
     });
+
+    React.useEffect(() => {
+        if (option.length === 0) return;
+        if (selectedValue !== undefined) return;
+
+        const first = option[0];
+
+        if (React.isValidElement<OptionProps>(first)) {
+            setActiveIndex(0);
+            setSelectedValue(first.props.value);
+            setSelectedLabel(first.props.label ?? first.props.children);
+        }
+    }, [option, selectedValue]);
 
     React.useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {

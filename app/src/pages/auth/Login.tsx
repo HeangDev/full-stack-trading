@@ -5,7 +5,7 @@ import type { LoginFormData } from "../../schemas/loginSchema";
 import { Link, useNavigate } from "react-router";
 import { useTranslation } from 'react-i18next'
 
-import TextField from "../../components/TextField";
+import { FormControl, InputLabel, TextField } from '../../components/TextField';
 import Button from '../../components/Button'
 import Logo from "../../assets/img/logo.png"
 
@@ -34,16 +34,22 @@ const Login = () => {
             <div className="auth__form">
                 <form  onSubmit={handleSubmit(handleLogin)} autoComplete="off">
                     <div className="auth__form__container">
-                        <TextField type="text" label={t('login.username')}
-                            error={!!errors.username}
-                            helperText={errors.username?.message}
-                            {...register("username")}
-                        />
-                        <TextField type="password" label={t('login.password')}
-                            error={!!errors.password}
-                            helperText={errors.password?.message}
-                            {...register("password")}
-                        />
+                        <FormControl>
+                            <InputLabel>{t('login.username')}</InputLabel>
+                            <TextField type="text" fullWidth
+                                error={!!errors.username}
+                                helperText={errors.username?.message}
+                                {...register("username")}
+                            />
+                        </FormControl>
+                        <FormControl>
+                            <InputLabel>{t('login.password')}</InputLabel>
+                            <TextField type="password" fullWidth
+                                error={!!errors.password}
+                                helperText={errors.password?.message}
+                                {...register("password")}
+                            />
+                        </FormControl>
                     </div>
                     <div className="auth__button__container">
                         <Button onClick={() => navigate("/home")} type="submit" color="primary">{t('login.buttonName')}</Button>
