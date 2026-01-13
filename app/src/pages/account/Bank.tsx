@@ -25,7 +25,7 @@ const Bank = () => {
                     <div className="auth__form__container">
                         <FormControl>
                             <InputLabel>Bank Type</InputLabel>
-                            <Select>
+                            <Select headerSearch>
                                 <Option
                                     value="+855"
                                     label={

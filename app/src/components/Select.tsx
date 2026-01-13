@@ -16,7 +16,8 @@ interface SelectProps {
     placeholder?: string;
     value?: string | number | readonly string[] | undefined;
     children: React.ReactNode;
-    style?: React.CSSProperties
+    headerSearch?: boolean;
+    style?: React.CSSProperties;
 }
 
 function cx(...parts: Array<string | false | undefined>) {
@@ -117,14 +118,16 @@ export const Select: React.FC<SelectProps> = (props) => {
                 {openSelect && (
                     <>
                         <div className="select__menu">
-                            <div className="select__search">
-                                <TextField type="text" fullWidth placeholder="Search"
-                                    value={search}
-                                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => 
-                                        setSearch(e.target.value)
-                                    }
-                                />
-                            </div>
+                            {props.headerSearch && (
+                                <div className="select__search">
+                                    <TextField type="text" fullWidth placeholder="Search"
+                                        value={search}
+                                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => 
+                                            setSearch(e.target.value)
+                                        }
+                                    />
+                                </div>
+                            )}
                             <div className="select__list">
                                 {filteredOptions.length === 0 ? (
                                     <div className="select__no__data">No results found</div>
