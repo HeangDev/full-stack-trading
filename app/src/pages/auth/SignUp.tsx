@@ -5,7 +5,10 @@ import type { SignUpFormData } from "../../schemas/signUpSchema";
 import { Link } from "react-router";
 import { useTranslation } from 'react-i18next'
 
-import { FormControl, InputLabel, TextField } from '../../components/TextField';
+import TextField from "../../components/Form/TextField";
+import FormControl from "../../components/Form/FormControl";
+import InputLabel from "../../components/Form/InputLabel";
+import HelperText from "../../components/Form/HelperText";
 import { Select, Option } from '../../components/Select';
 import Button from '../../components/Button'
 import Logo from "../../assets/img/logo.png"
@@ -36,7 +39,7 @@ const SignUp = () => {
                 <form onSubmit={handleSubmit(handleSignUp)} autoComplete="off">
                     <div className="auth__form__container">
                         <FormControl>
-                            <InputLabel>Phone Number</InputLabel>
+                            <InputLabel>{t('signup.phone_number')}</InputLabel>
                             <div className="form__row__2__columns">
                                 <Select style={{ width: "104px" }}>
                                     <Option
@@ -90,42 +93,35 @@ const SignUp = () => {
                                 </Select>
                                 <TextField type="number" fullWidth
                                     error={!!errors.phone}
-                                    helperText={errors.phone?.message}
                                     {...register("phone")}
+                                    placeholder={t('signup.phone_number_placeholder')}
                                 />
                             </div>
+                            <HelperText error>{errors.phone?.message}</HelperText>
                         </FormControl>
                         <FormControl>
                             <InputLabel>{t('signup.username')}</InputLabel>
                             <TextField type="text" fullWidth
                                 error={!!errors.username}
-                                helperText={errors.username?.message}
                                 {...register("username")}
                             />
+                            <HelperText error>{errors.username?.message}</HelperText>
                         </FormControl>
                         <FormControl>
                             <InputLabel>{t('signup.password')}</InputLabel>
                             <TextField type="password" fullWidth
                                 error={!!errors.password}
-                                helperText={errors.password?.message}
                                 {...register("password")}
                             />
-                        </FormControl>
-                        <FormControl>
-                            <InputLabel>{t('signup.confirmPassword')}</InputLabel>
-                            <TextField type="password" fullWidth
-                                error={!!errors.confirm_password}
-                                helperText={errors.confirm_password?.message}
-                                {...register("confirm_password")}
-                            />
+                            <HelperText error>{errors.password?.message}</HelperText>
                         </FormControl>
                         <FormControl>
                             <InputLabel>{t('signup.withdraw_code')}</InputLabel>
                             <TextField type="number" fullWidth
                                 error={!!errors.withdraw_code}
-                                helperText={errors.withdraw_code?.message}
                                 {...register("withdraw_code")}
                             />
+                            <HelperText error>{errors.withdraw_code?.message}</HelperText>
                         </FormControl>
                         <FormControl>
                             <InputLabel>{t('signup.referral_code')}</InputLabel>

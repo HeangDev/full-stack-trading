@@ -1,6 +1,9 @@
 import Button from '../../components/Button'
 import { Select, Option } from '../../components/Select';
-import { FormControl, InputLabel, TextField } from '../../components/TextField';
+import TextField from '../../components/Form/TextField';
+import FormControl from '../../components/Form/FormControl';
+import InputLabel from '../../components/Form/InputLabel';
+import HelperText from '../../components/Form/HelperText';
 
 import { useTranslation } from 'react-i18next'
 import { useForm } from "react-hook-form";
@@ -83,17 +86,17 @@ const Bank = () => {
                             <InputLabel>{t('bank.bank_name')}</InputLabel>
                             <TextField type="text" fullWidth
                                 error={!!errors.bank_name}
-                                helperText={errors.bank_name?.message}
                                 {...register("bank_name")}
                             />
+                            <HelperText error>{errors.bank_name?.message}</HelperText>
                         </FormControl>
                         <FormControl>
                             <InputLabel>{t('bank.bank_account')}</InputLabel>
                             <TextField type="text" fullWidth
                                 error={!!errors.bank_account}
-                                helperText={errors.bank_account?.message}
                                 {...register("bank_account")}
                             />
+                            <HelperText error>{errors.bank_account?.message}</HelperText>
                         </FormControl>
                     </div>
                     <div className="buttonPanel__fixed__container">

@@ -73,6 +73,8 @@
     "signup": {
         "title": "Getting Started",
         "subtitle": "Create an account to continue!",
+        "phone_number": "Phone Number",
+        "phone_number_placeholder": "Enter your mobile number",
         "username": "Username",
         "password": "Password",
         "withdraw_code": "Withdraw Code",
@@ -83,6 +85,8 @@
         "footerLink": "Login"
     },
     "signup_validation": {
+        "phone_number_required": "Phone number is required",
+        "phone_number_matches": "Phone number is not valid",
         "username_required": "Username is required",
         "password_required": "Password is required",
         "confirm_password_required": "Confirm Password is required",

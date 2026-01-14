@@ -5,7 +5,10 @@ import type { LoginFormData } from "../../schemas/loginSchema";
 import { Link, useNavigate } from "react-router";
 import { useTranslation } from 'react-i18next'
 
-import { FormControl, InputLabel, TextField } from '../../components/TextField';
+import TextField from "../../components/Form/TextField";
+import FormControl from "../../components/Form/FormControl";
+import InputLabel from "../../components/Form/InputLabel";
+import HelperText from "../../components/Form/HelperText";
 import Button from '../../components/Button'
 import Logo from "../../assets/img/logo.png"
 
@@ -38,17 +41,17 @@ const Login = () => {
                             <InputLabel>{t('login.username')}</InputLabel>
                             <TextField type="text" fullWidth
                                 error={!!errors.username}
-                                helperText={errors.username?.message}
                                 {...register("username")}
                             />
+                            <HelperText error>{errors.username?.message}</HelperText>
                         </FormControl>
                         <FormControl>
                             <InputLabel>{t('login.password')}</InputLabel>
                             <TextField type="password" fullWidth
                                 error={!!errors.password}
-                                helperText={errors.password?.message}
                                 {...register("password")}
                             />
+                            <HelperText error>{errors.password?.message}</HelperText>
                         </FormControl>
                     </div>
                     <div className="auth__button__container">

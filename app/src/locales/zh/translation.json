@@ -73,6 +73,8 @@
     "signup": {
         "title": "开始使用",
         "subtitle": "创建一个账户以继续！",
+        "phone_number": "电话号码",
+        "phone_number_placeholder": "请输入您的手机号码",
         "username": "用户名",
         "password": "密码",
         "withdraw_code": "提现码",
@@ -83,6 +85,8 @@
         "footerLink": "登录"
     },
     "signup_validation": {
+        "phone_number_required": "电话号码为必填项",
+        "phone_number_matches": "电话号码无效",
         "username_required": "用户名为必填项",
         "password_required": "密码为必填项",
         "confirm_password_required": "确认密码为必填项",

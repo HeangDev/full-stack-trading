@@ -1,6 +1,9 @@
 import React from "react";
 import Button from "../../components/Button";
-import { FormControl, InputLabel, TextField } from '../../components/TextField';
+import TextField from '../../components/Form/TextField';
+import FormControl from '../../components/Form/FormControl';
+import InputLabel from '../../components/Form/InputLabel';
+import HelperText from '../../components/Form/HelperText';
 import Popup from "../../components/Popup";
 
 import { Icon } from '@iconify/react';
@@ -9,6 +12,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { withdrawSchema } from "../../schemas/withdrawSchema";
 import type { WithdrawFormData } from "../../schemas/withdrawSchema"
+import { formatToSIPrefix } from '../../utils/currencyFormat';
+import bgAssets from '../../assets/img/bg/bg_total_assets.png';
 
 const Withdraw = () => {
     const [openPopup, setOpenPopup] = React.useState(false);
@@ -24,31 +29,33 @@ const Withdraw = () => {
 
     return (
         <>
+            <div className="balance__assets" style={{ backgroundImage: `url(${bgAssets})` }}>
+                    <div className="balance__assets__header">
+                        <Icon icon="solar:wallet-money-bold" />
+                        <p>{t('deposit.balance')}</p>
+                    </div>
+                    <div className="balance__assets__main">
+                        <h4>${formatToSIPrefix(10000)}</h4>
+                    </div>
+                </div>
             <div className="auth__form">
                 <form onSubmit={handleSubmit(handleWithdarw)} autoComplete="off">
                     <div className="auth__form__container">
                         <FormControl>
-                            <InputLabel>{t('withdarw.balance')}</InputLabel>
-                            <TextField type="text" disabled fullWidth
-                                value="1000"
-                                {...register("balance")}
-                            />
-                        </FormControl>
-                        <FormControl>
                             <InputLabel>{t('withdarw.amount')}</InputLabel>
                             <TextField type="text" fullWidth
                                 error={!!errors.amount}
-                                helperText={errors.amount?.message}
                                 {...register("amount")}
                             />
+                            <HelperText error>{errors.amount?.message}</HelperText>
                         </FormControl>
                         <FormControl>
                             <InputLabel>{t('withdarw.code')}</InputLabel>
                             <TextField type="text" fullWidth
                                 error={!!errors.code}
-                                helperText={errors.code?.message}
                                 {...register("code")}
                             />
+                            <HelperText error>{errors.code?.message}</HelperText>
                         </FormControl>
                         <FormControl>
                             <InputLabel>{t('withdarw.fee')}</InputLabel>

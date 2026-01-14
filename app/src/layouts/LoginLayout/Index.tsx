@@ -4,7 +4,7 @@ const LoginLayout = () => {
     return (
         <>
             <div className="wrap">
-                <div className="h-screen pt-9 px-6 pb-27 overflow-y-scroll">
+                <div className="h-screen py-9 px-3 overflow-y-scroll">
                     <Outlet/>
                 </div>
             </div>

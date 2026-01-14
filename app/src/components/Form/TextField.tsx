@@ -1,9 +1,8 @@
 import React, { forwardRef, useState, type InputHTMLAttributes, type TextareaHTMLAttributes } from "react";
-import IcClear from "../assets/img/ic/ic_clear.png"
+import IcClear from "../../assets/img/ic/ic_clear.png"
 
 type CommonProps = {
     label?: string;
-    helperText?: string;
     error?: boolean;
     required?: boolean;
     fullWidth?: boolean;
@@ -27,12 +26,11 @@ function cx(...parts: Array<string | false | undefined>) {
     return parts.filter(Boolean).join(" ");
 }
 
-export const TextField = forwardRef<HTMLInputElement | HTMLTextAreaElement, Props>(
+const TextField = forwardRef<HTMLInputElement | HTMLTextAreaElement, Props>(
     (
         {
             label,
             externalLabel,
-            helperText,
             error = false,
             required = false,
             fullWidth = false,
@@ -119,49 +117,19 @@ export const TextField = forwardRef<HTMLInputElement | HTMLTextAreaElement, Prop
                         {fieldLabel}
                     </label>
                 )}
-                    <div className="form__input">
-                        {startAdornment}
-                        {InputElement}
-                        {focused && (
-                            <div onMouseDown={(e) => e.preventDefault()} onClick={handleClear} className="btn__clear">
-                                <img src={IcClear} alt="Clear" />
-                            </div>
-                        )}
-                        {endAdornment}
-                    </div>
-                {helperText && (
-                    <p className="invalid__feedback">
-                        {helperText}
-                    </p>
-                )}
+                <div className="form__input">
+                    {startAdornment}
+                    {InputElement}
+                    {focused && (
+                        <div onMouseDown={(e) => e.preventDefault()} onClick={handleClear} className="btn__clear">
+                            <img src={IcClear} alt="Clear" />
+                        </div>
+                    )}
+                    {endAdornment}
+                </div>
             </>
         )
     }
 )
 
-export const FormControl: React.FC<{
-    children?: React.ReactNode,
-}> = (props) => {
-    return (
-        <>
-            <div className="form__control">
-                {props.children}
-            </div>
-        </>
-    )
-}
-
-export const InputLabel: React.FC<{
-    children?: React.ReactNode;
-    required?: boolean;
-    className?: string;
-}> = (props) => {
-    if (!props.children) return null;
-
-    return (
-        <label className={["form__label", props.className].filter(Boolean).join(" ")}>
-            {props.children}
-            {props.required && <span className="text__required">*</span>}
-        </label>
-    );
-};
+export default TextField
