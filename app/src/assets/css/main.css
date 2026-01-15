@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
 @import "tailwindcss";
 
@@ -13,7 +12,6 @@
     --color-theme-danger: #D9304E;
     --color-theme-green: #F3FBED;
     --font-inter: "Inter", sans-serif;
-    --font-IBM: "IBM Plex Sans", sans-serif;
     --theme-screen: "500px"
 }
 
@@ -42,6 +40,7 @@ body,html{@apply flex justify-center w-full h-full m-0 p-0 font-inter text-justi
 .tabbar{@apply fixed bottom-0 flex items-end justify-between w-[500px] h-16 pt-3.5 px-3 text-xs bg-theme-main;}
 .tabbar__item{@apply flex flex-col items-center justify-end text-gray-500 font-normal cursor-pointer;}
 .tabbar__item span{@apply mt-1.5;}
+.tabbar__item svg{@apply w-6 h-6;}
 .tabbar__item.on span{@apply text-white;}
 
 .auth__heading{@apply mb-11;}
@@ -67,7 +66,7 @@ body,html{@apply flex justify-center w-full h-full m-0 p-0 font-inter text-justi
 .settingPanel__container__items__title{@apply flex justify-start items-center gap-3;}
 .settingPanel__container__items__title span{@apply font-normal text-sm leading-5 text-white;}
 .settingPanel__container__items__right{@apply flex items-center justify-center gap-4;}
-.settingPanel__container__items__right span{@apply text-sm font-bold leading-6 text-[#6C727F];}
+.settingPanel__container__items__right span{@apply text-sm font-bold leading-6 text-white;}
 .settingPanel__container__items__right svg{@apply w-5 h-5 text-[#6C727F];}
 .settingPanel__container__items__right .notification__count{@apply flex justify-center items-center w-5 h-5 text-xs font-normal text-white rounded-full bg-theme-danger;}
 

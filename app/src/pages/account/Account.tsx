@@ -5,6 +5,7 @@ import Popup from "../../components/Popup";
 import { useNavigate } from 'react-router';
 import { Icon } from '@iconify/react';
 import { useTranslation } from 'react-i18next'
+import ProfileImg from "../../assets/img/img/profile.avif";
 
 const Profile = () => {
     const [openPopup, setOpenPopup] = React.useState(false);
@@ -15,7 +16,7 @@ const Profile = () => {
         <>
             <div className="profilePanel__container">
                 <div className="profilePanel__container__img">
-                    <img src="https://mockmind-api.uifaces.co/content/human/218.jpg" alt=""/>
+                    <img src={ProfileImg} loading="lazy" width="80px" height="80px" sizes="80px" alt=""/>
                 </div>
                 <div className="profilePanel__container__name">
                     <h4>John Doe</h4>

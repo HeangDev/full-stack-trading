@@ -16,9 +16,9 @@ const Index = () => {
         <>
             <div className="wrap">
                 <Header />
-                <div className="content">
+                <main className="content">
                     <Outlet/>
-                </div>
+                </main>
                 {showTab && <Tab/>}
             </div>
         </>

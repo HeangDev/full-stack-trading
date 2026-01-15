@@ -24,7 +24,7 @@ const Index = () => {
                     <TabPanel value="1">
                         <div className="nodata__container">
                             <div className="nodata__img">
-                                <img src={ImgNoData}/>
+                                <img src={ImgNoData} loading="lazy" alt=""/>
                             </div>
                             <div className="nodata__title">
                                 <h4>{t('nodata.nodata_empty_title')}</h4>
@@ -35,7 +35,7 @@ const Index = () => {
                     <TabPanel value="2">
                         <div className="nodata__container">
                             <div className="nodata__img">
-                                <img src={ImgNoData}/>
+                                <img src={ImgNoData} loading="lazy" alt=""/>
                             </div>
                             <div className="nodata__title">
                                 <h4>{t('nodata.nodata_empty_title')}</h4>

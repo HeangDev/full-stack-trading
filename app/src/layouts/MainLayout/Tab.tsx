@@ -1,21 +1,12 @@
 import { useLocation, useNavigate } from "react-router"
 import { useTranslation } from "react-i18next"
-
-import IcHome from "../../assets/img/ic/ic_home.png"
-import IcMarket from "../../assets/img/ic/ic_market.png"
-import IcTrade from "../../assets/img/ic/ic_trade.png"
-import IcWallet from "../../assets/img/ic/ic_wallet.png"
-
-import IcHomeOn from "../../assets/img/ic/ic_home_on.png"
-import IcMarketOn from "../../assets/img/ic/ic_market_on.png"
-import IcTradeOn from "../../assets/img/ic/ic_trade_on.png"
-import IcWalletOn from "../../assets/img/ic/ic_wallet_on.png"
+import { Icon } from "@iconify/react"
 
 const tabs = [
-    { href: "/home", label: "home", icon: IcHome, iconOn: IcHomeOn },
-    { href: "/market", label: "markets", icon: IcMarket, iconOn: IcMarketOn },
-    { href: "/order", label: "order", icon: IcTrade, iconOn: IcTradeOn },
-    { href: "/account", label: "account", icon: IcWallet, iconOn: IcWalletOn },
+    { href: "/home", label: "home", icon: "solar:home-2-broken", iconOn: "solar:home-2-bold" },
+    { href: "/market", label: "markets", icon: "solar:chart-square-broken", iconOn: "solar:chart-square-bold" },
+    { href: "/order", label: "order", icon: "solar:cart-large-2-broken", iconOn: "solar:cart-large-2-bold" },
+    { href: "/account", label: "account", icon: "solar:user-circle-broken", iconOn: "solar:user-circle-bold" },
 ];
 
 const Tab = () => {
@@ -35,7 +26,7 @@ const Tab = () => {
                             className={`tabbar__item ${isActive ? "on" : ""}`}
                         >
                             {typeof tab.icon === "string" ? (
-                                <img src={isActive ? tab.iconOn : tab.icon} />
+                                <Icon icon={isActive ? tab.iconOn : tab.icon}/>
                             ) : (
                                 tab.icon
                             )}

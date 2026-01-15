@@ -4,10 +4,10 @@ import MainLayout from "./layouts/MainLayout/Index";
 import LoginLayout from "./layouts/LoginLayout/Index";
 
 import Home from "./pages/Home";
-import StockDetail from "./pages/stock/Index"
-import Market from "./pages/markets/Index"
-import Order from "./pages/order/Index"
-import Profile from "./pages/account/Index";
+import StockDetail from "./pages/stock/Stock"
+import Market from "./pages/markets/Market"
+import Order from "./pages/order/Order"
+import Profile from "./pages/account/Account";
 import History from "./pages/account/History";
 import Bank from "./pages/account/Bank";
 import ChangePassword from "./pages/account/ChangePassword";
