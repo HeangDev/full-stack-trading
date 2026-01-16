@@ -11,7 +11,7 @@ interface OHLC {
     close: number;
 }
 
-export function formatToSIPrefix(num: number): string {
+function formatToSIPrefix(num: number): string {
     const abs = Math.abs(num);
 
     const format = (value: number, unit: string) =>

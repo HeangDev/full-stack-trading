@@ -60,6 +60,8 @@
     "login": {
         "title": "登录你的账号",
         "subtitle": "欢迎回来，我们想念你了！",
+        "phone_number": "电话号码",
+        "phone_number_placeholder": "请输入您的手机号码",
         "username": "用户名",
         "password": "密码",
         "buttonName": "登录",
@@ -67,6 +69,8 @@
         "footerLink": "注册"
     },
     "login_validation": {
+        "phone_number_required": "电话号码为必填项",
+        "phone_number_matches": "电话号码无效",
         "username_required": "用户名为必填项",
         "password_required": "密码为必填项"
     },

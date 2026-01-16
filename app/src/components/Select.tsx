@@ -18,6 +18,7 @@ interface SelectProps {
     children: React.ReactNode;
     headerSearch?: boolean;
     style?: React.CSSProperties;
+    onChange?: (value: string) => void;
 }
 
 function cx(...parts: Array<string | false | undefined>) {
@@ -58,6 +59,7 @@ export const Select: React.FC<SelectProps> = (props) => {
         setSelectedValue(value);
         setSelectedLabel(label);
         setOpenSelect(false);
+        props.onChange?.(value); 
     }
 
     const handleToggleCombo = () => {

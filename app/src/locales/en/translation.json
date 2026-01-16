@@ -60,6 +60,8 @@
     "login": {
         "title": "Let’s Sign You In",
         "subtitle": "Welcome back, you’ve been missed!",
+        "phone_number": "Phone Number",
+        "phone_number_placeholder": "Enter your mobile number",
         "username": "Username",
         "password": "Password",
         "buttonName": "Login",
@@ -68,6 +70,8 @@
     },
     "login_validation": {
         "username_required": "Username is required",
+        "phone_number_required": "Phone number is required",
+        "phone_number_matches": "Phone number is not valid",
         "password_required": "Password is required"
     },
     "signup": {

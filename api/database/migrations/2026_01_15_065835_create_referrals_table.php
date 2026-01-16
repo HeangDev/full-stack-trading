@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('withdraws', function (Blueprint $table) {
+        Schema::create('referrals', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->decimal('amount', 15, 2);
-            $table->integer('code');
-            $table->integer('fee');
-            $table->string('reason')->nullable();
+            $table->unsignedBigInteger('referrer_id'); // who referred
+            $table->unsignedBigInteger('user_id');     // referred user
+            $table->foreign('referrer_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('status')->default('pending'); // pending, completed, canceled
+            $table->unique(['referrer_id', 'user_id']); // prevent duplicate referral
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('withdraws');
+        Schema::dropIfExists('referrals');
     }
 };

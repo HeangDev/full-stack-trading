@@ -1,8 +1,9 @@
+import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signUpSchema } from "../../schemas/signUpSchema";
 import type { SignUpFormData } from "../../schemas/signUpSchema";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useTranslation } from 'react-i18next'
 
 import TextField from "../../components/Form/TextField";
@@ -14,14 +15,36 @@ import Button from '../../components/Button'
 import Logo from "../../assets/img/logo.png"
 import { Icon } from '@iconify/react';
 
+import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
+import { registerUser } from "../../redux/slices/authSlice";
+
 const SignUp = () => {
     const { t } = useTranslation();
+    const dispatch = useAppDispatch();
+    const navigate = useNavigate();
+    const { loading } = useAppSelector(state => state.auth);
+    const [countryCode, setCountryCode] = React.useState("+855");
     const { register, handleSubmit, formState: { errors } } = useForm<SignUpFormData>({
         resolver: yupResolver(signUpSchema(t)),
     });
 
     const handleSignUp = async (data: SignUpFormData) => {
-        console.log(data)
+        console.log("SIGN UP DATA:", data);
+        try {
+            const res = await dispatch(
+                registerUser({
+                    country_code: data.country_code,
+                    phone_number: data.phone_number,
+                    password: data.password,
+                    username: data.username,
+                    referral_code: data.referral_code || "",
+                })
+            ).unwrap();
+            console.log("REGISTER SUCCESS:", res);
+            navigate("/login");
+        } catch (error) {
+            console.error("Registration failed:", error);
+        }
     }
 
     return (
@@ -41,7 +64,11 @@ const SignUp = () => {
                         <FormControl>
                             <InputLabel>{t('signup.phone_number')}</InputLabel>
                             <div className="form__row__2__columns">
-                                <Select style={{ width: "104px" }}>
+                                <Select
+                                    value={countryCode}
+                                    onChange={(value) => setCountryCode(value as string)}
+                                    style={{ width: "104px" }}
+                                >
                                     <Option
                                         value="+855"
                                         label={
@@ -92,12 +119,12 @@ const SignUp = () => {
                                     </Option>
                                 </Select>
                                 <TextField type="number" fullWidth
-                                    error={!!errors.phone}
-                                    {...register("phone")}
+                                    error={!!errors.phone_number}
+                                    {...register("phone_number")}
                                     placeholder={t('signup.phone_number_placeholder')}
                                 />
                             </div>
-                            <HelperText error>{errors.phone?.message}</HelperText>
+                            <HelperText error>{errors.phone_number?.message}</HelperText>
                         </FormControl>
                         <FormControl>
                             <InputLabel>{t('signup.username')}</InputLabel>
@@ -116,22 +143,14 @@ const SignUp = () => {
                             <HelperText error>{errors.password?.message}</HelperText>
                         </FormControl>
                         <FormControl>
-                            <InputLabel>{t('signup.withdraw_code')}</InputLabel>
-                            <TextField type="number" fullWidth
-                                error={!!errors.withdraw_code}
-                                {...register("withdraw_code")}
-                            />
-                            <HelperText error>{errors.withdraw_code?.message}</HelperText>
-                        </FormControl>
-                        <FormControl>
                             <InputLabel>{t('signup.referral_code')}</InputLabel>
-                            <TextField type="number" fullWidth
+                            <TextField type="text" fullWidth
                                 {...register("referral_code")}
                             />
                         </FormControl>
                     </div>
                     <div className="auth__button__container">
-                        <Button type="submit" color="primary">{t('signup.buttonName')}</Button>
+                        <Button type="submit" color="primary" disabled={loading} >{t("signup.buttonName")}</Button>
                     </div>
                     <div className="auth__footer">
                         <p>{t('signup.footerText')} <Link to="/login">{t('signup.footerLink')}</Link></p>

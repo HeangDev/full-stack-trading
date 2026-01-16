@@ -3,6 +3,8 @@ import { Routes, Route, Navigate } from "react-router";
 import MainLayout from "./layouts/MainLayout/Index";
 import LoginLayout from "./layouts/LoginLayout/Index";
 
+import ProtectedRoute from "./routes/ProtectedRoute";
+
 import Home from "./pages/Home";
 import StockDetail from "./pages/stock/Stock"
 import Market from "./pages/markets/Market"
@@ -25,20 +27,22 @@ const App = () => {
         <>
             <Routes>
                 <Route path="/" element={<Navigate to="/login" replace />} />
-                <Route element={<MainLayout />}>
-                    <Route index path="home" element={<Home />} />
-                    <Route path="stock/:id" element={<StockDetail />} />
-                    <Route path="account" element={<Profile />} />
-                    <Route path="market" element={<Market />} />
-                    <Route path="history" element={<History />} />
-                    <Route path="bank" element={<Bank />} />
-                    <Route path="order" element={<Order />} />
-                    <Route path="change_password" element={<ChangePassword />} />
-                    <Route path="language" element={<Language />} />
-                    <Route path="referral_code" element={<ReferralCode />} />
-                    <Route path="notification" element={<Notification />} />
-                    <Route path="deposit" element={<Deposit />} />
-                    <Route path="withdraw" element={<Withdraw />} />
+                <Route element={<ProtectedRoute />}>
+                    <Route element={<MainLayout />}>
+                        <Route index path="home" element={<Home />} />
+                        <Route path="stock/:id" element={<StockDetail />} />
+                        <Route path="account" element={<Profile />} />
+                        <Route path="market" element={<Market />} />
+                        <Route path="history" element={<History />} />
+                        <Route path="bank" element={<Bank />} />
+                        <Route path="order" element={<Order />} />
+                        <Route path="change_password" element={<ChangePassword />} />
+                        <Route path="language" element={<Language />} />
+                        <Route path="referral_code" element={<ReferralCode />} />
+                        <Route path="notification" element={<Notification />} />
+                        <Route path="deposit" element={<Deposit />} />
+                        <Route path="withdraw" element={<Withdraw />} />
+                    </Route>
                 </Route>
 
                 <Route element={<LoginLayout />}>

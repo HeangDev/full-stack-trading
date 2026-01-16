@@ -8,33 +8,45 @@ import {
 
 export interface User {
     id: number;
-    name: string;
+    country_code: string;
     phone_number: string;
+    password: string
+    username: string;
+    referral_code: string;
 }
 
 interface AuthState {
     user: User | null;
     token: string | null;
     loading: boolean;
+    error: string | null;
 }
 
 const initialState: AuthState = {
     user: null,
     token: localStorage.getItem('token'),
     loading: false,
+    error: null,
 }
 
 export const login = createAsyncThunk(
     "auth/login",
-    async (payload: { phone_number: string; password: string }) => {
+    async (
+        payload: { country_code: string, phone_number: string; password: string },
+        { rejectWithValue }
+    ) => {
+        try {
         const res = await loginAPI(payload);
         return res.data;
+        } catch (error: any) {
+            return rejectWithValue(error.response.data);
+        }
     }
 )
 
-export const register = createAsyncThunk(
+export const registerUser = createAsyncThunk(
     "auth/register",
-    async (payload: { phone_number: string; password: string; name: string }) => {
+    async (payload: { country_code: string, phone_number: string; password: string; username: string, referral_code: string }) => {
         const res = await registerAPI(payload);
         return res.data;
     }
@@ -70,10 +82,11 @@ const authSlice = createSlice({
             state.token = action.payload.token;
             localStorage.setItem("token", action.payload.token);
         })
-        .addCase(login.rejected, (state) => {
+        .addCase(login.rejected, (state, action) => {
             state.loading = false;
+            state.error = action.payload as string;
         })
-        .addCase(register.fulfilled, (state, action) => {
+        .addCase(registerUser.fulfilled, (state, action) => {
             state.user = action.payload.user;
             state.token = action.payload.token;
             localStorage.setItem("token", action.payload.token);

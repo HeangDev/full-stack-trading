@@ -21,33 +21,30 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'username',
-        'phone',
+        'country_code',
+        'phone_number',
         'password',
         'profile_image',
-        'balance',
-        'status',
+        'referral_code',
+        'referrer_id',
+        'status'
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var list<string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
+    // User has many withdrawals
+    public function withdrawals()
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        return $this->hasMany(Withdraw::class);
+    }
+
+    // User has many referrals
+    public function referrals()
+    {
+        return $this->hasMany(Referral::class, 'referrer_id');
+    }
+
+    // If user was referred by someone
+    public function referrer()
+    {
+        return $this->belongsTo(User::class, 'referrer_id');
     }
 }
