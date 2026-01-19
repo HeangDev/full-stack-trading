@@ -24,14 +24,21 @@ const SignUp = () => {
     const navigate = useNavigate();
     const { loading } = useAppSelector(state => state.auth);
     const [countryCode, setCountryCode] = React.useState("+855");
-    const { register, handleSubmit, formState: { errors } } = useForm<SignUpFormData>({
+
+    const { register, handleSubmit, setValue, formState: { errors } } = useForm<SignUpFormData>({
         resolver: yupResolver(signUpSchema(t)),
+        defaultValues: {
+            country_code: "+855",
+        }
     });
 
+    React.useEffect(() => {
+        setValue("country_code", countryCode);
+    }, [countryCode, setValue]);
+
     const handleSignUp = async (data: SignUpFormData) => {
-        console.log("SIGN UP DATA:", data);
         try {
-            const res = await dispatch(
+            await dispatch(
                 registerUser({
                     country_code: data.country_code,
                     phone_number: data.phone_number,
@@ -40,8 +47,7 @@ const SignUp = () => {
                     referral_code: data.referral_code || "",
                 })
             ).unwrap();
-            console.log("REGISTER SUCCESS:", res);
-            navigate("/login");
+            navigate("/home");
         } catch (error) {
             console.error("Registration failed:", error);
         }

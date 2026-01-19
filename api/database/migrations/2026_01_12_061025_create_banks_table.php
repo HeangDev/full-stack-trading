@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('banks', function (Blueprint $table) {
             $table->id();
-            $table->string('bank_type');
-            $table->string('bank_name')->unique();
+            $table->string('account_holder_name');
             $table->integer('bank_account')->unique();
+            $table->string('bank_name')->unique();
+            $table->string('account_type');
             $table->timestamps();
         });
     }

@@ -9,7 +9,7 @@
         "order": "Order",
         "market": "Markets",
         "notification": "Notifications",
-        "bank": "Bank Details",
+        "bank": "Bank Information",
         "history": "History",
         "deposit": "Deposit",
         "withdraw": "Withdraw"
@@ -17,7 +17,7 @@
     "account": {
         "referralcode": "Referral Code",
         "history": "History",
-        "bank": "Bank Details",
+        "bank": "Bank Information",
         "changepassword": "Change Password",
         "notification": "Notifications",
         "language": "Language",
@@ -43,11 +43,25 @@
         "confirm_password_oneOf": "Passwords do not match"
     },
     "bank": {
-        "bank_name": "Bank Name",
+        "account_holder_name": "Account holder's Name",
         "bank_account": "Bank Account",
+        "bank_name": "Bank Name",
+        "account_type": "Account Type",
+        "account_type_select": {
+            "saving_account": "Saving Account",
+            "checking_account": "Checking Account",
+            "money_market_account": "Money market Account",
+            "certificate_of_deposit_account": "Certificate of deposit Account"
+        },
         "button": "Add Bank"
     },
+    "bank_placeholder": {
+        "account_holder_name_placeholder": "Name as registered with the bank",
+        "bank_account_placeholder": "Your unique account identifier",
+        "bank_name_placeholder": "Name of the bank where the account is"
+    },
     "bank_validation": {
+        "account_holder_name_required": "Account holder's name is required",
         "bank_name_required": "Bank name is required",
         "bank_account_required": "Bank account is required"
     },

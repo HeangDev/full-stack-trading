@@ -3,7 +3,7 @@ interface TabProps {
     value: string | number;
 }
 
-export const Tab: React.FC<TabProps> = () => {
+const Tab: React.FC<TabProps> = () => {
     return null;
 };
 

@@ -4,6 +4,7 @@ import MainLayout from "./layouts/MainLayout/Index";
 import LoginLayout from "./layouts/LoginLayout/Index";
 
 import ProtectedRoute from "./routes/ProtectedRoute";
+import PublicRoute from "./routes/PublicRoute";
 
 import Home from "./pages/Home";
 import StockDetail from "./pages/stock/Stock"
@@ -27,6 +28,7 @@ const App = () => {
         <>
             <Routes>
                 <Route path="/" element={<Navigate to="/login" replace />} />
+                <Route path="*" element={<Navigate to="/login" replace />} />
                 <Route element={<ProtectedRoute />}>
                     <Route element={<MainLayout />}>
                         <Route index path="home" element={<Home />} />
@@ -45,9 +47,11 @@ const App = () => {
                     </Route>
                 </Route>
 
-                <Route element={<LoginLayout />}>
-                    <Route path="login" element={<Login />} />
-                    <Route path="sign_up" element={<SignUp />} />
+                <Route element={<PublicRoute />}>
+                    <Route element={<LoginLayout />}>
+                        <Route path="login" element={<Login />} />
+                        <Route path="sign_up" element={<SignUp />} />
+                    </Route>
                 </Route>
             </Routes>
         </>

@@ -5,6 +5,13 @@ import en from "./locales/en/translation.json";
 import th from "./locales/th/translation.json";
 import zh from "./locales/zh/translation.json";
 
+const defaultLanguage = "zh";
+const storageKey = "lang";
+
+if (localStorage.getItem(storageKey) === null) {
+    localStorage.setItem(storageKey, defaultLanguage);
+}
+
 i18n
     .use(initReactI18next)
     .init({
@@ -13,14 +20,11 @@ i18n
             th: { translation: th },
             zh: { translation: zh }
         },
-        lng: localStorage.getItem("lang") || "en",
-        fallbackLng: "en",
+        lng: localStorage.getItem(storageKey) || defaultLanguage,
+        fallbackLng: defaultLanguage,
         interpolation: {
             escapeValue: false
         }
-    })
-    .then(() => {
-        document.documentElement.setAttribute("lang", i18n.language)
     })
 
 export default i18n;

@@ -43,13 +43,27 @@
         "confirm_password_oneOf": "两次输入的密码不一致"
     },
     "bank": {
-        "bank_name": "银行名称",
+        "account_holder_name": "账户持有人姓名",
         "bank_account": "银行账户",
+        "bank_name": "银行名称",
+        "account_type": "账户类型",
+        "account_type_select": {
+            "saving_account": "储蓄账户",
+            "checking_account": "支票账户",
+            "money_market_account": "货币市场账户",
+            "certificate_of_deposit_account": "定期存款账户"
+        },
         "button": "添加银行"
     },
+    "bank_placeholder": {
+        "account_holder_name_placeholder": "与银行登记的姓名一致",
+        "bank_account_placeholder": "您的唯一账户标识",
+        "bank_name_placeholder": "开户银行名称"
+    },
     "bank_validation": {
-        "bank_name_required": "请输入银行名称",
-        "bank_account_required": "请输入银行账户"
+        "account_holder_name_required": "必须填写账户持有人姓名",
+        "bank_name_required": "必须填写银行名称",
+        "bank_account_required": "必须填写银行账户"
     },
     "tab": {
         "home": "首页",

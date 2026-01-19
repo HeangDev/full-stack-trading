@@ -4,20 +4,37 @@ import FormControl from '../../components/Form/FormControl';
 import InputLabel from '../../components/Form/InputLabel';
 import HelperText from '../../components/Form/HelperText';
 
+import { useNavigate } from "react-router";
 import { useTranslation } from 'react-i18next'
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { changePasswordSchema } from "../../schemas/changePasswordSchema";
 import type { ChangePsswordFormData } from "../../schemas/changePasswordSchema";
+import { useDispatch } from "react-redux";
+import { changePasswordUser } from "../../redux/slices/authSlice";
+import type { AppDispatch } from "../../redux/store";
 
 const ChangePassword = () => {
+    const dispatch = useDispatch<AppDispatch>();
+    const navigate = useNavigate();
     const { t } = useTranslation();
     const { register, handleSubmit, formState: { errors } } = useForm<ChangePsswordFormData>({
         resolver: yupResolver(changePasswordSchema(t)),
     });
 
     const handleChangePassword = async (data: ChangePsswordFormData) => {
-        console.log(data)
+        try {
+            await dispatch(
+                changePasswordUser({
+                    current_password: data.current_password,
+                    new_password: data.new_password,
+                    confirm_password: data.confirm_password
+                })
+            ).unwrap()
+            navigate("/account");
+        } catch (err: any) {
+            console.error("Login failed:", err);
+        }
     }
     return (
         <>

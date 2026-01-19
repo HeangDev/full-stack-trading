@@ -12,7 +12,15 @@ class BankController extends Controller
      */
     public function index()
     {
-        
+        return response()->json(Bank::all());
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
     }
 
     /**
@@ -20,16 +28,52 @@ class BankController extends Controller
      */
     public function store(Request $request)
     {
-        $bank = Bank::create([
-            "bank_type" => $request->bank_type,
-            "bank_name" => $request->bank_name,
-            "bank_account" => $request->bank_account,
+        $data = $request->validate([
+            'account_holder_name' => 'required|string|max:255',
+            'bank_account'        => 'required|string|unique:bank_accounts,bank_account',
+            'bank_name'           => 'required|string|max:255',
+            'account_type'        => 'required|string|max:50',
         ]);
 
+        $bankAccount = Bank::create($data);
+
+        return response()->json($bankAccount, 201);
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        $bank = Bank::find($id);
+        $bank->delete();
+
         return response()->json([
-            "success" => true,
-            "message" => "Bank created successfully",
-            "data" => $bank
-        ], 200);
+            "message" => 'Deleted successfully'
+        ], 201);
     }
 }

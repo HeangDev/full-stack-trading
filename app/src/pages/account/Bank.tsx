@@ -10,7 +10,6 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { bankSchema } from '../../schemas/bankSchema';
 import type { BankFormData } from '../../schemas/bankSchema';
-import { Icon } from '@iconify/react';
 
 const Bank = () => {
     const { t } = useTranslation();
@@ -27,76 +26,40 @@ const Bank = () => {
                 <form onSubmit={handleSubmit(handleCreateBank)} autoComplete="off">
                     <div className="auth__form__container">
                         <FormControl>
-                            <InputLabel>Bank Type</InputLabel>
-                            <Select headerSearch>
-                                <Option
-                                    value="+855"
-                                    label={
-                                        <div className="country__selected">
-                                            <Icon icon="circle-flags:kh" />
-                                            <span>+855</span>
-                                        </div>
-                                    }
-                                >
-                                    <div className="country__phone__container">
-                                        <div className="country__phone__info">
-                                            <Icon icon="circle-flags:kh" />
-                                            <div className="country__name">Cambodia</div>
-                                        </div>
-                                        <div className="country__code">+855</div>
-                                    </div>
-                                </Option>
-                                <Option
-                                    value="+86"
-                                    label={
-                                        <div className="country__selected">
-                                            <Icon icon="circle-flags:cn" />
-                                            <span>+86</span>
-                                        </div>
-                                    }
-                                >
-                                    <div className="country__phone__container">
-                                        <div className="country__phone__info">
-                                            <Icon icon="circle-flags:cn" />
-                                            <div className="country__name">China</div>
-                                        </div>
-                                        <div className="country__code">+86</div>
-                                    </div>
-                                </Option>
-                                <Option
-                                    value="+66"
-                                    label={
-                                        <div className="country__selected">
-                                            <Icon icon="circle-flags:th" />
-                                            <span>+66</span>
-                                        </div>
-                                    }
-                                >
-                                    <div className="country__phone__container">
-                                        <div className="country__phone__info">
-                                            <Icon icon="circle-flags:th" />
-                                            <div className="country__name">Thailand</div>
-                                        </div>
-                                        <div className="country__code">+66</div>
-                                    </div>
-                                </Option>
-                            </Select>
+                            <InputLabel>{t('bank.account_holder_name')}</InputLabel>
+                            <TextField type="text" fullWidth
+                                placeholder={t('bank_placeholder.account_holder_name_placeholder')}
+                                error={!!errors.bank_account_holder}
+                                {...register("bank_account_holder")}
+                            />
+                            <HelperText error>{errors.bank_account_holder?.message}</HelperText>
+                        </FormControl>
+                        <FormControl>
+                            <InputLabel>{t('bank.bank_account')}</InputLabel>
+                            <TextField type="text" fullWidth
+                                placeholder={t('bank_placeholder.bank_account_placeholder')}
+                                error={!!errors.bank_account}
+                                {...register("bank_account")}
+                            />
+                            <HelperText error>{errors.bank_account?.message}</HelperText>
                         </FormControl>
                         <FormControl>
                             <InputLabel>{t('bank.bank_name')}</InputLabel>
                             <TextField type="text" fullWidth
+                                placeholder={t('bank_placeholder.bank_name_placeholder')}
                                 error={!!errors.bank_name}
                                 {...register("bank_name")}
                             />
                             <HelperText error>{errors.bank_name?.message}</HelperText>
                         </FormControl>
                         <FormControl>
-                            <InputLabel>{t('bank.bank_account')}</InputLabel>
-                            <TextField type="text" fullWidth
-                                error={!!errors.bank_account}
-                                {...register("bank_account")}
-                            />
-                            <HelperText error>{errors.bank_account?.message}</HelperText>
+                            <InputLabel>{t('bank.account_type')}</InputLabel>
+                            <Select>
+                                <Option value="Saving Account">{t('bank.account_type_select.saving_account')}</Option>
+                                <Option value="Checking Account">{t('bank.account_type_select.checking_account')}</Option>
+                                <Option value="Money market Account">{t('bank.account_type_select.money_market_account')}</Option>
+                                <Option value="Certificate of deposit Account">{t('bank.account_type_select.certificate_of_deposit_account')}</Option>
+                            </Select>
                         </FormControl>
                     </div>
                     <div className="buttonPanel__fixed__container">

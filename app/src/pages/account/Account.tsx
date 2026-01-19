@@ -5,13 +5,22 @@ import Popup from "../../components/Popup";
 import { useNavigate } from 'react-router';
 import { Icon } from '@iconify/react';
 import { useTranslation } from 'react-i18next'
+import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
+import { logoutUser, fetchUserProfile } from "../../redux/slices/authSlice";
 import ProfileImg from "../../assets/img/img/profile.avif";
 
 const Profile = () => {
+    const dispatch = useAppDispatch();
+    const { user } = useAppSelector(state => state.auth);
     const [openPopup, setOpenPopup] = React.useState(false);
     const { t, i18n } = useTranslation();
     const currentLang = i18n.language;
     const navigate = useNavigate();
+
+    React.useEffect(() => {
+        dispatch(fetchUserProfile());
+    }, [dispatch]);
+
     return (
         <>
             <div className="profilePanel__container">
@@ -19,8 +28,8 @@ const Profile = () => {
                     <img src={ProfileImg} loading="lazy" width="80px" height="80px" sizes="80px" alt=""/>
                 </div>
                 <div className="profilePanel__container__name">
-                    <h4>John Doe</h4>
-                    <p>johndoe123@mail.com</p>
+                    <h4>{user?.username}</h4>
+                    <p>{user?.country_code}{user?.phone_number}</p>
                 </div>
             </div>
             <div className="settingPanel__container">
@@ -130,7 +139,7 @@ const Profile = () => {
                     </div>
                     <h4>{t('alert.alert_logout_tit')}</h4>
                     <div className="alertPanel__button">
-                        <Button type="button" color="danger">{t('alert.alert_btn_ok')}</Button>
+                        <Button type="button" color="danger" onClick={() => dispatch(logoutUser())}>{t('alert.alert_btn_ok')}</Button>
                         <Button type="button" color="secondary" onClick={() => setOpenPopup(false)}>{t('alert.alert_btn_cancel')}</Button>
                     </div>
                 </div>

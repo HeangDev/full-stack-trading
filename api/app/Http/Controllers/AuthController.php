@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
@@ -29,11 +30,11 @@ class AuthController extends Controller
             "phone_number" => $request->phone_number,
             "username" => $request->username,
             "password" => Hash::make($request->password),
-            'referral_code' => uniqid('REF_'), // generate unique referral code
+            'referral_code' => strtoupper(Str::random(6)),
             'referrer_id' => $referrer?->id,
         ]);
 
-        $token = $user->createToken("auth_token")->plainTextToken;
+        $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
             "token" => $token,
@@ -81,5 +82,27 @@ class AuthController extends Controller
     public function me(Request $request)
     {
         return response()->json($request->user());
+    }
+
+    public function changePassword(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+        $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|min:6|confirmed',
+        ]);
+
+        if (!Hash::check($request->current_password, $user->password)) {
+            return response()->json(['message' => 'Current password is incorrect'], 400);
+        }
+
+        $user->update([
+            'password' => Hash::make($request->new_password)
+        ]);
+
+        return response()->json([
+            'message' => 'Password updated successfully',
+        ], 200);
     }
 }

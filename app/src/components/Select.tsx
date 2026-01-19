@@ -107,7 +107,7 @@ export const Select: React.FC<SelectProps> = (props) => {
             <div className="form__select" style={props.style} ref={dropdownRef}>
                 <div className="select__btn" onClick={handleToggleCombo} onChange={handleToggleCombo}>
                     <div className="select__selected">
-                        {selectedLabel}
+                        {selectedValue}
                     </div>
                     <div className="select__toggler">
                         <Icon icon={

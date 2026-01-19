@@ -3,7 +3,8 @@ import {
     loginAPI,
     registerAPI,
     logoutAPI,
-    fetchUserProfileAPI
+    fetchUserProfileAPI,
+    changePasswordAPI
 } from "../../api/auth.api";
 
 export interface User {
@@ -29,7 +30,7 @@ const initialState: AuthState = {
     error: null,
 }
 
-export const login = createAsyncThunk(
+export const loginUser = createAsyncThunk(
     "auth/login",
     async (
         payload: { country_code: string, phone_number: string; password: string },
@@ -60,10 +61,18 @@ export const fetchUserProfile = createAsyncThunk(
     }
 )
 
-export const logout = createAsyncThunk(
+export const logoutUser = createAsyncThunk(
     "auth/logout",
     async () => {
         await logoutAPI();
+    }
+)
+
+export const changePasswordUser = createAsyncThunk(
+    "auth/change_password",
+    async (payload: { current_password: string, new_password: string; confirm_password: string }) => {
+        const res = await changePasswordAPI(payload);
+        return res.data;
     }
 )
 
@@ -73,16 +82,16 @@ const authSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-        .addCase(login.pending, (state) => {
+        .addCase(loginUser.pending, (state) => {
             state.loading = true;
         })
-        .addCase(login.fulfilled, (state, action) => {
+        .addCase(loginUser.fulfilled, (state, action) => {
             state.loading = false;
             state.user = action.payload.user;
             state.token = action.payload.token;
             localStorage.setItem("token", action.payload.token);
         })
-        .addCase(login.rejected, (state, action) => {
+        .addCase(loginUser.rejected, (state, action) => {
             state.loading = false;
             state.error = action.payload as string;
         })
@@ -94,10 +103,19 @@ const authSlice = createSlice({
         .addCase(fetchUserProfile.fulfilled, (state, action) => {
             state.user = action.payload;
         })
-        .addCase(logout.fulfilled, (state) => {
+        .addCase(logoutUser.fulfilled, (state) => {
             state.user = null;
             state.token = null;
             localStorage.removeItem("token");
+        })
+        .addCase(changePasswordUser.pending, (state) => {
+            state.loading = true;
+        })
+        .addCase(changePasswordUser.fulfilled, (state) => {
+            state.loading = false;
+        })
+        .addCase(changePasswordUser.rejected, (state) => {
+            state.loading = false;
         })
     }
 })

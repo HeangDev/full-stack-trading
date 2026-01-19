@@ -8,27 +8,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Bank extends Model
 {
     protected $fillable = [
-        'bank_type',
-        'bank_name',
+        'account_holder_name',
         'bank_account',
+        'bank_name',
+        'account_type'
     ];
-
-    /**
-     * The name of the "created at" column.
-     *
-     * @var string|null
-     */
-    public const CREATED_AT = 'creation_date';
-
-    /**
-     * The name of the "updated at" column.
-     *
-     * @var string|null
-     */
-    public const UPDATED_AT = 'updated_date';
-
-    public function comments(): HasMany
-    {
-        return $this->hasMany(User::class);
-    }
 }

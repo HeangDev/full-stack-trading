@@ -56,8 +56,9 @@ body,html{@apply flex justify-center w-full h-full m-0 p-0 font-inter text-justi
 
 .profilePanel__container{@apply flex items-center justify-start gap-6;}
 .profilePanel__container__img img{@apply w-20 rounded-full;}
-.profilePanel__container__name h4{@apply text-lg font-bold leading-7 text-white;}
-.profilePanel__container__name p{@apply mt-1 text-sm font-normal leading-6 text-theme-secondary;}
+.profilePanel__container__name h4{@apply text-lg font-bold leading-7 text-white capitalize;}
+.profilePanel__container__name{@apply w-full;}
+.profilePanel__container__name p{@apply text-sm font-normal leading-6 text-theme-secondary;}
 
 .settingPanel__container{@apply mt-8;}
 .settingPanel__container__items{@apply relative flex justify-start flex-col mt-5 rounded-2xl bg-[#191A1F] first:mt-0;}

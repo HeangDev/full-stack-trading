@@ -1,13 +1,14 @@
+import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "../../schemas/loginSchema";
 import type { LoginFormData } from "../../schemas/loginSchema";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useTranslation } from 'react-i18next'
 import { Icon } from '@iconify/react';
 import { Select, Option } from '../../components/Select';
 import { useDispatch } from "react-redux";
-import { login } from "../../redux/slices/authSlice";
+import { loginUser } from "../../redux/slices/authSlice";
 import type { AppDispatch } from "../../redux/store";
 
 import TextField from "../../components/Form/TextField";
@@ -20,15 +21,32 @@ import Logo from "../../assets/img/logo.png"
 const Login = () => {
     const { t } = useTranslation();
     const dispatch = useDispatch<AppDispatch>();
-    const { register, handleSubmit, formState: { errors } } = useForm<LoginFormData>({
+    const navigate = useNavigate();
+    const [countryCode, setCountryCode] = React.useState("+855");
+    const { register, handleSubmit, setValue, formState: { errors } } = useForm<LoginFormData>({
         resolver: yupResolver(loginSchema(t)),
+        defaultValues: {
+            country_code: "+855",
+        }
     });
+
+    React.useEffect(() => {
+        setValue("country_code", countryCode);
+    }, [countryCode, setValue]);
+
     const handleLogin = async (data: LoginFormData) => {
-        dispatch(login({
-            country_code: data.country_code,
-            phone_number: data.phone,
-            password: data.password,
-        }));
+        try {
+            await dispatch(
+                loginUser({
+                    country_code: data.country_code,
+                    phone_number: data.phone,
+                    password: data.password,
+                })
+            ).unwrap();
+            navigate("/home");
+        } catch (error) {
+            console.error("Login failed:", error);
+        }
     }
 
     return (
@@ -48,7 +66,11 @@ const Login = () => {
                         <FormControl>
                             <InputLabel>{t('login.phone_number')}</InputLabel>
                             <div className="form__row__2__columns">
-                                <Select style={{ width: "104px" }}>
+                                <Select
+                                    value={countryCode}
+                                    onChange={(value) => setCountryCode(value as string)}
+                                    style={{ width: "104px" }}
+                                >
                                     <Option
                                         value="+855"
                                         label={

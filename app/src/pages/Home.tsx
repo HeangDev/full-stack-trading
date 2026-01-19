@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
+import 'swiper/css';
+import 'swiper/css/autoplay';
 
 import Slide01 from "../assets/img/slide/slide_bg_01.jpg"
 import Slide02 from "../assets/img/slide/slide_bg_02.jpg"
