@@ -17,11 +17,13 @@ return new class extends Migration
             $table->integer('bank_account')->unique();
             $table->string('bank_name')->unique();
             $table->string('account_type');
+            $table->string('status')->default(1);
+            $table->foreignIdFor(\App\Models\AdminUser::class, 'staff_id')->nullable();
             $table->timestamps();
         });
     }
 
-    /**
+    /**t
      * Reverse the migrations.
      */
     public function down(): void

@@ -17,15 +17,15 @@
 
 input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0;}
 
-body,html{@apply flex justify-center w-full h-full m-0 p-0 font-inter text-justify bg-[#9195a3] select-none overflow-hidden;}
-.wrap{@apply relative w-[500px] min-h-screen h-fit bg-theme-main;}
+body,html{@apply w-full h-full m-0 p-0 font-inter text-justify bg-[#9195a3] select-none overflow-hidden;}
+.wrap{@apply relative w-full min-h-screen h-fit bg-theme-main;}
 .content{@apply max-h-screen h-screen pt-16 px-3 pb-16 overflow-y-scroll;}
 
 ::-webkit-scrollbar{@apply hidden w-1 h-1 bg-[#f4f5f7];}
 ::-webkit-scrollbar-thumb{@apply rounded-xs bg-gray-400/20;}
 ::-webkit-scrollbar-track{@apply rounded-none;}
 
-.header{@apply fixed top-0 w-[500px] h-[50px] z-10;}
+.header{@apply fixed top-0 w-full h-[50px] z-10;}
 .header__inner{@apply bg-theme-main select-none;}
 .header__content{@apply relative flex items-center justify-center px-3 h-[50px];}
 .header__content__left{@apply absolute top-0 left-3 flex items-center justify-center h-full;}
@@ -37,7 +37,7 @@ body,html{@apply flex justify-center w-full h-full m-0 p-0 font-inter text-justi
 .header__content__right svg{@apply w-6 h-6 text-white;}
 .header__content__right .notification__dot{@apply absolute top-0 right-1 w-2.5 h-2.5 rounded-full border border-theme-main bg-theme-danger;}
 
-.tabbar{@apply fixed bottom-0 flex items-end justify-between w-[500px] h-16 pt-3.5 px-3 text-xs bg-theme-main;}
+.tabbar{@apply fixed bottom-0 flex items-end justify-between w-full h-16 pt-3.5 px-3 text-xs bg-theme-main;}
 .tabbar__item{@apply flex flex-col items-center justify-end text-gray-500 font-normal cursor-pointer;}
 .tabbar__item span{@apply mt-1.5;}
 .tabbar__item svg{@apply w-6 h-6;}
@@ -207,7 +207,7 @@ body,html{@apply flex justify-center w-full h-full m-0 p-0 font-inter text-justi
 .deposit__container__intro__lists p::after{@apply content-[""] absolute top-[7px] -left-0.5 w-[5px] h-[5px] bg-white rotate-[42deg];}
 
 .buttonPanel__fixed__container{@apply fixed left-0 bottom-0 right-0 -mx-5 z-10;}
-.buttonPanel__fixed__box{@apply flex max-w-[500px] mx-auto py-3 px-3 bg-[#24252C];}
+.buttonPanel__fixed__box{@apply flex max-w-full mx-auto py-3 px-3 bg-[#24252C];}
 .buttonPanel__fixed__box button span{@apply ml-2;}
 
 .alertPanel__container{@apply p-11;}

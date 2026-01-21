@@ -18,11 +18,17 @@ return new class extends Migration
             $table->string('country_code');
             $table->string('phone_number')->unique();
             $table->string('password');
-            $table->string('profile_image')->nullable();
+            $table->string('avatar')->nullable();
+            $table->boolean('status')->default(1)->nullable(); //1 often means "active" and 0 means "inactive,"
+            $table->string('bank_id')->unique()->nullable();
+            $table->decimal('balance', 10, 2)->default(0)->nullable();
+            $table->double('current_point')->default(0)->nullable();
             $table->string('referral_code')->unique()->nullable();
-            $table->unsignedBigInteger('referrer_id')->nullable(); // who referred this user
-            $table->foreign('referrer_id')->references('id')->on('users')->onDelete('set null');
-            $table->boolean('status')->default(0);
+            $table->unsignedBigInteger('referrer_by_id')->nullable();
+            $table->foreign('referrer_by_id')->references('id')->on('users');
+            $table->string('register_ip')->nullable();
+            $table->datetime('last_login_at')->nullable();
+            $table->string('last_login_ip')->nullable();
             $table->timestamps();
         });
     }

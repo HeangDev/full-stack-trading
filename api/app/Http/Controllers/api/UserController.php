@@ -1,14 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\api;
 
+use Carbon\Carbon;
 use App\Models\User;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller;
 use Illuminate\Validation\ValidationException;
 
-class AuthController extends Controller
+class UserController extends Controller
 {
     public function register(Request $request)
     {
@@ -30,8 +32,9 @@ class AuthController extends Controller
             "phone_number" => $request->phone_number,
             "username" => $request->username,
             "password" => Hash::make($request->password),
-            'referral_code' => strtoupper(Str::random(6)),
-            'referrer_id' => $referrer?->id,
+            "referral_code" => strtoupper(Str::random(6)),
+            "referrer_by_id" => $referrer?->id,
+            "register_ip" => $request->ip()
         ]);
 
         $token = $user->createToken('auth_token')->plainTextToken;
@@ -60,6 +63,12 @@ class AuthController extends Controller
                 "phone_number" => ["The provided credentials are incorrect."],
             ]);
         }
+
+        // ✅ Update last login info
+        $user->update([
+            'last_login_at' => Carbon::now(),
+            'last_login_ip' => $request->ip(),
+        ]);
 
         $token = $user->createToken("auth_token")->plainTextToken;
 

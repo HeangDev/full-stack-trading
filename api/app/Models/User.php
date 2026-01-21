@@ -24,10 +24,15 @@ class User extends Authenticatable
         'country_code',
         'phone_number',
         'password',
-        'profile_image',
+        'avatar',
+        'status',
+        'bank_id',
+        'balance',
+        'current_point',
         'referral_code',
-        'referrer_id',
-        'status'
+        'register_ip',
+        'last_login_at',
+        'last_login_ip'
     ];
 
     // User has many withdrawals
