@@ -73,7 +73,7 @@ export const dataDisplayCustomizations: Components<Theme> = {
         styleOverrides: {
             root: () => {
                 return {
-                    padding: 0,
+                    padding: "2px 9px"
                 }
             }
         }
@@ -86,36 +86,23 @@ export const dataDisplayCustomizations: Components<Theme> = {
         styleOverrides: {
             root: () => {
                 return {
-                    width: "100%",
-                    height: "34px",
                     padding: "8px 12px",
-                    color: "rgb(23, 23, 23)",
+                    color: "#252F4A",
                     borderRadius: "6px",
-                    cursor: "pointer",
-                    userSelect: "none",
-                    whiteSpace: "nowrap",
-                    boxShadow: "none",
                     "& svg": {
-                        width: "18px",
-                        height: "18px",
-                        fontWeight: 700,
-                        transition: "color 200ms cubic-bezier(0.4, 0, 0.2, 1), transform 200ms cubic-bezier(0.4, 0, 0.2, 1), opacity 200ms cubic-bezier(0.4, 0, 0.2, 1)"
+                        marginRight: "12px",
+                        borderRadius: "6px",
                     }
                 }
             },
-            selected: ({ theme }) => {
-                return {
-                    backgroundColor: (theme.vars || theme).palette.action.hover,
-                }
-            }
         }
     },
-    MuiListItemIcon: {
+    MuiListItemAvatar: {
         styleOverrides: {
             root: () => {
                 return {
-                    minWidth: "18px",
-                    minHeight: "18px"
+                    display: "flex",
+                    minWidth: 0
                 }
             }
         }
@@ -146,7 +133,6 @@ export const dataDisplayCustomizations: Components<Theme> = {
         styleOverrides: {
             root: ({theme}) => {
                 return {
-                    
                     backgroundColor: alpha(theme.palette.secondary.main, 0.1),
                 }
             }

@@ -44,8 +44,8 @@ export const colorSchemes = {
                 secondary: "rgb(123, 128, 154)"
             },
             action: {
+                hover: "#F9F9F9",
                 selected: "#F9F9F9",
-                selectedOpacity: 0.04,
             },
             divider: "rgba(0, 0, 0, 0.12)"
         }

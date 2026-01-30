@@ -1,0 +1,16 @@
+{
+    "language": {
+        "english": "អង់គ្លេស",
+        "khmer": "ខ្មែរ",
+        "chinese": "ចិន",
+        "thai": "ថៃ"
+    },
+    "headerProfile": {
+        "my_profile": "ប្រវត្តិរូបរបស់ខ្ញុំ",
+        "my_subscription": "ការជាវរបស់ខ្ញុំ",
+        "my_statements": "បញ្ជីប្រតិបត្តិការរបស់ខ្ញុំ",
+        "billing_plans": "ការទូទាត់ និងគម្រោង",
+        "account_settings": "ការកំណត់គណនី",
+        "sign_out": "ចាកចេញ"
+    }
+}

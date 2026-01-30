@@ -1,0 +1,16 @@
+{
+    "language": {
+        "english": "English",
+        "khmer": "Khmer",
+        "chinese": "Chinese",
+        "thai": "Thai"
+    },
+    "headerProfile": {
+        "my_profile": "My Profile",
+        "my_subscription": "My Subscription",
+        "my_statements": "My Statements",
+        "billing_plans": "Billing & plans",
+        "account_settings": "Account Settings",
+        "sign_out": "Sign Out"
+    }
+}

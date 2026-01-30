@@ -32,10 +32,10 @@ export const utilsCustomizations: Components<Theme> = {
             root: ({ theme }) => ({
                 zIndex: 1300,
                 '&[data-popper-placement="bottom-end"]': {
-                    [theme.breakpoints.down('md')]: {
+                    [theme.breakpoints.down('xl')]: {
                         transform: "translate(-20px, 60px) !important",
                     },
-                    [theme.breakpoints.up('md')]: {
+                    [theme.breakpoints.up('xl')]: {
                         transform: "translate(-30px, 70px) !important",
                     },
                 }

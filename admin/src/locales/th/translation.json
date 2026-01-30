@@ -1,0 +1,16 @@
+{
+    "language": {
+        "english": "อังกฤษ",
+        "khmer": "เขมร",
+        "chinese": "จีน",
+        "thai": "ไทย"
+    },
+    "headerProfile": {
+        "my_profile": "โปรไฟล์ของฉัน",
+        "my_subscription": "การสมัครสมาชิกของฉัน",
+        "my_statements": "รายการเดินบัญชีของฉัน",
+        "billing_plans": "การเรียกเก็บเงินและแผน",
+        "account_settings": "การตั้งค่าบัญชี",
+        "sign_out": "ออกจากระบบ"
+    }
+}

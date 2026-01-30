@@ -117,11 +117,11 @@ export const inputsCustomizations: Components<Theme> = {
                 borderRadius: theme.shape.borderRadius,
                 backgroundColor: "transparent",
                 boxShadow: 'none',
-                [theme.breakpoints.down('md')]: {
+                [theme.breakpoints.down('xl')]: {
                     width: "35px",
                     height: "35px",
                 },
-                [theme.breakpoints.up('md')]: {
+                [theme.breakpoints.up('xl')]: {
                     width: "40px",
                     height: "40px",
                 },

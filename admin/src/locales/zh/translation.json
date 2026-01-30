@@ -1,0 +1,16 @@
+{
+    "language": {
+        "english": "英语",
+        "khmer": "高棉语",
+        "chinese": "中文",
+        "thai": "泰语"
+    },
+    "headerProfile": {
+        "my_profile": "我的个人资料",
+        "my_subscription": "我的订阅",
+        "my_statements": "我的账单记录",
+        "billing_plans": "账单与套餐",
+        "account_settings": "账户设置",
+        "sign_out": "退出登录"
+    }
+}

@@ -7,13 +7,15 @@ export const surfacesCustomizations: Components<Theme> = {
                 return {
                     display: "grid",
                     alignItems: "center",
-                    minHeight: "70px",
-                    padding: "0 30px",
                     backgroundColor: (theme.vars || theme).palette.background.paper,
                     boxShadow: "0px 10px 30px 0px rgba(82, 63, 105, 0.05)",
-                    [theme.breakpoints.down("md")]: {
+                    [theme.breakpoints.down("xl")]: {
                         minHeight: "60px",
                         padding: "0 20px"
+                    },
+                    [theme.breakpoints.up("xl")]: {
+                        minHeight: "70px",
+                        padding: "0 30px"
                     },
                 }
             }
@@ -26,7 +28,8 @@ export const surfacesCustomizations: Components<Theme> = {
                     justifyContent: "space-between",
                     padding: 0,
                     [theme.breakpoints.up("sm")]: {
-                        padding: 0
+                        padding: 0,
+                        minHeight: "0",
                     },
                     [theme.breakpoints.down("md")]: {
                         minHeight: "60px",

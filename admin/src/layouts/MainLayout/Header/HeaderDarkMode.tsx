@@ -11,10 +11,10 @@ const HeaderDarkMode = () => {
                 sx={(theme) => ({
                     display: "flex",
                     alignItems: "center",
-                    [theme.breakpoints.down('md')]: {
+                    [theme.breakpoints.down('xl')]: {
                         marginLeft: "3px",
                     },
-                    [theme.breakpoints.up('md')]: {
+                    [theme.breakpoints.up('xl')]: {
                         marginLeft: "9px"
                     }
                 })}

@@ -8,16 +8,10 @@ const HeaderNotification = () => {
     return (
         <>
             <Box
-                sx={(theme) => ({
+                sx={{
                     display: "flex",
                     alignItems: "center",
-                    [theme.breakpoints.down('md')]: {
-                        marginLeft: "3px",
-                    },
-                    [theme.breakpoints.up('md')]: {
-                        marginLeft: "9px"
-                    }
-                })}
+                }}
             >
                 <IconButton><Icon icon="solar:bell-bing-bold-duotone" /></IconButton>
             </Box>
