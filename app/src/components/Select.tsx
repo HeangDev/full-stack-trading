@@ -81,7 +81,7 @@ export const Select: React.FC<SelectProps> = (props) => {
         if (selectedValue !== undefined) return;
 
         const first = option[0];
-
+ 
         if (React.isValidElement<OptionProps>(first)) {
             setActiveIndex(0);
             setSelectedValue(first.props.value);
@@ -107,7 +107,7 @@ export const Select: React.FC<SelectProps> = (props) => {
             <div className="form__select" style={props.style} ref={dropdownRef}>
                 <div className="select__btn" onClick={handleToggleCombo} onChange={handleToggleCombo}>
                     <div className="select__selected">
-                        {selectedValue}
+                        {selectedLabel}
                     </div>
                     <div className="select__toggler">
                         <Icon icon={
